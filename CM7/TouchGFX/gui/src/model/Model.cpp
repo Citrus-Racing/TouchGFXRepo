@@ -1,0 +1,28 @@
+#include <gui/model/Model.hpp>
+#include <gui/model/ModelListener.hpp>
+
+#include "main.h"
+#include "cmsis_os2.h"
+extern osMessageQueueId_t ButtonQueueHandle;
+
+
+Model::Model() : modelListener(0)
+{
+
+}
+
+void Model::tick()
+{
+	// Call a function in the view that has a parameter, via the ModelListener (the active presenter).
+	// The ModelListener (Presenter) has a (private) pointer reference to the active view.
+	// Therefore you can only tell the view to do stuff from within a function in the actual Presenter (you cannot
+	// 	do a modelListener->view->function() call in this Model.cpp file, for example)
+	//
+	// The view is a derivation of the ScreenViewBase class, which itself contains protected
+	// member references to all of the GUI elements. You can see the .HPP file for high-level details of what to reference,
+	// and you can see the .CPP file for all the gory details of config (and to help you change things)
+	GPIO_PinState buttonState;
+	if (osMessageQueueGet(ButtonQueueHandle, &buttonState, NULL, 0) == osOK){
+		modelListener->updateGUIButton(buttonState);
+	}
+}

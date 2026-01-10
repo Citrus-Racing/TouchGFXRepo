@@ -1,0 +1,23 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Binaries
+*.bin
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Vagrant directory
+.vagrant/
+
+# More STM Build Stuff
+*.cyclo
+*.d
+*.su
+

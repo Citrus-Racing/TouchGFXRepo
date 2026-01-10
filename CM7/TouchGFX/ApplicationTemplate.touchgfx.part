@@ -1,0 +1,33 @@
+
+{
+  "Application": {
+    "Name": "Riverdi_70STM32H7",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "AvailableColorDepths": [ 24 ],
+    "AvailableLCDs":
+    {
+      "24": "LCD24bpp"
+    },
+    "AvailableResolutions": [
+      {
+        "Width": 1024,
+        "Height": 600
+      }
+    ],
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "Family": "STM32H7",
+    "SubFamily": "STM32H747/757",
+    "Platform": "m7",
+    "Toolchain": "STM32CubeIDE",
+    "ProjectFile": "../../Riverdi_70STM32H7.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+    ],
+    "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts",
+      "Video"
+    ]
+  },
+  "Version": "4.25.0"
+}
