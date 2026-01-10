@@ -5,7 +5,6 @@
 #include "cmsis_os2.h"
 extern osMessageQueueId_t ButtonQueueHandle;
 
-
 Model::Model() : modelListener(0)
 {
 
