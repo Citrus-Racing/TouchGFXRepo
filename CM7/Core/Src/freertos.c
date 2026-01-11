@@ -22,10 +22,11 @@
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
-#include "adc.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "fdcan.h"
+#include "adc.h"
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
@@ -86,6 +87,13 @@ const osThreadAttr_t PollADC_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for ReceiveCANTask */
+osThreadId_t ReceiveCANTaskHandle;
+const osThreadAttr_t ReceiveCANTask_attributes = {
+  .name = "ReceiveCANTask",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ButtonQueue */
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
@@ -95,6 +103,11 @@ const osMessageQueueAttr_t ButtonQueue_attributes = {
 osMessageQueueId_t ADCQueueHandle;
 const osMessageQueueAttr_t ADCQueue_attributes = {
   .name = "ADCQueue"
+};
+/* Definitions for CANMessageQueue */
+osMessageQueueId_t CANMessageQueueHandle;
+const osMessageQueueAttr_t CANMessageQueue_attributes = {
+  .name = "CANMessageQueue"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -107,6 +120,7 @@ extern void videoTaskFunc(void *argument);
 extern void TouchGFX_Task(void *argument);
 void ButtonTaskFunc(void *argument);
 void PollADCFunc(void *argument);
+void ReceiveCANFunc(void *argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -168,6 +182,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of ADCQueue */
   ADCQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ADCQueue_attributes);
 
+  /* creation of CANMessageQueue */
+  CANMessageQueueHandle = osMessageQueueNew (16, sizeof(uint64_t), &CANMessageQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -187,6 +204,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of PollADC */
   PollADCHandle = osThreadNew(PollADCFunc, NULL, &PollADC_attributes);
+
+  /* creation of ReceiveCANTask */
+  ReceiveCANTaskHandle = osThreadNew(ReceiveCANFunc, NULL, &ReceiveCANTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -279,6 +299,32 @@ void PollADCFunc(void *argument)
     osDelay(20);
   }
   /* USER CODE END PollADCFunc */
+}
+
+/* USER CODE BEGIN Header_ReceiveCANFunc */
+/**
+* @brief Function implementing the ReceiveCANTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_ReceiveCANFunc */
+void ReceiveCANFunc(void *argument)
+{
+  /* USER CODE BEGIN ReceiveCANFunc */
+  /* Infinite loop */
+  for(;;)
+  {
+	  if (HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0) > 1){
+		  FDCAN_RxHeaderTypeDef CAN_RX_Config; // These are both empty at first and populated in pass-by-reference by the RX function.
+		  uint8_t CAN_read_buff[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; // Remember to specify which letters you want loaded in TouchGFX. I also disabled the Fallback "?" unknown character.
+		  // we defined this queue (CANMessageQueueHandle) to hold 64 bits (8 bytes), so
+		  // that is how it knows how many bytes to transfer by copy and avoids array pointer degredation (FreeRTOS is NOT transfer by reference)
+		  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_Config, CAN_read_buff);
+		  osMessageQueuePut(CANMessageQueueHandle, CAN_read_buff, 0, 0);
+	  }
+    osDelay(20);
+  }
+  /* USER CODE END ReceiveCANFunc */
 }
 
 /* Private application code --------------------------------------------------*/

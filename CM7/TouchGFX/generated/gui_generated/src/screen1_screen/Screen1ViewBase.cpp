@@ -31,12 +31,11 @@ Screen1ViewBase::Screen1ViewBase()
     VirtSpedometer.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     add(VirtSpedometer);
 
-    canMessageBox.setXY(363, 517);
+    canMessageBox.setPosition(369, 513, 286, 25);
     canMessageBox.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     canMessageBox.setLinespacing(0);
     Unicode::snprintf(canMessageBoxBuffer, CANMESSAGEBOX_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_MG5J).getText());
     canMessageBox.setWildcard(canMessageBoxBuffer);
-    canMessageBox.resizeToCurrentText();
     canMessageBox.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GBP5));
     add(canMessageBox);
 

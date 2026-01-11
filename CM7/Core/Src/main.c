@@ -70,6 +70,24 @@
 
 /* USER CODE BEGIN PV */
 
+
+// CAN Bus Filter. Refer to RM0399 pg 2627 "Acceptance Filter."
+// There are 2 filter types (one ext, one standard). We can have 128 filters for standard CAN.
+// They are assigned to an RX FIFO/buffer, and each one can filter:
+// - A range between two IDs
+// - One or two dedicated IDs (ID1 == ID2, OR |ID1 - ID2| == 1)
+// - Using a bit mask filter
+FDCAN_FilterTypeDef CAN_filter = {
+		.IdType = FDCAN_STANDARD_ID,
+		.FilterIndex = 0, // can be 0-127, and this MUST be within the range of [0, #filters) you configured.
+		.FilterType = FDCAN_FILTER_DUAL, // this is for one OR two specific ID filtering.
+		.FilterConfig = FDCAN_FILTER_TO_RXFIFO0, // place matching ID messaged into RX FIFO0
+		.FilterID1 = 0x7FE, // ID to filter for
+		.FilterID2 = 0x7FF,
+		.RxBufferIndex = 0, // This property is ignored for the above FilterConfig
+		.IsCalibrationMsg = 0 // This property is ignored for the above FilterConfig
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -183,6 +201,13 @@ int main(void)
 	  Error_Handler();
   }
 
+  // Enable optional CAN filters. You MUST configure both global and regular config filter; by global default, rejects just dump into RXFIFO0... so in that case filter isn't active.
+  HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE);
+  HAL_FDCAN_ConfigFilter(&hfdcan1, &CAN_filter);
+  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK){
+	  Error_Handler();
+  }
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -198,8 +223,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   //TODO NOTE: I am using:
-  // TODO: I dunno - something borken. Not sure what part of this code is borken. Reverted DAC code makefile eliminate and still borken. Not RTOS. Go fish.
-  // the tiny pin expander which attaches to pin range [3, 22]
+  // the tiny pin expander which attaches to pin range [1, 20]
   // - pin 37 AND onboard BTN1 PC6
   // - pin 20 PA0_C (uses ADC1_INN1) potentiometer // if this doesn't work, see if need to disable pin 22 PA1_C ADC1_INP1
   // - pin 8 PA4 (disable DAC1_OUT1) encoder GPIO IN

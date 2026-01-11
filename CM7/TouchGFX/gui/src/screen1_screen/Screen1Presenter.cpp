@@ -24,3 +24,7 @@ void Screen1Presenter::updateGUIButton(GPIO_PinState status){
 void Screen1Presenter::updatePotDial(uint16_t adc_val){
 	view.setPotDialVal(adc_val);
 }
+
+void Screen1Presenter::updateTextbox(const char * message, uint8_t bytes){
+	view.setTextBox(message, bytes);
+}

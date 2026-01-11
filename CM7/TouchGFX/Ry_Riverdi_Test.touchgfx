@@ -53,10 +53,10 @@
           {
             "Type": "TextArea",
             "Name": "canMessageBox",
-            "X": 363,
-            "Y": 517,
-            "Width": 299,
-            "Height": 24,
+            "X": 369,
+            "Y": 513,
+            "Width": 286,
+            "Height": 25,
             "TextId": "__SingleUse_GBP5",
             "TextRotation": "0",
             "Color": {
@@ -64,11 +64,10 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_MG5J",
               "UseBuffer": true,
-              "BufferSize": 10
+              "BufferSize": 11
             }
           },
           {

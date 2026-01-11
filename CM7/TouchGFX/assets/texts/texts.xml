@@ -7,7 +7,7 @@
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
       <Text Id="__SingleUse_MG5J" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">None Received</Translation>
+        <Translation Language="GB">None</Translation>
       </Text>
       <Text Id="__SingleUse_GBP5" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">CAN Message: &lt;value&gt;</Translation>
@@ -15,7 +15,7 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" WildcardCharacters="!,. à;&quot;" WildcardCharacterRanges="0-9,a-z,A-Z" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>

@@ -31,6 +31,7 @@ public:
 
     void updateGUIButton(GPIO_PinState status);
     void updatePotDial(uint16_t adc_val);
+    void updateTextbox(const char * message, uint8_t bytes);
 private:
     Screen1Presenter();
 

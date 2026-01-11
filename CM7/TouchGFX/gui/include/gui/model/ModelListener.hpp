@@ -19,6 +19,8 @@ public:
 
     virtual void updateGUIButton(GPIO_PinState status) {}
     virtual void updatePotDial(uint16_t adc_val) {}
+    virtual void updateTextbox(const char * message, uint8_t bytes) {}
+
 protected:
     Model* model;
 };

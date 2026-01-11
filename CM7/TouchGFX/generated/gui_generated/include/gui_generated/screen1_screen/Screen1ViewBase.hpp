@@ -40,7 +40,7 @@ protected:
     /*
      * Wildcard Buffers
      */
-    static const uint16_t CANMESSAGEBOX_SIZE = 10;
+    static const uint16_t CANMESSAGEBOX_SIZE = 11;
     touchgfx::Unicode::UnicodeChar canMessageBoxBuffer[CANMESSAGEBOX_SIZE];
 
 private:

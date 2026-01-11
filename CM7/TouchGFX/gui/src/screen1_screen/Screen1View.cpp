@@ -29,3 +29,8 @@ void Screen1View::setPotDialVal(uint16_t analogVal){
     VirtSpedometer.setValue(normalizedVal);
     VirtSpedometer.invalidate();
 }
+
+void Screen1View::setTextBox(const char * message, uint8_t bytes){
+	Unicode::strncpy(canMessageBoxBuffer, message, bytes);
+	canMessageBox.invalidate();
+}

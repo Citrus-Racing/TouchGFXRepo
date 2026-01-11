@@ -5,7 +5,7 @@
 #include "cmsis_os2.h"
 extern osMessageQueueId_t ButtonQueueHandle;
 extern osMessageQueueId_t ADCQueueHandle;
-
+extern osMessageQueueId_t CANMessageQueueHandle;
 Model::Model() : modelListener(0)
 {
 
@@ -28,5 +28,9 @@ void Model::tick()
 	uint16_t adc_val;
 	if (osMessageQueueGet(ADCQueueHandle, &adc_val, NULL, 0) == osOK){
 		modelListener->updatePotDial(adc_val);
+	}
+	uint8_t CAN_read_buff[8];
+	if (osMessageQueueGet(CANMessageQueueHandle, CAN_read_buff, NULL, 0) == osOK) {
+		modelListener->updateTextbox((const char *) CAN_read_buff, 8);
 	}
 }

@@ -15,6 +15,7 @@ public:
 
     void setButtonVisual(GPIO_PinState buttonState);
     void setPotDialVal(uint16_t analogVal);
+    void setTextBox(const char * message, uint8_t bytes);
 protected:
 };
 
