@@ -25,7 +25,7 @@ Screen1ViewBase::Screen1ViewBase()
     VirtSpedometer.setCenter(120, 120);
     VirtSpedometer.setStartEndAngle(-113, 112);
     VirtSpedometer.setRange(0, 100);
-    VirtSpedometer.setValue(50);
+    VirtSpedometer.setValue(70);
     VirtSpedometer.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_SMOOTH_ID, 7, 67);
     VirtSpedometer.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     VirtSpedometer.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);

@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include <gui/model/Model.hpp>
+#include <stdio.h>
 
 class ModelListener
 {
@@ -16,8 +17,8 @@ public:
         model = m;
     }
 
-    virtual void updateGUIButton(GPIO_PinState status) {} // status = 1 or 0
-
+    virtual void updateGUIButton(GPIO_PinState status) {}
+    virtual void updatePotDial(uint16_t adc_val) {}
 protected:
     Model* model;
 };

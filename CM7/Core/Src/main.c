@@ -177,6 +177,12 @@ int main(void)
       Error_Handler();
     }
 
+  //Ryan add
+  HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+  if (HAL_ADC_Start(&hadc1) != HAL_OK){
+	  Error_Handler();
+  }
+
   /* USER CODE END 2 */
 
   /* Init scheduler */

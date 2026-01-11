@@ -23,3 +23,9 @@ void Screen1View::setButtonVisual(GPIO_PinState buttonState){
 	}
 	onButton.invalidate();
 }
+
+void Screen1View::setPotDialVal(uint16_t analogVal){
+	int normalizedVal = (int) ((analogVal/65536.0)*100);
+    VirtSpedometer.setValue(normalizedVal);
+    VirtSpedometer.invalidate();
+}

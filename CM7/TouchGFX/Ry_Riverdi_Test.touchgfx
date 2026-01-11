@@ -35,7 +35,7 @@
             "StartAngle": -113.0,
             "EndAngle": 112.0,
             "RangeMax": 100.0,
-            "InitialValue": 50.0,
+            "InitialValue": 70.0,
             "Easing": "Linear",
             "EasingOption": "In",
             "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_smooth.png",

@@ -14,7 +14,7 @@ public:
     virtual void tearDownScreen();
 
     void setButtonVisual(GPIO_PinState buttonState);
-
+    void setPotDialVal(uint16_t analogVal);
 protected:
 };
 

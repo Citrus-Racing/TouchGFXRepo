@@ -4,6 +4,7 @@
 #include "main.h"
 #include "cmsis_os2.h"
 extern osMessageQueueId_t ButtonQueueHandle;
+extern osMessageQueueId_t ADCQueueHandle;
 
 Model::Model() : modelListener(0)
 {
@@ -23,5 +24,9 @@ void Model::tick()
 	GPIO_PinState buttonState;
 	if (osMessageQueueGet(ButtonQueueHandle, &buttonState, NULL, 0) == osOK){
 		modelListener->updateGUIButton(buttonState);
+	}
+	uint16_t adc_val;
+	if (osMessageQueueGet(ADCQueueHandle, &adc_val, NULL, 0) == osOK){
+		modelListener->updatePotDial(adc_val);
 	}
 }

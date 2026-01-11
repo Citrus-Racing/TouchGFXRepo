@@ -30,6 +30,7 @@ public:
     virtual ~Screen1Presenter() {}
 
     void updateGUIButton(GPIO_PinState status);
+    void updatePotDial(uint16_t adc_val);
 private:
     Screen1Presenter();
 

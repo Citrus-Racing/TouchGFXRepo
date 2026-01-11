@@ -22,7 +22,7 @@
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
-
+#include "adc.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "fdcan.h"
@@ -79,10 +79,22 @@ const osThreadAttr_t ButtonTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for PollADC */
+osThreadId_t PollADCHandle;
+const osThreadAttr_t PollADC_attributes = {
+  .name = "PollADC",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ButtonQueue */
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
   .name = "ButtonQueue"
+};
+/* Definitions for ADCQueue */
+osMessageQueueId_t ADCQueueHandle;
+const osMessageQueueAttr_t ADCQueue_attributes = {
+  .name = "ADCQueue"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -94,6 +106,7 @@ void StartDefaultTask(void *argument);
 extern void videoTaskFunc(void *argument);
 extern void TouchGFX_Task(void *argument);
 void ButtonTaskFunc(void *argument);
+void PollADCFunc(void *argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -152,6 +165,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of ButtonQueue */
   ButtonQueueHandle = osMessageQueueNew (16, sizeof(uint8_t), &ButtonQueue_attributes);
 
+  /* creation of ADCQueue */
+  ADCQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ADCQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -168,6 +184,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of ButtonTask */
   ButtonTaskHandle = osThreadNew(ButtonTaskFunc, NULL, &ButtonTask_attributes);
+
+  /* creation of PollADC */
+  PollADCHandle = osThreadNew(PollADCFunc, NULL, &PollADC_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -238,6 +257,28 @@ void ButtonTaskFunc(void *argument)
     osDelay(100);
   }
   /* USER CODE END ButtonTaskFunc */
+}
+
+/* USER CODE BEGIN Header_PollADCFunc */
+/**
+* @brief Function implementing the PollADC thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_PollADCFunc */
+void PollADCFunc(void *argument)
+{
+  /* USER CODE BEGIN PollADCFunc */
+  /* Infinite loop */
+  for(;;)
+  {
+
+	HAL_ADC_PollForConversion(&hadc1, 10);
+	uint16_t analogVal = HAL_ADC_GetValue(&hadc1);
+	osMessageQueuePut(ADCQueueHandle, &analogVal, 0, 0);
+    osDelay(20);
+  }
+  /* USER CODE END PollADCFunc */
 }
 
 /* Private application code --------------------------------------------------*/
