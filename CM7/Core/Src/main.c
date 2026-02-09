@@ -22,13 +22,13 @@
 #include "adc.h"
 #include "crc.h"
 #include "dac.h"
+#include "dma.h"
 #include "dma2d.h"
 #include "dsihost.h"
 #include "fatfs.h"
 #include "fdcan.h"
 #include "i2c.h"
 #include "jpeg.h"
-#include "lptim.h"
 #include "ltdc.h"
 #include "mdma.h"
 #include "rng.h"
@@ -45,6 +45,9 @@
 /* USER CODE BEGIN Includes */
 #include "quadspi.h"
 #include "sdmmc.h"
+#include "CR_shift_light.h"
+#include "CR_encoder.h"
+#include "CR_structs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +62,8 @@
 #define HSEM_ID_0 (0U) /* HW semaphore 0*/
 #endif
 
+#define NUM_LEDS 7
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,6 +74,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+CR_GPIO pin_encoder_SW = { .GPIO_Port = GPIOD, .GPIO_Pin = GPIO_PIN_12 };
+CR_GPIO pin_encoder_DT = { .GPIO_Port = GPIOD, .GPIO_Pin = GPIO_PIN_13 };
+CR_GPIO pin_encoder_CLK = { .GPIO_Port = GPIOB, .GPIO_Pin = GPIO_PIN_10 };
+CR_GPIO pin_potentiometer_input = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_0 }; // Potentiometer is PA0_C, which is connected to PA0
+CR_GPIO pin_shift_light_pwm = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_3 };
 
 
 // CAN Bus Filter. Refer to RM0399 pg 2627 "Acceptance Filter."
@@ -87,6 +98,11 @@ FDCAN_FilterTypeDef CAN_filter = {
 		.RxBufferIndex = 0, // This property is ignored for the above FilterConfig
 		.IsCalibrationMsg = 0 // This property is ignored for the above FilterConfig
 };
+
+
+CR_shift_light shift_light_handle;
+CR_encoder encoder_UI_handle;
+
 
 /* USER CODE END PV */
 
@@ -151,9 +167,9 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_MDMA_Init();
+  MX_DMA_Init();
   MX_LTDC_Init();
   MX_USART1_UART_Init();
-  MX_I2C4_Init();
   MX_DAC1_Init();
   MX_DMA2D_Init();
   MX_FDCAN1_Init();
@@ -165,7 +181,6 @@ int main(void)
   MX_UART8_Init();
   MX_CRC_Init();
   MX_I2C2_Init();
-  MX_LPTIM2_Init();
   MX_SPI2_Init();
   MX_TIM15_Init();
   MX_DSIHOST_DSI_Init();
@@ -189,13 +204,16 @@ int main(void)
   if (CSP_QUADSPI_Init() == HAL_OK) {
 	  CSP_QSPI_EnableMemoryMappedMode();
   }
-  if (HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1) != HAL_OK)
-    {
-      /* PWM Generation Error */
-      Error_Handler();
-    }
+  // *****************************************
+  // Citrus add Below
+  // *****************************************
 
-  //Ryan add
+  if (CR_shift_light_init(&shift_light_handle, &htim5, LED_PWM_TICK_CYCLE, TIM_CHANNEL_4, NUM_LEDS) != CR_OK){
+	  Error_Handler();
+  }
+
+  CR_encoder_init(&encoder_UI_handle, &pin_encoder_DT, &pin_encoder_CLK, &pin_encoder_SW);
+
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
   if (HAL_ADC_Start(&hadc1) != HAL_OK){
 	  Error_Handler();
@@ -208,6 +226,15 @@ int main(void)
 	  Error_Handler();
   }
 
+  if (HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1) != HAL_OK)
+  {
+      /* PWM Generation Error */
+      Error_Handler();
+  }
+
+  // *****************************************
+  // Citrus End
+  // *****************************************
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -332,6 +359,39 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	CR_encoder_status result = CR_check_encoder(&encoder_UI_handle);
+	if (result == ENCODER_CLICK || result == ENCODER_HOLD){
+		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+	} else if (result == ENCODER_RIGHT){
+		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+	} else if (result == ENCODER_LEFT){
+		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+		HAL_Delay(500);
+		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+		HAL_Delay(500);
+	}
+}
+
 
 /* USER CODE END 4 */
 

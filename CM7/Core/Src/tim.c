@@ -28,6 +28,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim15;
+DMA_HandleTypeDef hdma_tim5_ch4;
 
 /* TIM1 init function */
 void MX_TIM1_Init(void)
@@ -189,7 +190,7 @@ void MX_TIM5_Init(void)
   htim5.Instance = TIM5;
   htim5.Init.Prescaler = 0;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 4294967295;
+  htim5.Init.Period = LED_PWM_TICK_CYCLE;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
@@ -299,6 +300,26 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* tim_pwmHandle)
   /* USER CODE END TIM5_MspInit 0 */
     /* TIM5 clock enable */
     __HAL_RCC_TIM5_CLK_ENABLE();
+
+    /* TIM5 DMA Init */
+    /* TIM5_CH4 Init */
+    hdma_tim5_ch4.Instance = DMA1_Stream0;
+    hdma_tim5_ch4.Init.Request = DMA_REQUEST_TIM5_CH4;
+    hdma_tim5_ch4.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_tim5_ch4.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_tim5_ch4.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_tim5_ch4.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_tim5_ch4.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_tim5_ch4.Init.Mode = DMA_CIRCULAR;
+    hdma_tim5_ch4.Init.Priority = DMA_PRIORITY_MEDIUM;
+    hdma_tim5_ch4.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    if (HAL_DMA_Init(&hdma_tim5_ch4) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(tim_pwmHandle,hdma[TIM_DMA_ID_CC4],hdma_tim5_ch4);
+
   /* USER CODE BEGIN TIM5_MspInit 1 */
 
   /* USER CODE END TIM5_MspInit 1 */
@@ -444,6 +465,9 @@ void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
   /* USER CODE END TIM5_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_TIM5_CLK_DISABLE();
+
+    /* TIM5 DMA DeInit */
+    HAL_DMA_DeInit(tim_pwmHandle->hdma[TIM_DMA_ID_CC4]);
   /* USER CODE BEGIN TIM5_MspDeInit 1 */
 
   /* USER CODE END TIM5_MspDeInit 1 */

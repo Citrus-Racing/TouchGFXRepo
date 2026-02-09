@@ -31,7 +31,6 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -63,6 +62,7 @@ void Error_Handler(void);
 #define VACT 600
 #define VBP 23
 #define HBP 160
+#define LED_PWM_TICK_CYCLE 300
 #define HACT 1024
 #define HSYNC 70
 #define D28_Pin GPIO_PIN_6

@@ -27,7 +27,12 @@
 /* USER CODE BEGIN Includes */
 #include "fdcan.h"
 #include "adc.h"
+//#include "ws2812.h"
+#include "CR_shift_light.h"
+
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
+//extern ws2812_handleTypeDef ws;
+extern CR_shift_light shift_light_handle;
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[16];
@@ -94,6 +99,13 @@ const osThreadAttr_t ReceiveCANTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for ShiftLightTask */
+osThreadId_t ShiftLightTaskHandle;
+const osThreadAttr_t ShiftLightTask_attributes = {
+  .name = "ShiftLightTask",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow2,
+};
 /* Definitions for ButtonQueue */
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
@@ -121,6 +133,7 @@ extern void TouchGFX_Task(void *argument);
 void ButtonTaskFunc(void *argument);
 void PollADCFunc(void *argument);
 void ReceiveCANFunc(void *argument);
+void ShiftLightFunc(void *argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -208,6 +221,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of ReceiveCANTask */
   ReceiveCANTaskHandle = osThreadNew(ReceiveCANFunc, NULL, &ReceiveCANTask_attributes);
 
+  /* creation of ShiftLightTask */
+  ShiftLightTaskHandle = osThreadNew(ShiftLightFunc, NULL, &ShiftLightTask_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -292,9 +308,9 @@ void PollADCFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
 	HAL_ADC_PollForConversion(&hadc1, 10);
 	uint16_t analogVal = HAL_ADC_GetValue(&hadc1);
+	CR_set_brightness(&shift_light_handle, analogVal/65535.0);
 	osMessageQueuePut(ADCQueueHandle, &analogVal, 0, 0);
     osDelay(20);
   }
@@ -325,6 +341,26 @@ void ReceiveCANFunc(void *argument)
     osDelay(20);
   }
   /* USER CODE END ReceiveCANFunc */
+}
+
+/* USER CODE BEGIN Header_ShiftLightFunc */
+/**
+* @brief Function implementing the ShiftLightTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_ShiftLightFunc */
+void ShiftLightFunc(void *argument)
+{
+  /* USER CODE BEGIN ShiftLightFunc */
+  /* Infinite loop */
+  for(;;)
+  {
+	// pwm testing below
+	//TIM5->CCR4 = 100;
+	CR_Test_Sequence_Flash(&shift_light_handle);
+  }
+  /* USER CODE END ShiftLightFunc */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -40,6 +40,8 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/User/Citrus_Libraries/Rotary_Encoder_Lib \
+Application/User/Citrus_Libraries/Shift_Light_Lib \
 Application/User/Core \
 Application/User/FATFS/App \
 Application/User/FATFS/Target \

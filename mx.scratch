@@ -3,7 +3,7 @@
   <FileVersion>3.1</FileVersion>
   <Workspace>
     <WorkspaceType>Multi-project</WorkspaceType>
-    <WorkspacePath>C:\TouchGFXProjects\Ry_Riverdi_Test\</WorkspacePath>
+    <WorkspacePath>C:\Users\ryanb\STM32CubeIDE\Citrus_Display\TouchGFXIntegration_Testing\</WorkspacePath>
     <underRoot>false</underRoot>
     <TrustZone>0</TrustZone>
     <HAL_Driver>C:\Users\ryanb\STM32Cube\Repository\STM32Cube_FW_H7_V1.12.1</HAL_Driver>
@@ -292,6 +292,9 @@
                   <name>CM4/Core/Src/main.c</name>
                 </file>
                 <file>
+                  <name>CM4/Core/Src/dma.c</name>
+                </file>
+                <file>
                   <name>CM4/Core/Src/stm32h7xx_it.c</name>
                 </file>
                 <file>
@@ -425,9 +428,6 @@
         </file>
         <file>
           <name>Utilities\JPEG\jpeg_utils.c</name>
-        </file>
-        <file>
-          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_lptim.c</name>
         </file>
         <file>
           <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_ltdc.c</name>
@@ -759,9 +759,6 @@
               <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_jpeg.c</name>
             </file>
             <file>
-              <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_lptim.c</name>
-            </file>
-            <file>
               <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_ltdc.c</name>
             </file>
             <file>
@@ -1012,6 +1009,9 @@
                   <name>CM7/Core/Src/dfsdm.c</name>
                 </file>
                 <file>
+                  <name>CM7/Core/Src/dma.c</name>
+                </file>
+                <file>
                   <name>CM7/Core/Src/dma2d.c</name>
                 </file>
                 <file>
@@ -1034,9 +1034,6 @@
                 </file>
                 <file>
                   <name>CM7/Core/Src/jpeg.c</name>
-                </file>
-                <file>
-                  <name>CM7/Core/Src/lptim.c</name>
                 </file>
                 <file>
                   <name>CM7/Core/Src/ltdc.c</name>
