@@ -20,7 +20,6 @@ CR_encoder_status CR_encoder_init(CR_encoder * handle, CR_GPIO * pin_DT, CR_GPIO
 	handle->p1_detected_first = false;
 	handle->p2_detected_first = false;
 	handle->turn_finished = true;
-	handle->pin_clicked = false;
 
 	return ENCODER_OK;
 }
@@ -63,16 +62,9 @@ CR_encoder_status CR_check_encoder(CR_encoder * handle){
 		return ENCODER_RIGHT;
 	}
 
-	// Click & Hold Logic (CLICK IS AN ACTIVE LOW! w/ a pullup resistor!)
+	// Click is an active low w/ a pullup resistor
 	if (click_pin_val == 0){
-		if(!handle->pin_clicked){
-			handle->pin_clicked = true;
-			return ENCODER_CLICK;
-		} else {
-			return ENCODER_HOLD;
-		}
-	} else if (click_pin_val == 1 && handle->pin_clicked){
-		handle->pin_clicked = false; //reset
+		return ENCODER_CLICK;
 	}
 
 	return ENCODER_STANDBY;

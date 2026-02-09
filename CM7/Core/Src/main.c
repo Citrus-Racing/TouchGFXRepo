@@ -362,7 +362,7 @@ void PeriphCommonClock_Config(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	CR_encoder_status result = CR_check_encoder(&encoder_UI_handle);
-	if (result == ENCODER_CLICK || result == ENCODER_HOLD){
+	if (result == ENCODER_CLICK){
 		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
 		HAL_Delay(500);
 		CR_set_all_lights(&shift_light_handle, 0, 0, 0);

@@ -21,7 +21,6 @@ typedef enum {
 	ENCODER_LEFT, 		// Left Detected
     ENCODER_RIGHT, 		// Right Detected
 	ENCODER_CLICK,		// Click Detected
-	ENCODER_HOLD,		// Hold Detected
 	ENCODER_OK,
 } CR_encoder_status;
 
@@ -53,7 +52,6 @@ typedef struct {
 	bool p1_detected_first;
 	bool p2_detected_first;
 	bool turn_finished;
-	bool pin_clicked;
 } CR_encoder;
 
 CR_encoder_status CR_encoder_init(CR_encoder * handle, CR_GPIO * pin_DT, CR_GPIO * pin_CLK, CR_GPIO * pin_SW);
