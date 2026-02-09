@@ -71,6 +71,12 @@ CR_shift_light_status CR_set_brightness(CR_shift_light * handle, float brightnes
 // ****************************
 // Core Manual Control Functions
 // *****************************
+// Note: we do not synchronize the DMA using PWM callbacks.
+// With 7 LEDs, the DMA transfer into the buffer takes ~30 micros to write,
+// while the DMA PWM gen loop takes ~270 micros to finish. There will be a mix
+// of partial new and old values for the first loop. However, this is fully
+// rectified by the next loop, and at a refresh rate of 3.7KHz, the blip is well beyond visual perception.
+
 
 // Set all the lights
 CR_shift_light_status CR_set_all_lights(CR_shift_light * handle, uint8_t r, uint8_t g, uint8_t b) {
