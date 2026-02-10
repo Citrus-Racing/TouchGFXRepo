@@ -356,19 +356,9 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	// pwm testing below
-	//TIM5->CCR4 = 100;
-//  __disable_irq();
-	uint32_t start_CNT = TIM5->CNT;
-	CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-	uint32_t end_CNT = TIM5->CNT;
-	uint32_t diff_CNT = end_CNT - start_CNT;
-//  __enable_irq();
-	osDelay(500);
-	CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-	osDelay(500);
 
-	//CR_Test_Sequence_Flash(&shift_light_handle);
+	CR_Test_Sequence_Flash(&shift_light_handle);
+	osDelay(100);
   }
   /* USER CODE END ShiftLightFunc */
 }
