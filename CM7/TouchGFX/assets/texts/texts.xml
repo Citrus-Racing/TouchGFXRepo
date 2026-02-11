@@ -6,6 +6,21 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_5US4" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Error Status</Translation>
+      </Text>
+      <Text Id="__SingleUse_DM8Z" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set Fuel Level</Translation>
+      </Text>
+      <Text Id="__SingleUse_8HIW" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">AiM Readout</Translation>
+      </Text>
+      <Text Id="__SingleUse_PKNF" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Sensor Readout</Translation>
+      </Text>
+      <Text Id="__SingleUse_2497" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Driver Profiles</Translation>
+      </Text>
       <Text Id="__SingleUse_6HEZ" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Time</Translation>
       </Text>

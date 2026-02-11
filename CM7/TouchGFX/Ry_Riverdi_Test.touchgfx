@@ -846,6 +846,133 @@
             "Name": "image1",
             "Width": 80,
             "Height": 80
+          },
+          {
+            "Type": "ScrollableContainer",
+            "Name": "menu_scontainer",
+            "X": 339,
+            "Y": 72,
+            "Width": 344,
+            "Height": 409,
+            "Visible": false,
+            "VerticalScrollEnabled": true,
+            "ScrollbarsVisibleOnPressed": true,
+            "ScrollbarsColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "ScrollbarsAlpha": 255,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box1",
+                "X": 12,
+                "Y": -8,
+                "Width": 323,
+                "Height": 447,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "Alpha": 250
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "boxWithBorder1",
+                "X": 75,
+                "Y": 89,
+                "Width": 192,
+                "Height": 38,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 2
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1",
+                "X": 93,
+                "Y": 145,
+                "Width": 156,
+                "Height": 25,
+                "TextId": "__SingleUse_2497",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1_1",
+                "X": 91,
+                "Y": 195,
+                "Width": 164,
+                "Height": 28,
+                "TextId": "__SingleUse_PKNF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1_1_1",
+                "X": 93,
+                "Y": 245,
+                "Width": 156,
+                "Height": 25,
+                "TextId": "__SingleUse_8HIW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1_1_1_1",
+                "X": 93,
+                "Y": 295,
+                "Width": 156,
+                "Height": 25,
+                "TextId": "__SingleUse_5US4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1_1_1_1_1",
+                "X": 93,
+                "Y": 95,
+                "Width": 156,
+                "Height": 25,
+                "TextId": "__SingleUse_DM8Z",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
           }
         ],
         "Interactions": []

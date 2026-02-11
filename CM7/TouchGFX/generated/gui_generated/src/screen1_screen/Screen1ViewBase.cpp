@@ -345,6 +345,54 @@ Screen1ViewBase::Screen1ViewBase()
 
     image1.setXY(0, 0);
     add(image1);
+
+    menu_scontainer.setPosition(339, 72, 344, 409);
+    menu_scontainer.enableHorizontalScroll(false);
+    menu_scontainer.setScrollbarsColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    menu_scontainer.setScrollbarsAlpha(255);
+    menu_scontainer.setVisible(false);
+    box1.setPosition(12, -8, 323, 447);
+    box1.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
+    box1.setAlpha(250);
+    menu_scontainer.add(box1);
+
+    boxWithBorder1.setPosition(75, 89, 192, 38);
+    boxWithBorder1.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
+    boxWithBorder1.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    boxWithBorder1.setBorderSize(2);
+    menu_scontainer.add(boxWithBorder1);
+
+    txt_speed_1.setPosition(93, 145, 156, 25);
+    txt_speed_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_speed_1.setLinespacing(0);
+    txt_speed_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2497));
+    menu_scontainer.add(txt_speed_1);
+
+    txt_speed_1_1.setPosition(91, 195, 164, 28);
+    txt_speed_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_speed_1_1.setLinespacing(0);
+    txt_speed_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PKNF));
+    menu_scontainer.add(txt_speed_1_1);
+
+    txt_speed_1_1_1.setPosition(93, 245, 156, 25);
+    txt_speed_1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_speed_1_1_1.setLinespacing(0);
+    txt_speed_1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8HIW));
+    menu_scontainer.add(txt_speed_1_1_1);
+
+    txt_speed_1_1_1_1.setPosition(93, 295, 156, 25);
+    txt_speed_1_1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_speed_1_1_1_1.setLinespacing(0);
+    txt_speed_1_1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5US4));
+    menu_scontainer.add(txt_speed_1_1_1_1);
+
+    txt_speed_1_1_1_1_1.setPosition(93, 95, 156, 25);
+    txt_speed_1_1_1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_speed_1_1_1_1_1.setLinespacing(0);
+    txt_speed_1_1_1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DM8Z));
+    menu_scontainer.add(txt_speed_1_1_1_1_1);
+
+    add(menu_scontainer);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

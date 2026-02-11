@@ -14,6 +14,7 @@
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/ScrollableContainer.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -87,6 +88,14 @@ protected:
     touchgfx::PainterRGB888 dcirc_lockuiPainter;
     touchgfx::Box dbx_fuel;
     touchgfx::Image image1;
+    touchgfx::ScrollableContainer menu_scontainer;
+    touchgfx::Box box1;
+    touchgfx::BoxWithBorder boxWithBorder1;
+    touchgfx::TextArea txt_speed_1;
+    touchgfx::TextArea txt_speed_1_1;
+    touchgfx::TextArea txt_speed_1_1_1;
+    touchgfx::TextArea txt_speed_1_1_1_1;
+    touchgfx::TextArea txt_speed_1_1_1_1_1;
 
     /*
      * Wildcard Buffers

@@ -81,7 +81,7 @@ CR_GPIO pin_encoder_CLK = { .GPIO_Port = GPIOB, .GPIO_Pin = GPIO_PIN_10 };
 CR_GPIO pin_potentiometer_input = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_0 }; // Potentiometer is PA0_C, which is connected to PA0
 CR_GPIO pin_shift_light_pwm = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_3 };
 CR_GPIO pin_btn_back = { .GPIO_Port = GPIOC, .GPIO_Pin = GPIO_PIN_2 };
-CR_GPIO pin_btn_menu = { .GPIO_Port = GPIOD, .GPIO_Pin = GPIO_PIN_11 };
+CR_GPIO pin_btn_menu = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_4 };
 
 
 // CAN Bus Filter. Refer to RM0399 pg 2627 "Acceptance Filter."
