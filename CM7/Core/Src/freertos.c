@@ -33,6 +33,9 @@
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
 extern CR_CAN_vals latest_CAN_Vals;
 extern CR_shift_light shift_light_handle;
+extern bool back_pressed;
+extern bool menu_pressed;
+
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[16];
@@ -360,8 +363,19 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
-	CR_Test_Sequence_Flash(&shift_light_handle);
+	if(back_pressed){
+		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
+		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
+		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
+		back_pressed = 0;
+	} else if (menu_pressed){
+		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
+		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
+		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
+		menu_pressed = 0;
+	}
+	CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
+	//CR_Test_Sequence_Flash(&shift_light_handle);
 	osDelay(100);
   }
   /* USER CODE END ShiftLightFunc */
