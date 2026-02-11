@@ -22,6 +22,7 @@
 // This is not all the values, but it's all of them that we could ever care about
 typedef struct
 {
+	bool		CR_new_info_flag;
 	uint16_t 	engine_speed;
 	uint16_t 	inlet_manifold_pressure;
 	int16_t 	inlet_manifold_temperature;

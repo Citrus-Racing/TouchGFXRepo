@@ -4,7 +4,8 @@
 #include "main.h"
 #include "cmsis_os2.h"
 #include "CR_CAN_parse.h"
-extern osMessageQueueId_t CAN_640_QueueHandle;
+extern CR_CAN_vals latest_CAN_Vals;
+
 //extern osMessageQueueId_t ADCQueueHandle;
 //extern osMessageQueueId_t CANMessageQueueHandle;
 Model::Model() : modelListener(0)
@@ -30,10 +31,15 @@ void Model::tick()
 //	if (osMessageQueueGet(ADCQueueHandle, &adc_val, NULL, 0) == osOK){
 //		modelListener->updatePotDial(adc_val);
 //	}
-	uint8_t CAN_read_buff[8];
-	if (osMessageQueueGet(CAN_640_QueueHandle, CAN_read_buff, NULL, 0) == osOK) {
 
-		//modelListener->updateTextbox((const char *) CAN_read_buff, 8);
+	if(latest_CAN_Vals.CR_new_info_flag == 1){
+		modelListener->update_CAN_info(&latest_CAN_Vals);
 	}
+
+//	uint8_t CAN_read_buff[8];
+//	if (osMessageQueueGet(CAN_640_QueueHandle, CAN_read_buff, NULL, 0) == osOK) {
+//
+//		//modelListener->updateTextbox((const char *) CAN_read_buff, 8);
+//	}
 
 }

@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+#include "CR_CAN_parse.h"
+
 
 using namespace touchgfx;
 
@@ -32,7 +34,8 @@ public:
 //    void updateGUIButton(GPIO_PinState status);
 //    void updatePotDial(uint16_t adc_val);
 //    void updateTextbox(const char * message, uint8_t bytes);
-    void update_rpm(uint16_t engine_speed);
+    void update_CAN_info(CR_CAN_vals * CAN_data);
+
 
 private:
     Screen1Presenter();

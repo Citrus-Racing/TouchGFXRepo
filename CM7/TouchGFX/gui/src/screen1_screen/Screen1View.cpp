@@ -21,9 +21,15 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
-void set_dtxt_rpm(uint16_t engine_speed){
-    //Unicode::itoa(engine_speed,dtxt_rpmBuffer,11,10);
+void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
+	CAN_data->CR_new_info_flag = 0; // acknowledge that new data is written
+	Unicode::itoa(CAN_data->ECU_uptime, dtxt_rpmBuffer, 11, 10);
+	dtxt_rpm.invalidate();
 }
+
+//void set_dtxt_rpm(uint16_t engine_speed){
+//    //Unicode::itoa(engine_speed,dtxt_rpmBuffer,11,10);
+//}
 
 //void Screen1View::setButtonVisual(GPIO_PinState buttonState){
 //	if (buttonState == GPIO_PIN_SET){

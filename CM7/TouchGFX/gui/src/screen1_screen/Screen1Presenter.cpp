@@ -29,6 +29,7 @@ void Screen1Presenter::deactivate()
 //	view.setTextBox(message, bytes);
 //}
 
-void Screen1Presenter::update_rpm(uint16_t engine_speed){
-
+void Screen1Presenter::update_CAN_info(CR_CAN_vals * CAN_data){
+	view.update_CAN_info(CAN_data);
 }
+

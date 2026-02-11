@@ -4,6 +4,7 @@
 #include "main.h"
 #include <gui/model/Model.hpp>
 #include <stdio.h>
+#include "CR_CAN_parse.h"
 
 class ModelListener
 {
@@ -20,7 +21,7 @@ public:
 //    virtual void updateGUIButton(GPIO_PinState status) {}
 //    virtual void updatePotDial(uint16_t adc_val) {}
 //    virtual void updateTextbox(const char * message, uint8_t bytes) {}
-    virtual void update_rpm(uint16_t engine_speed){}
+    virtual void update_CAN_info(CR_CAN_vals * CAN_data){}
 
 protected:
     Model* model;

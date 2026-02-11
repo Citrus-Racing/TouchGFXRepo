@@ -28,6 +28,7 @@ CR_CAN_vals latest_CAN_Vals = {0};
 void CR_parse_CAN(CR_CAN_vals * data_handle, FDCAN_HandleTypeDef* hfdcan, uint32_t FDCAN_RX_FIFOx, FDCAN_RxHeaderTypeDef* CAN_RX_info_handle)
 {
 	if (HAL_FDCAN_GetRxFifoFillLevel(hfdcan, FDCAN_RX_FIFOx) > 1){
+		data_handle->CR_new_info_flag = 1; // let GUI know that there's new data.
 		uint8_t CAN_read_buff[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}; // Initialize with obvious debugging values.
 		HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFOx, CAN_RX_info_handle, CAN_read_buff);
 
