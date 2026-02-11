@@ -23,7 +23,7 @@ void Screen1View::tearDownScreen()
 
 void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	CAN_data->CR_new_info_flag = 0; // acknowledge that new data is written
-	Unicode::itoa(CAN_data->ECU_uptime, dtxt_rpmBuffer, 11, 10);
+	Unicode::itoa(CAN_data->engine_speed, dtxt_rpmBuffer, 11, 10);
 	dtxt_rpm.invalidate();
 }
 

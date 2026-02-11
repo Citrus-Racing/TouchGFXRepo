@@ -191,7 +191,7 @@ Screen1ViewBase::Screen1ViewBase()
     dtxt_coolp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YXOI));
     add(dtxt_coolp);
 
-    dtxt_rpm.setPosition(458, 25, 108, 66);
+    dtxt_rpm.setPosition(370, 25, 284, 66);
     dtxt_rpm.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dtxt_rpm.setLinespacing(0);
     Unicode::snprintf(dtxt_rpmBuffer, DTXT_RPM_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_9ZAY).getText());

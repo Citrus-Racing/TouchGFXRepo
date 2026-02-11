@@ -488,9 +488,9 @@
           {
             "Type": "TextArea",
             "Name": "dtxt_rpm",
-            "X": 458,
+            "X": 370,
             "Y": 25,
-            "Width": 108,
+            "Width": 284,
             "Height": 66,
             "TextId": "__SingleUse_VWLS",
             "TextRotation": "0",

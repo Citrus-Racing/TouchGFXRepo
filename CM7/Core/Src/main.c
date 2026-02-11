@@ -91,9 +91,9 @@ CR_GPIO pin_shift_light_pwm = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_3 };
 FDCAN_FilterTypeDef CAN_filter = {
 		.IdType = FDCAN_STANDARD_ID,
 		.FilterIndex = 0, // can be 0-127, and this MUST be within the range of [0, #filters) you configured.
-		.FilterType = FDCAN_FILTER_DUAL, // this is for one OR two specific ID filtering.
+		.FilterType = FDCAN_FILTER_RANGE, // this is for a range of ID filtering from ID1 to ID2.
 		.FilterConfig = FDCAN_FILTER_TO_RXFIFO0, // place matching ID messaged into RX FIFO0
-		.FilterID1 = 0x7FE, // ID to filter for
+		.FilterID1 = 0x000, // arbitrary range for now.
 		.FilterID2 = 0x7FF,
 		.RxBufferIndex = 0, // This property is ignored for the above FilterConfig
 		.IsCalibrationMsg = 0 // This property is ignored for the above FilterConfig
