@@ -29,9 +29,11 @@ public:
 
     virtual ~Screen1Presenter() {}
 
-    void updateGUIButton(GPIO_PinState status);
-    void updatePotDial(uint16_t adc_val);
-    void updateTextbox(const char * message, uint8_t bytes);
+//    void updateGUIButton(GPIO_PinState status);
+//    void updatePotDial(uint16_t adc_val);
+//    void updateTextbox(const char * message, uint8_t bytes);
+    void update_rpm(uint16_t engine_speed);
+
 private:
     Screen1Presenter();
 

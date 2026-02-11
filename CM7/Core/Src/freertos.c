@@ -27,11 +27,11 @@
 /* USER CODE BEGIN Includes */
 #include "fdcan.h"
 #include "adc.h"
-//#include "ws2812.h"
+#include "CR_CAN_parse.h"
 #include "CR_shift_light.h"
 
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
-//extern ws2812_handleTypeDef ws;
+extern CR_CAN_vals latest_CAN_Vals;
 extern CR_shift_light shift_light_handle;
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
@@ -116,10 +116,10 @@ osMessageQueueId_t ADCQueueHandle;
 const osMessageQueueAttr_t ADCQueue_attributes = {
   .name = "ADCQueue"
 };
-/* Definitions for CANMessageQueue */
-osMessageQueueId_t CANMessageQueueHandle;
-const osMessageQueueAttr_t CANMessageQueue_attributes = {
-  .name = "CANMessageQueue"
+/* Definitions for CAN_640_Queue */
+osMessageQueueId_t CAN_640_QueueHandle;
+const osMessageQueueAttr_t CAN_640_Queue_attributes = {
+  .name = "CAN_640_Queue"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -195,8 +195,8 @@ void MX_FREERTOS_Init(void) {
   /* creation of ADCQueue */
   ADCQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ADCQueue_attributes);
 
-  /* creation of CANMessageQueue */
-  CANMessageQueueHandle = osMessageQueueNew (16, sizeof(uint64_t), &CANMessageQueue_attributes);
+  /* creation of CAN_640_Queue */
+  CAN_640_QueueHandle = osMessageQueueNew (16, sizeof(uint64_t), &CAN_640_Queue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -330,14 +330,16 @@ void ReceiveCANFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  if (HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0) > 1){
-		  FDCAN_RxHeaderTypeDef CAN_RX_Config; // These are both empty at first and populated in pass-by-reference by the RX function.
-		  uint8_t CAN_read_buff[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; // Remember to specify which letters you want loaded in TouchGFX. I also disabled the Fallback "?" unknown character.
-		  // we defined this queue (CANMessageQueueHandle) to hold 64 bits (8 bytes), so
-		  // that is how it knows how many bytes to transfer by copy and avoids array pointer degredation (FreeRTOS is NOT transfer by reference)
-		  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_Config, CAN_read_buff);
-		  osMessageQueuePut(CANMessageQueueHandle, CAN_read_buff, 0, 0);
-	  }
+	  FDCAN_RxHeaderTypeDef CAN_RX_info_handle;
+	  CR_parse_CAN(&latest_CAN_Vals, &hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_info_handle);
+//	  if (HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0) > 1){
+//		  FDCAN_RxHeaderTypeDef CAN_RX_Config; // These are both empty at first and populated in pass-by-reference by the RX function.
+//		  uint8_t CAN_read_buff[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; // Remember to specify which letters you want loaded in TouchGFX. I also disabled the Fallback "?" unknown character.
+//		  // we defined this queue (CANMessageQueueHandle) to hold 64 bit items (8 bytes), so
+//		  // that is how it knows how many bytes to COPY transfer from CAN_read_buff to the queue. (Again note: FreeRTOS queue is NOT transfer by pointer reference; it is by copy)
+//		  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_Config, CAN_read_buff);
+//		  if(CAN_RX_Config.Identifier == 0x640){ osMessageQueuePut(CAN_640_QueueHandle, CAN_read_buff, 0, 0); }
+//	  }
     osDelay(20);
   }
   /* USER CODE END ReceiveCANFunc */

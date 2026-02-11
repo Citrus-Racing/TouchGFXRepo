@@ -17,9 +17,10 @@ public:
         model = m;
     }
 
-    virtual void updateGUIButton(GPIO_PinState status) {}
-    virtual void updatePotDial(uint16_t adc_val) {}
-    virtual void updateTextbox(const char * message, uint8_t bytes) {}
+//    virtual void updateGUIButton(GPIO_PinState status) {}
+//    virtual void updatePotDial(uint16_t adc_val) {}
+//    virtual void updateTextbox(const char * message, uint8_t bytes) {}
+    virtual void update_rpm(uint16_t engine_speed){}
 
 protected:
     Model* model;

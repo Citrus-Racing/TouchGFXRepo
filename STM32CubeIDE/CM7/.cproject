@@ -50,6 +50,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.1264288780" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Riverdi_70STM32H7/CM7/Application/User/Citrus_Libraries/Shift_Light_Lib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Riverdi_70STM32H7/CM7/Application/User/Citrus_Libraries/CAN_Bus_Lib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Citrus_Libraries/Rotary_Encoder_Lib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Riverdi_70STM32H7/CM7/Application/User/Citrus_Libraries/Structs}&quot;"/>
 									<listOptionValue builtIn="false" value="../../../CM7/Core/Inc"/>
@@ -93,6 +94,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths.1439512223" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../../CM7/Core/Inc"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Riverdi_70STM32H7/CM7/Application/User/Citrus_Libraries/CAN_Bus_Lib}&quot;"/>
 									<listOptionValue builtIn="false" value="../../../CM7/FATFS/Target"/>
 									<listOptionValue builtIn="false" value="../../../CM7/FATFS/App"/>
 									<listOptionValue builtIn="false" value="../../../CM7/TouchGFX/App"/>

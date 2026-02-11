@@ -13,9 +13,10 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
-    void setButtonVisual(GPIO_PinState buttonState);
-    void setPotDialVal(uint16_t analogVal);
-    void setTextBox(const char * message, uint8_t bytes);
+//    void setButtonVisual(GPIO_PinState buttonState);
+//    void setPotDialVal(uint16_t analogVal);
+//    void setTextBox(const char * message, uint8_t bytes);
+    void set_dtxt_rpm(uint16_t engine_speed);
 protected:
 };
 

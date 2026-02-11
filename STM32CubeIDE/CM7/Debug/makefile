@@ -28,6 +28,7 @@ RM := rm -rf
 -include Application/User/Core/subdir.mk
 -include Application/User/Citrus_Libraries/Shift_Light_Lib/subdir.mk
 -include Application/User/Citrus_Libraries/Rotary_Encoder_Lib/subdir.mk
+-include Application/User/Citrus_Libraries/CAN_Bus_Lib/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
