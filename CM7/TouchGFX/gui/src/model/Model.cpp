@@ -36,8 +36,11 @@ void Model::tick()
 	}
 	if(menu_btn_state == BUTTON_PRESSED){
 		menu_btn_state = BUTTON_RELEASED;
-		modelListener->toggle_menu();
-		modelListener->cursor_down();
+		modelListener->open_menu();
+	}
+	if(back_btn_state == BUTTON_PRESSED){
+		back_btn_state = BUTTON_RELEASED;
+		modelListener->close_menu();
 	}
 
 	if(encoder_UI_handle.status == ENCODER_RIGHT){

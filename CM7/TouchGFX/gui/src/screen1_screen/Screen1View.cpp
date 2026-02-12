@@ -27,14 +27,19 @@ void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	dtxt_rpm.invalidate();
 }
 
-void Screen1View::toggle_menu(){
+void Screen1View::open_menu(){
+	if(!menu_scontainer.isVisible()){
+		menu_scontainer.setVisible(true);
+		dbx_menu_selection.setY(89);
+		menu_scontainer.invalidate();
+	}
+}
+
+void Screen1View::close_menu(){
 	if(menu_scontainer.isVisible()){
 		menu_scontainer.setVisible(false);
-	} else {
-		menu_scontainer.setVisible(true);
-		dbx_menu_selection.setY(89); // reset the selection box
+		menu_scontainer.invalidate();
 	}
-	menu_scontainer.invalidate();
 }
 
 void Screen1View::cursor_up(){

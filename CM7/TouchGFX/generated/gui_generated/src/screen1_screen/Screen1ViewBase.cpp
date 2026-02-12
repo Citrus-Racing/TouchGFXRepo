@@ -350,6 +350,7 @@ Screen1ViewBase::Screen1ViewBase()
     menu_scontainer.enableHorizontalScroll(false);
     menu_scontainer.setScrollbarsColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     menu_scontainer.setScrollbarsAlpha(255);
+    menu_scontainer.setVisible(false);
     box1.setPosition(12, -8, 323, 447);
     box1.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
     box1.setAlpha(250);

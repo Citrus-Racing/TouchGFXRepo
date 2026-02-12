@@ -854,6 +854,7 @@
             "Y": 72,
             "Width": 344,
             "Height": 409,
+            "Visible": false,
             "VerticalScrollEnabled": true,
             "ScrollbarsVisibleOnPressed": true,
             "ScrollbarsColor": {

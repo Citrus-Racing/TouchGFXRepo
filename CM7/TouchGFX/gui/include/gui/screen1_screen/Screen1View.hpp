@@ -18,6 +18,8 @@ public:
 //    void setTextBox(const char * message, uint8_t bytes);
     void update_CAN_info(CR_CAN_vals * CAN_data);
     void toggle_menu();
+    void open_menu();
+    void close_menu();
     void cursor_up();
     void cursor_down();
 

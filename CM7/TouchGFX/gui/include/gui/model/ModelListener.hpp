@@ -19,7 +19,8 @@ public:
     }
 
     virtual void update_CAN_info(CR_CAN_vals * CAN_data){}
-    virtual void toggle_menu(){}
+    virtual void open_menu(){}
+    virtual void close_menu(){}
     virtual void cursor_up(){}
     virtual void cursor_down(){}
 

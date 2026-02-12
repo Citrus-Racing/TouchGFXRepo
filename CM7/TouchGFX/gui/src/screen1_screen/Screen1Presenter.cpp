@@ -33,8 +33,12 @@ void Screen1Presenter::update_CAN_info(CR_CAN_vals * CAN_data){
 	view.update_CAN_info(CAN_data);
 }
 
-void Screen1Presenter::toggle_menu(){
-	view.toggle_menu();
+void Screen1Presenter::open_menu(){
+	view.open_menu();
+}
+
+void Screen1Presenter::close_menu(){
+	view.close_menu();
 }
 
 void Screen1Presenter::cursor_up(){

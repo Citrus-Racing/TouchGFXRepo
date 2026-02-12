@@ -372,21 +372,6 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	if(menu_btn_state == BUTTON_PRESSED){
-
-		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
-		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
-		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
-		if (HAL_GPIO_ReadPin(pin_btn_menu.GPIO_Port, pin_btn_menu.GPIO_Pin) == 0){
-		}
-	} else if (back_btn_state == BUTTON_PRESSED){
-		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
-		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
-		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
-		if (HAL_GPIO_ReadPin(pin_btn_back.GPIO_Port, pin_btn_back.GPIO_Pin) == 0){
-			back_btn_state = BUTTON_RELEASED;
-		}
-	}
 	CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
 	//CR_Test_Sequence_Flash(&shift_light_handle);
 	osDelay(100);
