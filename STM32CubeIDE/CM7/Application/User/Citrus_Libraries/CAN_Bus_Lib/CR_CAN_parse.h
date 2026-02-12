@@ -200,6 +200,14 @@ typedef struct
 	bool		driver_switch8;
 } CR_CAN_0x650;
 
+typedef struct
+{
+	int16_t fuel_injector_primary_pressure;
+	int16_t fuel_injector_secondary_pressure;
+	uint16_t gear_input_shaft_speed;
+	uint16_t gear_output_shaft_speed;
+} CR_CAN_0x657;
+
 
 // These are the user-facing master functions
 void CR_parse_CAN(CR_CAN_vals * data_handle, FDCAN_HandleTypeDef* hfdcan, uint32_t FDCAN_RX_FIFOx, FDCAN_RxHeaderTypeDef* CAN_RX_info_handle);

@@ -6,6 +6,18 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_80TJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">DRS</Translation>
+      </Text>
+      <Text Id="__SingleUse_968F" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[SW]</Translation>
+      </Text>
+      <Text Id="__SingleUse_5LF1" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">OFF&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9HX3" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_5US4" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Error Status</Translation>
       </Text>
@@ -56,18 +68,6 @@
       </Text>
       <Text Id="__SingleUse_YOZY" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Gear</Translation>
-      </Text>
-      <Text Id="__SingleUse_7LQ9" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[PSI]</Translation>
-      </Text>
-      <Text Id="__SingleUse_ZP6Q" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_YXOI" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_FUZE" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Cool P</Translation>
       </Text>
       <Text Id="__SingleUse_1DKY" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">0.0</Translation>

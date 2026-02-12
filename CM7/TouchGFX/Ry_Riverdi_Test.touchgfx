@@ -89,7 +89,7 @@
           },
           {
             "Type": "BoxWithBorder",
-            "Name": "bx_oilp",
+            "Name": "bx_DRS",
             "X": 697,
             "Y": 187,
             "Width": 284,
@@ -165,7 +165,7 @@
           },
           {
             "Type": "BoxWithBorder",
-            "Name": "bx_coolp",
+            "Name": "bx_oilp",
             "X": 43,
             "Y": 187,
             "Width": 284,
@@ -253,7 +253,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_speed",
-            "X": 48,
+            "X": 911,
             "Y": 78,
             "Width": 65,
             "Height": 25,
@@ -297,23 +297,8 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txt_psi_coolp",
-            "X": 268,
-            "Y": 190,
-            "Width": 54,
-            "Height": 28,
-            "TextId": "__SingleUse_7LQ9",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "txt_oilt",
-            "X": 921,
+            "X": 47,
             "Y": 79,
             "Width": 55,
             "Height": 25,
@@ -327,23 +312,8 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txt_coolp",
-            "X": 50,
-            "Y": 194,
-            "Width": 65,
-            "Height": 25,
-            "TextId": "__SingleUse_FUZE",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "txt_f_oilt",
-            "X": 702,
+            "X": 281,
             "Y": 77,
             "Width": 43,
             "Height": 28,
@@ -358,7 +328,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_mph_speed",
-            "X": 259,
+            "X": 703,
             "Y": 78,
             "Width": 60,
             "Height": 25,
@@ -373,7 +343,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_psi_oilp",
-            "X": 703,
+            "X": 48,
             "Y": 190,
             "Width": 55,
             "Height": 28,
@@ -393,6 +363,21 @@
             "Width": 55,
             "Height": 29,
             "TextId": "__SingleUse_QOMC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txt_sw_drs",
+            "X": 702,
+            "Y": 190,
+            "Width": 55,
+            "Height": 29,
+            "TextId": "__SingleUse_968F",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -433,7 +418,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_oilp",
-            "X": 924,
+            "X": 269,
             "Y": 190,
             "Width": 53,
             "Height": 25,
@@ -448,10 +433,10 @@
           {
             "Type": "TextArea",
             "Name": "dtxt_batt",
-            "X": 131,
+            "X": 107,
             "Y": 301,
-            "Width": 108,
-            "Height": 66,
+            "Width": 163,
+            "Height": 63,
             "TextId": "__SingleUse_68XF",
             "TextRotation": "0",
             "Color": {
@@ -461,26 +446,6 @@
             },
             "Wildcard1": {
               "TextId": "__SingleUse_8XEQ",
-              "UseBuffer": true,
-              "BufferSize": 11
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "dtxt_coolp",
-            "X": 131,
-            "Y": 193,
-            "Width": 108,
-            "Height": 66,
-            "TextId": "__SingleUse_YXOI",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "__SingleUse_ZP6Q",
               "UseBuffer": true,
               "BufferSize": 11
             }
@@ -508,10 +473,10 @@
           {
             "Type": "TextArea",
             "Name": "dtxt_speed",
-            "X": 131,
+            "X": 742,
             "Y": 80,
-            "Width": 108,
-            "Height": 66,
+            "Width": 195,
+            "Height": 64,
             "TextId": "__SingleUse_WADU",
             "TextRotation": "0",
             "Color": {
@@ -528,7 +493,7 @@
           {
             "Type": "TextArea",
             "Name": "dtxt_oilt",
-            "X": 758,
+            "X": 107,
             "Y": 80,
             "Width": 163,
             "Height": 64,
@@ -548,7 +513,7 @@
           {
             "Type": "TextArea",
             "Name": "dtxt_oilp",
-            "X": 742,
+            "X": 87,
             "Y": 193,
             "Width": 195,
             "Height": 64,
@@ -587,6 +552,26 @@
           },
           {
             "Type": "TextArea",
+            "Name": "dtxt_drs",
+            "X": 742,
+            "Y": 193,
+            "Width": 195,
+            "Height": 64,
+            "TextId": "__SingleUse_9HX3",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_5LF1",
+              "UseBuffer": true,
+              "BufferSize": 11
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "dtxt_lch",
             "X": 742,
             "Y": 408,
@@ -613,6 +598,21 @@
             "Width": 65,
             "Height": 30,
             "TextId": "__SingleUse_83R9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txt_drs",
+            "X": 911,
+            "Y": 191,
+            "Width": 65,
+            "Height": 30,
+            "TextId": "__SingleUse_80TJ",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
