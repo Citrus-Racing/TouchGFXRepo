@@ -4,8 +4,10 @@
 #include "main.h"
 #include "cmsis_os2.h"
 #include "CR_CAN_parse.h"
+#include "CR_structs.h"
 extern CR_CAN_vals latest_CAN_Vals;
-
+extern uint8_t menu_btn_state;
+extern uint8_t back_btn_state;
 //extern osMessageQueueId_t ADCQueueHandle;
 //extern osMessageQueueId_t CANMessageQueueHandle;
 Model::Model() : modelListener(0)
@@ -34,6 +36,10 @@ void Model::tick()
 
 	if(latest_CAN_Vals.CR_new_info_flag == 1){
 		modelListener->update_CAN_info(&latest_CAN_Vals);
+	}
+	if(menu_btn_state == BUTTON_PRESSED){
+		menu_btn_state = BUTTON_RELEASED;
+		modelListener->toggle_menu();
 	}
 
 //	uint8_t CAN_read_buff[8];

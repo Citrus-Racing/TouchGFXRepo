@@ -104,9 +104,8 @@ FDCAN_FilterTypeDef CAN_filter = {
 
 CR_shift_light shift_light_handle;
 CR_encoder encoder_UI_handle;
-bool menu_pressed = 0;
-bool back_pressed = 0;
-
+uint8_t menu_btn_state = BUTTON_RELEASED;
+uint8_t back_btn_state = BUTTON_RELEASED;
 
 /* USER CODE END PV */
 
@@ -395,9 +394,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	}
 	// Menu and back button rising interrupts
 	if (GPIO_Pin == pin_btn_menu.GPIO_Pin) {
-		menu_pressed = 1;
+		menu_btn_state = BUTTON_PRESSED;
 	} else if (GPIO_Pin == pin_btn_back.GPIO_Pin){
-		back_pressed = 1;
+		back_btn_state = BUTTON_PRESSED;
 	}
 }
 

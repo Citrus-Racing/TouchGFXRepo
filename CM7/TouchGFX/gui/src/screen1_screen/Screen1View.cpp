@@ -27,6 +27,15 @@ void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	dtxt_rpm.invalidate();
 }
 
+void Screen1View::toggle_menu(){
+	if(menu_scontainer.isVisible()){
+		menu_scontainer.setVisible(false);
+	} else {
+		menu_scontainer.setVisible(true);
+	}
+	menu_scontainer.invalidate();
+}
+
 //void set_dtxt_rpm(uint16_t engine_speed){
 //    //Unicode::itoa(engine_speed,dtxt_rpmBuffer,11,10);
 //}

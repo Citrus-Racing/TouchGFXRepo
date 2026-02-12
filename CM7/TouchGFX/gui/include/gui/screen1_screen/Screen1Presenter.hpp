@@ -35,7 +35,7 @@ public:
 //    void updatePotDial(uint16_t adc_val);
 //    void updateTextbox(const char * message, uint8_t bytes);
     void update_CAN_info(CR_CAN_vals * CAN_data);
-
+    void toggle_menu();
 
 private:
     Screen1Presenter();

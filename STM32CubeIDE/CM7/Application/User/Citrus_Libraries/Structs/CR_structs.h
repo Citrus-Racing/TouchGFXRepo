@@ -14,5 +14,10 @@ typedef struct {
 	uint16_t GPIO_Pin; // GPIO_PIN_5, GPIO_PIN_6...
 } CR_GPIO;
 
+enum CR_button_state {
+	BUTTON_RELEASED,
+	BUTTON_PRESSED,
+	BUTTON_HOLD,
+};
 
 #endif /* STRUCTS_CR_STRUCTS_H_ */

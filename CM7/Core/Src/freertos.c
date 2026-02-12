@@ -29,12 +29,15 @@
 #include "adc.h"
 #include "CR_CAN_parse.h"
 #include "CR_shift_light.h"
+#include "CR_structs.h"
 
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
 extern CR_CAN_vals latest_CAN_Vals;
 extern CR_shift_light shift_light_handle;
-extern bool back_pressed;
-extern bool menu_pressed;
+extern CR_GPIO pin_btn_menu;
+extern CR_GPIO pin_btn_back;
+extern uint8_t menu_btn_state;
+extern uint8_t back_btn_state;
 
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
@@ -109,6 +112,13 @@ const osThreadAttr_t ShiftLightTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow2,
 };
+/* Definitions for UIButtonUpdate */
+osThreadId_t UIButtonUpdateHandle;
+const osThreadAttr_t UIButtonUpdate_attributes = {
+  .name = "UIButtonUpdate",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ButtonQueue */
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
@@ -137,6 +147,7 @@ void ButtonTaskFunc(void *argument);
 void PollADCFunc(void *argument);
 void ReceiveCANFunc(void *argument);
 void ShiftLightFunc(void *argument);
+void UIButtonUpdateFunc(void *argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -226,6 +237,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of ShiftLightTask */
   ShiftLightTaskHandle = osThreadNew(ShiftLightFunc, NULL, &ShiftLightTask_attributes);
+
+  /* creation of UIButtonUpdate */
+  UIButtonUpdateHandle = osThreadNew(UIButtonUpdateFunc, NULL, &UIButtonUpdate_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -335,16 +349,6 @@ void ReceiveCANFunc(void *argument)
   {
 	  FDCAN_RxHeaderTypeDef CAN_RX_info_handle;
 	  CR_parse_CAN(&latest_CAN_Vals, &hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_info_handle);
-//	  if (HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0) > 1){
-//		  int i = 4+1;
-//		  int j = i + 1;
-//		  FDCAN_RxHeaderTypeDef CAN_RX_Config; // These are both empty at first and populated in pass-by-reference by the RX function.
-//		  uint8_t CAN_read_buff[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; // Remember to specify which letters you want loaded in TouchGFX. I also disabled the Fallback "?" unknown character.
-//		  // we defined this queue (CANMessageQueueHandle) to hold 64 bit items (8 bytes), so
-//		  // that is how it knows how many bytes to COPY transfer from CAN_read_buff to the queue. (Again note: FreeRTOS queue is NOT transfer by pointer reference; it is by copy)
-//		  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_Config, CAN_read_buff);
-//		  if(CAN_RX_Config.Identifier == 0x640){ osMessageQueuePut(CAN_640_QueueHandle, CAN_read_buff, 0, 0); }
-	  //}
     osDelay(20);
   }
   /* USER CODE END ReceiveCANFunc */
@@ -363,22 +367,44 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	if(back_pressed){
+	if(menu_btn_state == BUTTON_PRESSED){
+
 		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
 		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
 		CR_cascade_line_blink(&shift_light_handle, 255, 255, 255);
-		back_pressed = 0;
-	} else if (menu_pressed){
+		if (HAL_GPIO_ReadPin(pin_btn_menu.GPIO_Port, pin_btn_menu.GPIO_Pin) == 0){
+		}
+	} else if (back_btn_state == BUTTON_PRESSED){
 		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
 		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
 		CR_cascade_line_blink(&shift_light_handle, 255, 100, 0);
-		menu_pressed = 0;
+		if (HAL_GPIO_ReadPin(pin_btn_back.GPIO_Port, pin_btn_back.GPIO_Pin) == 0){
+			back_btn_state = BUTTON_RELEASED;
+		}
 	}
 	CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
 	//CR_Test_Sequence_Flash(&shift_light_handle);
 	osDelay(100);
   }
   /* USER CODE END ShiftLightFunc */
+}
+
+/* USER CODE BEGIN Header_UIButtonUpdateFunc */
+/**
+* @brief Function implementing the UIButtonUpdate thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_UIButtonUpdateFunc */
+void UIButtonUpdateFunc(void *argument)
+{
+  /* USER CODE BEGIN UIButtonUpdateFunc */
+  /* Infinite loop */
+  for(;;)
+  {
+	  osDelay(20);
+  }
+  /* USER CODE END UIButtonUpdateFunc */
 }
 
 /* Private application code --------------------------------------------------*/
