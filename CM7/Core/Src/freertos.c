@@ -30,6 +30,7 @@
 #include "CR_CAN_parse.h"
 #include "CR_shift_light.h"
 #include "CR_structs.h"
+#include "CR_encoder.h"
 
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
 extern CR_CAN_vals latest_CAN_Vals;
@@ -38,6 +39,10 @@ extern CR_GPIO pin_btn_menu;
 extern CR_GPIO pin_btn_back;
 extern uint8_t menu_btn_state;
 extern uint8_t back_btn_state;
+extern CR_encoder_status encoder_status;
+extern CR_encoder encoder_UI_handle;
+
+
 
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
@@ -402,7 +407,8 @@ void UIButtonUpdateFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  osDelay(20);
+	  CR_check_encoder(&encoder_UI_handle);
+	  osDelay(5);
   }
   /* USER CODE END UIButtonUpdateFunc */
 }

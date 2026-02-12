@@ -31,11 +31,10 @@ public:
 
     virtual ~Screen1Presenter() {}
 
-//    void updateGUIButton(GPIO_PinState status);
-//    void updatePotDial(uint16_t adc_val);
-//    void updateTextbox(const char * message, uint8_t bytes);
     void update_CAN_info(CR_CAN_vals * CAN_data);
     void toggle_menu();
+    void cursor_up();
+    void cursor_down();
 
 private:
     Screen1Presenter();

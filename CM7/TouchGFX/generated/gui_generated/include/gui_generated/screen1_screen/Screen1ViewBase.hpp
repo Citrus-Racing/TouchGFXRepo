@@ -90,12 +90,12 @@ protected:
     touchgfx::Image image1;
     touchgfx::ScrollableContainer menu_scontainer;
     touchgfx::Box box1;
-    touchgfx::BoxWithBorder boxWithBorder1;
-    touchgfx::TextArea txt_speed_1;
-    touchgfx::TextArea txt_speed_1_1;
-    touchgfx::TextArea txt_speed_1_1_1;
-    touchgfx::TextArea txt_speed_1_1_1_1;
-    touchgfx::TextArea txt_speed_1_1_1_1_1;
+    touchgfx::BoxWithBorder dbx_menu_selection;
+    touchgfx::TextArea txt_driver_profiles;
+    touchgfx::TextArea txt_sensor_readout;
+    touchgfx::TextArea txt_aim_readout;
+    touchgfx::TextArea txt_error_status;
+    touchgfx::TextArea txt_set_fuel;
 
     /*
      * Wildcard Buffers

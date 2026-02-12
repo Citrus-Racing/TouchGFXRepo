@@ -854,7 +854,6 @@
             "Y": 72,
             "Width": 344,
             "Height": 409,
-            "Visible": false,
             "VerticalScrollEnabled": true,
             "ScrollbarsVisibleOnPressed": true,
             "ScrollbarsColor": {
@@ -880,7 +879,7 @@
               },
               {
                 "Type": "BoxWithBorder",
-                "Name": "boxWithBorder1",
+                "Name": "dbx_menu_selection",
                 "X": 75,
                 "Y": 89,
                 "Width": 192,
@@ -899,7 +898,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "txt_speed_1",
+                "Name": "txt_driver_profiles",
                 "X": 93,
                 "Y": 145,
                 "Width": 156,
@@ -914,7 +913,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "txt_speed_1_1",
+                "Name": "txt_sensor_readout",
                 "X": 91,
                 "Y": 195,
                 "Width": 164,
@@ -929,7 +928,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "txt_speed_1_1_1",
+                "Name": "txt_aim_readout",
                 "X": 93,
                 "Y": 245,
                 "Width": 156,
@@ -944,7 +943,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "txt_speed_1_1_1_1",
+                "Name": "txt_error_status",
                 "X": 93,
                 "Y": 295,
                 "Width": 156,
@@ -959,7 +958,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "txt_speed_1_1_1_1_1",
+                "Name": "txt_set_fuel",
                 "X": 93,
                 "Y": 95,
                 "Width": 156,

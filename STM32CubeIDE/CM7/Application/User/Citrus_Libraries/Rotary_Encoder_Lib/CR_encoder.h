@@ -49,6 +49,8 @@ typedef struct {
 	GPIO_TypeDef * click_port;
 	uint16_t click_pin;
 
+	CR_encoder_status status;
+
 	bool p1_detected_first;
 	bool p2_detected_first;
 	bool turn_finished;
@@ -56,7 +58,7 @@ typedef struct {
 
 CR_encoder_status CR_encoder_init(CR_encoder * handle, CR_GPIO * pin_DT, CR_GPIO * pin_CLK, CR_GPIO * pin_SW);
 
-CR_encoder_status CR_check_encoder(CR_encoder * handle);
+void CR_check_encoder(CR_encoder * handle);
 
 
 #endif /* INC_CITRUS_ENCODER_H_ */

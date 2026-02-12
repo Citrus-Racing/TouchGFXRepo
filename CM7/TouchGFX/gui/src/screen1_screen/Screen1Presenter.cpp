@@ -37,3 +37,10 @@ void Screen1Presenter::toggle_menu(){
 	view.toggle_menu();
 }
 
+void Screen1Presenter::cursor_up(){
+	view.cursor_up();
+}
+
+void Screen1Presenter::cursor_down(){
+	view.cursor_down();
+}

@@ -32,30 +32,23 @@ void Screen1View::toggle_menu(){
 		menu_scontainer.setVisible(false);
 	} else {
 		menu_scontainer.setVisible(true);
+		dbx_menu_selection.setY(89); // reset the selection box
 	}
 	menu_scontainer.invalidate();
 }
 
-//void set_dtxt_rpm(uint16_t engine_speed){
-//    //Unicode::itoa(engine_speed,dtxt_rpmBuffer,11,10);
-//}
+void Screen1View::cursor_up(){
+	int16_t y_val = dbx_menu_selection.getY();
+	if (y_val > 89){
+		dbx_menu_selection.setY(y_val-50);
+	}
+	menu_scontainer.invalidate();
+}
 
-//void Screen1View::setButtonVisual(GPIO_PinState buttonState){
-//	if (buttonState == GPIO_PIN_SET){
-//		onButton.forceState(1);
-//	} else {
-//		onButton.forceState(0);
-//	}
-//	onButton.invalidate();
-//}
-//
-//void Screen1View::setPotDialVal(uint16_t analogVal){
-//	int normalizedVal = (int) ((analogVal/65536.0)*100);
-//    VirtSpedometer.setValue(normalizedVal);
-//    VirtSpedometer.invalidate();
-//}
-//
-//void Screen1View::setTextBox(const char * message, uint8_t bytes){
-//	Unicode::strncpy(canMessageBoxBuffer, message, bytes);
-//	canMessageBox.invalidate();
-//}
+void Screen1View::cursor_down(){
+	int16_t y_val = dbx_menu_selection.getY();
+	if (y_val < 295){
+		dbx_menu_selection.setY(y_val+50);
+	}
+	menu_scontainer.invalidate();
+}

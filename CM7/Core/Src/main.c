@@ -104,8 +104,10 @@ FDCAN_FilterTypeDef CAN_filter = {
 
 CR_shift_light shift_light_handle;
 CR_encoder encoder_UI_handle;
-uint8_t menu_btn_state = BUTTON_RELEASED;
-uint8_t back_btn_state = BUTTON_RELEASED;
+CR_button_state menu_btn_state = BUTTON_RELEASED;
+CR_button_state back_btn_state = BUTTON_RELEASED;
+
+CR_encoder_status encoder_status = ENCODER_STANDBY;
 
 /* USER CODE END PV */
 
@@ -361,37 +363,41 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	CR_encoder_status result = CR_check_encoder(&encoder_UI_handle);
-	if (result == ENCODER_CLICK){
-		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-	} else if (result == ENCODER_RIGHT){
-		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-	} else if (result == ENCODER_LEFT){
-		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-	}
+//	if (GPIO_Pin == pin_encoder_CLK.GPIO_Pin || GPIO_Pin == pin_encoder_SW.GPIO_Pin || GPIO_Pin == pin_encoder_DT.GPIO_Pin){
+//
+//
+//	}
+//	if (encoder_UI_handle.status == ENCODER_CLICK){
+//		menu_btn_state = BUTTON_PRESSED;
+//	}
+//		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	} else if (encoder_status == ENCODER_RIGHT){
+//		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	} else if (encoder_status == ENCODER_LEFT){
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	}
 	// Menu and back button rising interrupts
 	if (GPIO_Pin == pin_btn_menu.GPIO_Pin) {
 		menu_btn_state = BUTTON_PRESSED;
