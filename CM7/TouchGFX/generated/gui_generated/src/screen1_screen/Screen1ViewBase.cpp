@@ -133,7 +133,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_mph_speed.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AKKH));
     add(txt_mph_speed);
 
-    txt_psi_oilp.setPosition(48, 190, 55, 28);
+    txt_psi_oilp.setPosition(267, 190, 55, 28);
     txt_psi_oilp.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_psi_oilp.setLinespacing(0);
     txt_psi_oilp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LXXP));
@@ -163,7 +163,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_min_time.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BIHT));
     add(txt_min_time);
 
-    txt_oilp.setPosition(269, 190, 53, 25);
+    txt_oilp.setPosition(47, 190, 53, 25);
     txt_oilp.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_oilp.setLinespacing(0);
     txt_oilp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DXHQ));

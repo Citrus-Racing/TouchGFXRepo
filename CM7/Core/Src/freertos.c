@@ -372,8 +372,8 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
-	//CR_Test_Sequence_Flash(&shift_light_handle);
+	//CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
+	CR_Test_Sequence_Flash(&shift_light_handle);
 	osDelay(100);
   }
   /* USER CODE END ShiftLightFunc */

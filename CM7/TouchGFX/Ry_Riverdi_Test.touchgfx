@@ -343,7 +343,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_psi_oilp",
-            "X": 48,
+            "X": 267,
             "Y": 190,
             "Width": 55,
             "Height": 28,
@@ -418,7 +418,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_oilp",
-            "X": 269,
+            "X": 47,
             "Y": 190,
             "Width": 53,
             "Height": 25,
