@@ -37,9 +37,10 @@ void CR_parse_CAN(CR_CAN_vals * data_handle, FDCAN_HandleTypeDef* hfdcan, uint32
 
 		// Parse the data differently depending on the ID, according to M1 Tune
 		if(CAN_RX_info_handle->Identifier == 0x640) { parse_0x640(data_handle, CAN_read_buff); }
-		if(CAN_RX_info_handle->Identifier == 0x649) { parse_0x649(data_handle, CAN_read_buff); }
-		if(CAN_RX_info_handle->Identifier == 0x64D) { parse_0x64D(data_handle, CAN_read_buff); }
-		if(CAN_RX_info_handle->Identifier == 0x657) { parse_0x657(data_handle, CAN_read_buff); }
+		else if(CAN_RX_info_handle->Identifier == 0x644) { parse_0x644(data_handle, CAN_read_buff); }
+		else if(CAN_RX_info_handle->Identifier == 0x649) { parse_0x649(data_handle, CAN_read_buff); }
+		else if(CAN_RX_info_handle->Identifier == 0x64D) { parse_0x64D(data_handle, CAN_read_buff); }
+		else if(CAN_RX_info_handle->Identifier == 0x657) { parse_0x657(data_handle, CAN_read_buff); }
 	}
 }
 
@@ -54,13 +55,22 @@ void parse_0x640(CR_CAN_vals * data_handle, uint8_t * CAN_msg) {
 	data_handle->inlet_manifold_pressure = ((uint16_t)CAN_msg[2] << 8) | CAN_msg[3];
 	data_handle->inlet_manifold_temperature = ((uint16_t)CAN_msg[4] << 8) | CAN_msg[5];
 	data_handle->throttle_position = ((uint16_t)CAN_msg[6] << 8) | CAN_msg[7];
+	// discard the rest of the data transmission
+}
+
+void parse_0x644(CR_CAN_vals * data_handle, uint8_t * CAN_msg) {
+	data_handle->engine_oil_pressure = ((uint16_t)(CAN_msg[6] << 8)) | CAN_msg[7];
+	// discard the rest of the data transmission
 }
 
 void parse_0x649(CR_CAN_vals * data_handle, uint8_t * CAN_msg) {
 	data_handle->coolant_temperature = CAN_msg[0];
 	data_handle->engine_oil_temperature = CAN_msg[1];
+	data_handle->ecu_battery_voltage = CAN_msg[5];
 	// discard the rest of the data transmission
 }
+
+
 
 void parse_0x64D(CR_CAN_vals * data_handle, uint8_t * CAN_msg) {
 	data_handle->anti_lag_state = (uint8_t)(CAN_msg[1] >> 4);

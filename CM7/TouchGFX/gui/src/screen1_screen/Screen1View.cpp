@@ -26,6 +26,16 @@ void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	Unicode::itoa(CAN_data->engine_speed, dtxt_rpmBuffer, 11, 10);
 	Unicode::itoa(CAN_data->gear_output_shaft_speed, dtxt_speedBuffer, 11, 10);
 	Unicode::itoa(CAN_data->gear, dtxt_gearBuffer, 11, 10);
+	Unicode::itoa(((CAN_data->engine_oil_temperature-40)*1.8)+32, dtxt_oiltBuffer, 11, 10); // -40 celsius offset + America offset.
+	Unicode::itoa((CAN_data->engine_oil_pressure)/68.94757, dtxt_oilpBuffer, 11, 10); // 0.1kpa to 1 PSI
+	Unicode::itoa(CAN_data->ecu_battery_voltage*0.1, dtxt_battBuffer, 11, 10); // 0.1v scale
+	Unicode::strncpy(dtxt_alagBuffer, (CAN_data->anti_lag_state ? "OFF" : "ON"), 11);
+	Unicode::strncpy(dtxt_lchBuffer, (CAN_data->launch_state ? "OFF" : "ON"), 11);
+	dtxt_lch.invalidate();
+	dtxt_alag.invalidate();
+	dtxt_batt.invalidate();
+	dtxt_oilp.invalidate();
+	dtxt_oilt.invalidate();
 	dtxt_gear.invalidate();
 	dtxt_speed.invalidate();
 	dtxt_rpm.invalidate();
