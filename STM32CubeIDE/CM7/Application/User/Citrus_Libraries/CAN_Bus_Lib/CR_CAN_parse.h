@@ -24,6 +24,7 @@ typedef struct
 {
 	bool		CR_new_info_flag;
 	uint16_t 	engine_speed;
+	uint16_t    gear_output_shaft_speed;
 	uint16_t 	inlet_manifold_pressure;
 	int16_t 	inlet_manifold_temperature;
 	uint16_t 	throttle_position;
@@ -93,8 +94,8 @@ typedef struct
 	uint8_t		ignition_output_cut_average;
 	uint8_t		fuel_output_cut_average;
 	uint8_t		fuel_cylinder1_output_pulse_width;
-	int8_t		ignition_timing_state;			// 4 bit
-	int8_t		ignition_cut_request_state;		// 4 bit
+	int8_t		ignition_timing_state;			// MSB[5] 4 bit
+	int8_t		ignition_cut_request_state;		// LSB[5] 4 bit
 	uint16_t	engine_oil_pressure;
 } CR_CAN_0x644;
 
@@ -136,31 +137,31 @@ typedef struct
 
 typedef struct
 {
-	uint8_t		engine_state;					// 4 bit
-	uint8_t		fuel_pump_state;				// 4 bit
-	uint8_t		anti_lag_state;					// 4 bit
-	uint8_t		launch_state;					// 4 bit
-	uint8_t		boost_aim_state;				// 4 bit
-	uint8_t		engine_speed_limit_state;	    // 4 bit
-	uint8_t		engine_overrun_state;			// 4 bit
-	uint8_t		fuel_cut_state;					// 4 bit
-	uint8_t		fuel_purge_state;				// 4 bit
-	uint8_t		knock_state;					// 4 bit
-	uint8_t		throttle_aim_state;				// 4 bit
-	uint8_t		fuel_closed_loop_state;			// 4 bit
-	uint8_t		engine_speed_reference_state;   // 4 bit
-	int8_t		gear;							// 4 bit
-	uint8_t		reserved;
+	uint8_t		engine_state;					// MSB[0] 4 bit
+	uint8_t		fuel_pump_state;				// LSB[0] 4 bit
+	uint8_t		anti_lag_state;					// MSB[1] 4 bit
+	uint8_t		launch_state;					// LSB[1] 4 bit
+	uint8_t		boost_aim_state;				// MSB[2] 4 bit
+	uint8_t		engine_speed_limit_state;	    // LSB[2] 4 bit
+	uint8_t		engine_overrun_state;			// MSB[3] 4 bit
+	uint8_t		fuel_cut_state;					// LSB[3] 4 bit
+	uint8_t		fuel_purge_state;				// MSB[4] 4 bit
+	uint8_t		knock_state;					// LSB[4] 4 bit
+	uint8_t		throttle_aim_state;				// MSB[5] 4 bit
+	uint8_t		fuel_closed_loop_state;			// LSB[5] 4 bit
+	uint8_t		engine_speed_reference_state;   // MSB[6] 4 bit
+	int8_t		gear;							// LSB[6] 4 bit
+	uint8_t		reserved;						// 8 bit
 } CR_CAN_0x64D;
 
 typedef struct
 {
-	int8_t		anti_lag_diagnostic;   			// 4 bit
-	int8_t		launch_diagnostic;				// 4 bit
-	int8_t		boost_control_diagnostic;		// 4 bit
-	int8_t		fuel_cut_state;					// 4 bit
-	int8_t		fuel_close_loop_diagnostic;		// 4 bit
-	int8_t		reserved;						// 4 bit
+	int8_t		anti_lag_diagnostic;   			// MSB 4 bit
+	int8_t		launch_diagnostic;				// LSB 4 bit
+	int8_t		boost_control_diagnostic;		// MSB 4 bit
+	int8_t		fuel_cut_state;					// LSB 4 bit
+	int8_t		fuel_close_loop_diagnostic;		// MSB 4 bit
+	int8_t		reserved;						// LSB 4 bit
 	bool		engine_oil_pressure_low_switch;
 	bool		pit_switch;
 	bool		launch_enable_switch;
@@ -215,6 +216,11 @@ void CR_parse_CAN(CR_CAN_vals * data_handle, FDCAN_HandleTypeDef* hfdcan, uint32
 
 // Helper functions to populate the central struct
 void parse_0x640(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+void parse_0x644(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+void parse_0x649(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+void parse_0x64D(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+void parse_0x657(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+
 //CR_CAN_0x640 CR_parse_0x642(FDCAN_HandleTypeDef* hfdcan);
 //CR_CAN_0x644 CR_parse_0x644(FDCAN_HandleTypeDef* hfdcan);
 //CR_CAN_0x645 CR_parse_0x645(FDCAN_HandleTypeDef* hfdcan);

@@ -352,9 +352,9 @@ void ReceiveCANFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  FDCAN_RxHeaderTypeDef CAN_RX_info_handle;
-	  CR_parse_CAN(&latest_CAN_Vals, &hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_info_handle);
-    osDelay(20);
+	FDCAN_RxHeaderTypeDef CAN_RX_info_handle;
+	CR_parse_CAN(&latest_CAN_Vals, &hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_info_handle);
+    osDelay(1);
   }
   /* USER CODE END ReceiveCANFunc */
 }
