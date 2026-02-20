@@ -75,6 +75,7 @@ void Screen1View::open_menu(){
 			set_fuel_container.invalidate();
 			fuel_menu_open = true;
 		}
+
 		// Other menu items can be handled here in the future
 		return;
 	}

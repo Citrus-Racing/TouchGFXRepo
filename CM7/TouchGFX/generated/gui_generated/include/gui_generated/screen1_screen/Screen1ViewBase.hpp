@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/BoxWithBorder.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
@@ -15,7 +16,6 @@
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/ScrollableContainer.hpp>
-#include <touchgfx/containers/Container.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -34,6 +34,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box bx_dashbackground;
+    touchgfx::Container main_display;
     touchgfx::BoxWithBorder bx_speed;
     touchgfx::BoxWithBorder bx_rpm;
     touchgfx::BoxWithBorder bx_fuel;

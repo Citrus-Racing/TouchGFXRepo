@@ -7,6 +7,7 @@
 #include <touchgfx/Bitmap.hpp>
 
 const uint16_t BITMAP_CARBONFIBERCROP_ID = 0;
+const uint16_t BITMAP_THECITRUSRACINGLOGO_DARKBGND_768X641_ID = 1;
 
 namespace BitmapDatabase
 {
