@@ -6,6 +6,15 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_OTDM" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_7B93" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;L</Translation>
+      </Text>
+      <Text Id="__SingleUse_IODG" Alignment="Center" TypographyId="medium">
+        <Translation Language="GB">Fuel Level&#10;</Translation>
+      </Text>
       <Text Id="__SingleUse_80TJ" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">DRS</Translation>
       </Text>
@@ -149,5 +158,6 @@
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="typography_gear" Font="verdana.ttf" Size="140" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="N" WildcardCharacterRanges="0-9" />
     <Typography Id="Typography1" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="medium" Font="verdana.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

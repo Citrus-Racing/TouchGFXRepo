@@ -7,6 +7,7 @@
 #include "CR_structs.h"
 #include "CR_encoder.h"
 #include "CR_shift_light.h"
+#include "CR_flash_storage.h"
 extern CR_CAN_vals latest_CAN_Vals;
 extern CR_button_state menu_btn_state;
 extern CR_button_state back_btn_state;
@@ -15,9 +16,13 @@ extern CR_shift_light shift_light_handle;
 extern CR_encoder encoder_UI_handle;
 //extern osMessageQueueId_t ADCQueueHandle;
 //extern osMessageQueueId_t CANMessageQueueHandle;
-Model::Model() : modelListener(0)
+Model::Model() : fuel_level_tenths(55), modelListener(0),
+                 menu_btn_debounce_ticks(0), back_btn_debounce_ticks(0)
 {
-
+    // Read settings from flash.
+    CR_settings_t settings;
+    CR_flash_read_settings(&settings);
+    fuel_level_tenths = settings.fuel_level_tenths;
 }
 
 void Model::tick()
@@ -34,13 +39,24 @@ void Model::tick()
 	if(latest_CAN_Vals.CR_new_info_flag == 1){
 		modelListener->update_CAN_info(&latest_CAN_Vals);
 	}
+
+	// Decrement debounce counters each tick
+	if(menu_btn_debounce_ticks > 0){ menu_btn_debounce_ticks--; }
+	if(back_btn_debounce_ticks > 0){ back_btn_debounce_ticks--; }
+
 	if(menu_btn_state == BUTTON_PRESSED){
 		menu_btn_state = BUTTON_RELEASED;
-		modelListener->open_menu();
+		if(menu_btn_debounce_ticks == 0){
+			menu_btn_debounce_ticks = BTN_DEBOUNCE_TICKS;
+			modelListener->open_menu();
+		}
 	}
 	if(back_btn_state == BUTTON_PRESSED){
 		back_btn_state = BUTTON_RELEASED;
-		modelListener->close_menu();
+		if(back_btn_debounce_ticks == 0){
+			back_btn_debounce_ticks = BTN_DEBOUNCE_TICKS;
+			modelListener->close_menu();
+		}
 	}
 
 	if(encoder_UI_handle.status == ENCODER_RIGHT){
@@ -49,6 +65,9 @@ void Model::tick()
 	} else if (encoder_UI_handle.status == ENCODER_LEFT){
 		encoder_UI_handle.status = ENCODER_STANDBY;
 		modelListener->cursor_up();
+	} else if (encoder_UI_handle.status == ENCODER_CLICK){
+		encoder_UI_handle.status = ENCODER_STANDBY;
+		modelListener->encoder_click();
 	}
 
 }

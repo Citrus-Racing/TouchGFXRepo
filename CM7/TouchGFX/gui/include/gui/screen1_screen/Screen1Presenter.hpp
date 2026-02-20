@@ -36,6 +36,11 @@ public:
     void close_menu();
     void cursor_up();
     void cursor_down();
+    void encoder_click();
+
+    // Fuel level accessors called by the view
+    uint8_t getFuelLevel();
+    void saveFuelLevel(uint8_t litres);
 
 private:
     Screen1Presenter();

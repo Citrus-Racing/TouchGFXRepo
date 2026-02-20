@@ -697,6 +697,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Font_verdana_20_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Font_verdana_35_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Font_verdana_35_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Font_verdana_50_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Font_verdana_50_4bpp_0.cpp</locationURI>
@@ -722,6 +727,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Kerning_verdana_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Kerning_verdana_35_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Kerning_verdana_35_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Kerning_verdana_50_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Kerning_verdana_50_4bpp.cpp</locationURI>
@@ -740,6 +750,11 @@
 			<name>Application/User/generated/Table_verdana_20_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_verdana_35_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/generated/fonts/src/Table_verdana_35_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_verdana_50_4bpp.cpp</name>

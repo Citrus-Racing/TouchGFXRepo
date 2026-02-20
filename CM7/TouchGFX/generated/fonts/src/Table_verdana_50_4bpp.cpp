@@ -19,11 +19,12 @@ KEEP extern const touchgfx::GlyphNode glyphs_verdana_50_4bpp[] FONT_TABLE_LOCATI
     {  4991, 0x003A,   7,  27,  27,   8,  23,   8,   1, 0x00 },
     {  5099, 0x003F,  22,  37,  37,   3,  27,   9,   2, 0x00 },
     {  5506, 0x0046,  25,  36,  36,   4,  29,   0,   0, 0x00 },
-    {  5974, 0x004E,  29,  36,  36,   4,  37,   0,   0, 0x00 },
-    {  6514, 0x004F,  35,  38,  37,   2,  39,   0,   0, 0x00 },
-    {  7198, 0x0066,  19,  38,  38,   1,  18,   0,   0, 0x00 },
-    {  7578, 0x006E,  24,  28,  28,   4,  32,   0,   0, 0x00 },
-    {  7914, 0x006F,  26,  29,  28,   2,  30,  11,   1, 0x00 }
+    {  5974, 0x004C,  24,  36,  36,   4,  28,   0,   0, 0x00 },
+    {  6406, 0x004E,  29,  36,  36,   4,  37,   0,   0, 0x00 },
+    {  6946, 0x004F,  35,  38,  37,   2,  39,   0,   0, 0x00 },
+    {  7630, 0x0066,  19,  38,  38,   1,  18,   0,   0, 0x00 },
+    {  8010, 0x006E,  24,  28,  28,   4,  32,   0,   0, 0x00 },
+    {  8346, 0x006F,  26,  29,  28,   2,  30,  11,   1, 0x00 }
 };
 
 // verdana_50_4bpp
@@ -41,6 +42,6 @@ touchgfx::GeneratedFont& getFont_verdana_50_4bpp();
 
 touchgfx::GeneratedFont& getFont_verdana_50_4bpp()
 {
-    static touchgfx::GeneratedFont verdana_50_4bpp(glyphs_verdana_50_4bpp, 20, 59, 50, 0, 0, 4, 1, 0, 2, unicodes_verdana_50_4bpp, kerning_verdana_50_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont verdana_50_4bpp(glyphs_verdana_50_4bpp, 21, 59, 50, 0, 0, 4, 1, 0, 2, unicodes_verdana_50_4bpp, kerning_verdana_50_4bpp, 63, 0, 0, 0);
     return verdana_50_4bpp;
 }

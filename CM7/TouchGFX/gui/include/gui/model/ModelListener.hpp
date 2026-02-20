@@ -23,6 +23,7 @@ public:
     virtual void close_menu(){}
     virtual void cursor_up(){}
     virtual void cursor_down(){}
+    virtual void encoder_click(){}
 
 protected:
     Model* model;

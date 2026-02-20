@@ -15,6 +15,7 @@
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/ScrollableContainer.hpp>
+#include <touchgfx/containers/Container.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -96,6 +97,10 @@ protected:
     touchgfx::TextArea txt_aim_readout;
     touchgfx::TextArea txt_error_status;
     touchgfx::TextArea txt_set_fuel;
+    touchgfx::Container set_fuel_container;
+    touchgfx::Box box2;
+    touchgfx::TextArea txt_fuel_level;
+    touchgfx::TextAreaWithOneWildcard dtxt_set_level;
 
     /*
      * Wildcard Buffers
@@ -120,6 +125,8 @@ protected:
     touchgfx::Unicode::UnicodeChar dtxt_timeBuffer[DTXT_TIME_SIZE];
     static const uint16_t DTXT_GEAR_SIZE = 2;
     touchgfx::Unicode::UnicodeChar dtxt_gearBuffer[DTXT_GEAR_SIZE];
+    static const uint16_t DTXT_SET_LEVEL_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_set_levelBuffer[DTXT_SET_LEVEL_SIZE];
 
 private:
 

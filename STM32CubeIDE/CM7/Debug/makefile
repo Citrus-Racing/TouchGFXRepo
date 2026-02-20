@@ -28,6 +28,7 @@ RM := rm -rf
 -include Application/User/Core/subdir.mk
 -include Application/User/Citrus_Libraries/Shift_Light_Lib/subdir.mk
 -include Application/User/Citrus_Libraries/Rotary_Encoder_Lib/subdir.mk
+-include Application/User/Citrus_Libraries/Flash_Storage_Lib/subdir.mk
 -include Application/User/Citrus_Libraries/CAN_Bus_Lib/subdir.mk
 -include objects.mk
 
@@ -108,8 +109,8 @@ all:
 main-build: Riverdi_70STM32H7_CM7.elf secondary-outputs
 
 # Tool invocations
-Riverdi_70STM32H7_CM7.elf Riverdi_70STM32H7_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\ryanb\STM32CubeIDE\Citrus_Display\TouchGFXIntegration_Testing\STM32CubeIDE\CM7\STM32H747XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Riverdi_70STM32H7_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\ryanb\STM32CubeIDE\Citrus_Display\TouchGFXIntegration_Testing\STM32CubeIDE\CM7\STM32H747XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Riverdi_70STM32H7_CM7.map" -Wl,--gc-sections -static -L../../../CM7/Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Riverdi_70STM32H7_CM7.elf Riverdi_70STM32H7_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\victo\OneDrive\Documents\Programming\TouchGFXTestRepo\STM32CubeIDE\CM7\STM32H747XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Riverdi_70STM32H7_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\victo\OneDrive\Documents\Programming\TouchGFXTestRepo\STM32CubeIDE\CM7\STM32H747XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Riverdi_70STM32H7_CM7.map" -Wl,--gc-sections -static -L../../../CM7/Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

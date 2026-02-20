@@ -831,10 +831,10 @@
           {
             "Type": "Box",
             "Name": "dbx_fuel",
-            "X": 293,
-            "Y": 522,
-            "Width": 405,
-            "Height": 39,
+            "X": 294,
+            "Y": 523,
+            "Width": 442,
+            "Height": 38,
             "Color": {
               "Red": 138,
               "Green": 138,
@@ -970,6 +970,65 @@
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "set_fuel_container",
+            "X": 370,
+            "Y": 116,
+            "Width": 284,
+            "Height": 248,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box2",
+                "Width": 284,
+                "Height": 248,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "Alpha": 250
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_fuel_level",
+                "X": 54,
+                "Y": 40,
+                "Width": 177,
+                "Height": 70,
+                "TextId": "__SingleUse_IODG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_set_level",
+                "X": 86,
+                "Y": 124,
+                "Width": 112,
+                "Height": 76,
+                "TextId": "__SingleUse_7B93",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OTDM",
+                  "UseBuffer": true,
+                  "BufferSize": 11
                 }
               }
             ]

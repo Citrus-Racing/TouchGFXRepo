@@ -339,7 +339,7 @@ Screen1ViewBase::Screen1ViewBase()
     dcirc_lockui.setPainter(dcirc_lockuiPainter);
     add(dcirc_lockui);
 
-    dbx_fuel.setPosition(293, 522, 405, 39);
+    dbx_fuel.setPosition(294, 523, 442, 38);
     dbx_fuel.setColor(touchgfx::Color::getColorFromRGB(138, 138, 138));
     add(dbx_fuel);
 
@@ -393,6 +393,29 @@ Screen1ViewBase::Screen1ViewBase()
     menu_scontainer.add(txt_set_fuel);
 
     add(menu_scontainer);
+
+    set_fuel_container.setPosition(370, 116, 284, 248);
+    set_fuel_container.setVisible(false);
+    box2.setPosition(0, 0, 284, 248);
+    box2.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
+    box2.setAlpha(250);
+    set_fuel_container.add(box2);
+
+    txt_fuel_level.setXY(54, 40);
+    txt_fuel_level.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_fuel_level.setLinespacing(0);
+    txt_fuel_level.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IODG));
+    set_fuel_container.add(txt_fuel_level);
+
+    dtxt_set_level.setPosition(86, 124, 112, 76);
+    dtxt_set_level.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    dtxt_set_level.setLinespacing(0);
+    Unicode::snprintf(dtxt_set_levelBuffer, DTXT_SET_LEVEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OTDM).getText());
+    dtxt_set_level.setWildcard(dtxt_set_levelBuffer);
+    dtxt_set_level.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7B93));
+    set_fuel_container.add(dtxt_set_level);
+
+    add(set_fuel_container);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

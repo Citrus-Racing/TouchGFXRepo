@@ -85,8 +85,8 @@ all: main-build
 main-build: Riverdi_70STM32H7_CM4.elf secondary-outputs
 
 # Tool invocations
-Riverdi_70STM32H7_CM4.elf Riverdi_70STM32H7_CM4.map: $(OBJS) $(USER_OBJS) C:\Users\ryanb\STM32CubeIDE\Citrus_Display\TouchGFXIntegration_Testing\STM32CubeIDE\CM4\STM32H747XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Riverdi_70STM32H7_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ryanb\STM32CubeIDE\Citrus_Display\TouchGFXIntegration_Testing\STM32CubeIDE\CM4\STM32H747XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Riverdi_70STM32H7_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Riverdi_70STM32H7_CM4.elf Riverdi_70STM32H7_CM4.map: $(OBJS) $(USER_OBJS) C:\Users\victo\OneDrive\Documents\Programming\TouchGFXTestRepo\STM32CubeIDE\CM4\STM32H747XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Riverdi_70STM32H7_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\victo\OneDrive\Documents\Programming\TouchGFXTestRepo\STM32CubeIDE\CM4\STM32H747XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Riverdi_70STM32H7_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

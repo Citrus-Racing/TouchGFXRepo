@@ -1,5 +1,6 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include "CR_flash_storage.h"
 
 Screen1Presenter::Screen1Presenter(Screen1View& v)
     : view(v)
@@ -47,4 +48,22 @@ void Screen1Presenter::cursor_up(){
 
 void Screen1Presenter::cursor_down(){
 	view.cursor_down();
+}
+
+void Screen1Presenter::encoder_click(){
+	view.encoder_click();
+}
+
+uint8_t Screen1Presenter::getFuelLevel(){
+	return model->fuel_level_tenths;
+}
+
+void Screen1Presenter::saveFuelLevel(uint8_t tenths){
+    model->fuel_level_tenths = tenths;
+
+    // Persist to flash so the value survives a power cycle
+    CR_settings_t settings;
+    settings.magic             = CR_SETTINGS_MAGIC;
+    settings.fuel_level_tenths = tenths;
+    CR_flash_write_settings(&settings);
 }

@@ -16,7 +16,7 @@ OBJS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Application/User/Startup/%.o: ../Application/User/Startup/%.s Application/User/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -DDEBUG -DCORE_CM7 -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -DDEBUG -DCORE_CM7 -c -I"C:/Users/victo/OneDrive/Documents/Programming/TouchGFXTestRepo/STM32CubeIDE/CM7/Application/User/Citrus_Libraries/Flash_Storage_Lib" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Application-2f-User-2f-Startup
 
