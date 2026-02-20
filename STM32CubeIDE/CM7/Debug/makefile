@@ -15,6 +15,10 @@ RM := rm -rf
 -include Middlewares/FatFs/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/subdir.mk
 -include Drivers/CMSIS/subdir.mk
+-include Citrus_Libraries/Shift_Light_Lib/subdir.mk
+-include Citrus_Libraries/Rotary_Encoder_Lib/subdir.mk
+-include Citrus_Libraries/Flash_Storage_Lib/subdir.mk
+-include Citrus_Libraries/CAN_Bus_Lib/subdir.mk
 -include Application/User/gui/subdir.mk
 -include Application/User/generated/subdir.mk
 -include Application/User/USB_HOST/Target/subdir.mk
@@ -26,10 +30,6 @@ RM := rm -rf
 -include Application/User/FATFS/Target/subdir.mk
 -include Application/User/FATFS/App/subdir.mk
 -include Application/User/Core/subdir.mk
--include Application/User/Citrus_Libraries/Shift_Light_Lib/subdir.mk
--include Application/User/Citrus_Libraries/Rotary_Encoder_Lib/subdir.mk
--include Application/User/Citrus_Libraries/Flash_Storage_Lib/subdir.mk
--include Application/User/Citrus_Libraries/CAN_Bus_Lib/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
