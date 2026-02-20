@@ -8,11 +8,14 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/ToggleButton.hpp>
-#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/BoxWithBorder.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/containers/Slider.hpp>
+#include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/ScrollableContainer.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -30,20 +33,109 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Box bx_dashbackground;
+    touchgfx::Container main_display;
+    touchgfx::BoxWithBorder bx_speed;
+    touchgfx::BoxWithBorder bx_rpm;
+    touchgfx::BoxWithBorder bx_fuel;
+    touchgfx::BoxWithBorder vx_oilt;
+    touchgfx::BoxWithBorder bx_DRS;
+    touchgfx::BoxWithBorder bx_alag;
+    touchgfx::BoxWithBorder bx_lch;
+    touchgfx::BoxWithBorder bx_gear;
+    touchgfx::BoxWithBorder bx_oilp;
+    touchgfx::BoxWithBorder bx_batt;
+    touchgfx::BoxWithBorder bx_time;
+    touchgfx::TextArea txt_batt;
+    touchgfx::TextArea txt_time;
+    touchgfx::TextArea txt_speed;
+    touchgfx::TextArea txt_gear;
+    touchgfx::TextArea txt_v_batt;
+    touchgfx::TextArea txt_oilt;
+    touchgfx::TextArea txt_f_oilt;
+    touchgfx::TextArea txt_mph_speed;
+    touchgfx::TextArea txt_psi_oilp;
+    touchgfx::TextArea txt_sw_alag;
+    touchgfx::TextArea txt_sw_drs;
+    touchgfx::TextArea txt_sw_lch;
+    touchgfx::TextArea txt_min_time;
+    touchgfx::TextArea txt_oilp;
+    touchgfx::TextAreaWithOneWildcard dtxt_batt;
+    touchgfx::TextAreaWithOneWildcard dtxt_rpm;
+    touchgfx::TextAreaWithOneWildcard dtxt_speed;
+    touchgfx::TextAreaWithOneWildcard dtxt_oilt;
+    touchgfx::TextAreaWithOneWildcard dtxt_oilp;
+    touchgfx::TextAreaWithOneWildcard dtxt_alag;
+    touchgfx::TextAreaWithOneWildcard dtxt_drs;
+    touchgfx::TextAreaWithOneWildcard dtxt_lch;
+    touchgfx::TextArea txt_alag;
+    touchgfx::TextArea txt_drs;
+    touchgfx::TextArea txt_lch;
+    touchgfx::TextAreaWithOneWildcard dtxt_time;
+    touchgfx::TextAreaWithOneWildcard dtxt_gear;
+    touchgfx::TextArea lag_txt;
+    touchgfx::TextArea launch_txt;
+    touchgfx::TextArea ui_lock_txt;
+    touchgfx::Circle circ_uc;
+    touchgfx::PainterRGB888 circ_ucPainter;
+    touchgfx::Circle dcirc_uc;
+    touchgfx::PainterRGB888 dcirc_ucPainter;
+    touchgfx::Circle circ_can;
+    touchgfx::PainterRGB888 circ_canPainter;
+    touchgfx::Circle dcirc_can;
+    touchgfx::PainterRGB888 dcirc_canPainter;
+    touchgfx::Circle circ_lockui;
+    touchgfx::PainterRGB888 circ_lockuiPainter;
+    touchgfx::Circle dcirc_lockui;
+    touchgfx::PainterRGB888 dcirc_lockuiPainter;
+    touchgfx::Box dbx_fuel;
     touchgfx::Image image1;
-    touchgfx::ToggleButton onButton;
-    touchgfx::Gauge VirtSpedometer;
-    touchgfx::TextAreaWithOneWildcard canMessageBox;
-    touchgfx::Slider leftSlider;
-    touchgfx::Slider rightSlider;
+    touchgfx::ScrollableContainer menu_scontainer;
+    touchgfx::Box box1;
+    touchgfx::BoxWithBorder dbx_menu_selection;
+    touchgfx::TextArea txt_driver_profiles;
+    touchgfx::TextArea txt_sensor_readout;
+    touchgfx::TextArea txt_aim_readout;
+    touchgfx::TextArea txt_error_status;
+    touchgfx::TextArea txt_set_fuel;
+    touchgfx::Container set_fuel_container;
+    touchgfx::Box box2;
+    touchgfx::TextArea txt_fuel_level;
+    touchgfx::TextAreaWithOneWildcard dtxt_set_level;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t CANMESSAGEBOX_SIZE = 11;
-    touchgfx::Unicode::UnicodeChar canMessageBoxBuffer[CANMESSAGEBOX_SIZE];
+    static const uint16_t DTXT_BATT_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_battBuffer[DTXT_BATT_SIZE];
+    static const uint16_t DTXT_RPM_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_rpmBuffer[DTXT_RPM_SIZE];
+    static const uint16_t DTXT_SPEED_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_speedBuffer[DTXT_SPEED_SIZE];
+    static const uint16_t DTXT_OILT_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_oiltBuffer[DTXT_OILT_SIZE];
+    static const uint16_t DTXT_OILP_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_oilpBuffer[DTXT_OILP_SIZE];
+    static const uint16_t DTXT_ALAG_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_alagBuffer[DTXT_ALAG_SIZE];
+    static const uint16_t DTXT_DRS_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_drsBuffer[DTXT_DRS_SIZE];
+    static const uint16_t DTXT_LCH_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_lchBuffer[DTXT_LCH_SIZE];
+    static const uint16_t DTXT_TIME_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_timeBuffer[DTXT_TIME_SIZE];
+    static const uint16_t DTXT_GEAR_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar dtxt_gearBuffer[DTXT_GEAR_SIZE];
+    static const uint16_t DTXT_SET_LEVEL_SIZE = 11;
+    touchgfx::Unicode::UnicodeChar dtxt_set_levelBuffer[DTXT_SET_LEVEL_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 15360;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
 };
 

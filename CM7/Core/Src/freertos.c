@@ -27,12 +27,23 @@
 /* USER CODE BEGIN Includes */
 #include "fdcan.h"
 #include "adc.h"
-//#include "ws2812.h"
+#include "CR_CAN_parse.h"
 #include "CR_shift_light.h"
+#include "CR_structs.h"
+#include "CR_encoder.h"
 
 extern 	FDCAN_TxHeaderTypeDef TxHeader;
-//extern ws2812_handleTypeDef ws;
+extern CR_CAN_vals latest_CAN_Vals;
 extern CR_shift_light shift_light_handle;
+extern CR_GPIO pin_btn_menu;
+extern CR_GPIO pin_btn_back;
+extern uint8_t menu_btn_state;
+extern uint8_t back_btn_state;
+extern CR_encoder_status encoder_status;
+extern CR_encoder encoder_UI_handle;
+
+
+
 uint8_t TxData[] = {0x10, 0x32, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0x00};
 FDCAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[16];
@@ -106,6 +117,13 @@ const osThreadAttr_t ShiftLightTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow2,
 };
+/* Definitions for UIButtonUpdate */
+osThreadId_t UIButtonUpdateHandle;
+const osThreadAttr_t UIButtonUpdate_attributes = {
+  .name = "UIButtonUpdate",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ButtonQueue */
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
@@ -116,10 +134,10 @@ osMessageQueueId_t ADCQueueHandle;
 const osMessageQueueAttr_t ADCQueue_attributes = {
   .name = "ADCQueue"
 };
-/* Definitions for CANMessageQueue */
-osMessageQueueId_t CANMessageQueueHandle;
-const osMessageQueueAttr_t CANMessageQueue_attributes = {
-  .name = "CANMessageQueue"
+/* Definitions for CAN_640_Queue */
+osMessageQueueId_t CAN_640_QueueHandle;
+const osMessageQueueAttr_t CAN_640_Queue_attributes = {
+  .name = "CAN_640_Queue"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,6 +152,7 @@ void ButtonTaskFunc(void *argument);
 void PollADCFunc(void *argument);
 void ReceiveCANFunc(void *argument);
 void ShiftLightFunc(void *argument);
+void UIButtonUpdateFunc(void *argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -195,8 +214,8 @@ void MX_FREERTOS_Init(void) {
   /* creation of ADCQueue */
   ADCQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ADCQueue_attributes);
 
-  /* creation of CANMessageQueue */
-  CANMessageQueueHandle = osMessageQueueNew (16, sizeof(uint64_t), &CANMessageQueue_attributes);
+  /* creation of CAN_640_Queue */
+  CAN_640_QueueHandle = osMessageQueueNew (16, sizeof(uint64_t), &CAN_640_Queue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -223,6 +242,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of ShiftLightTask */
   ShiftLightTaskHandle = osThreadNew(ShiftLightFunc, NULL, &ShiftLightTask_attributes);
+
+  /* creation of UIButtonUpdate */
+  UIButtonUpdateHandle = osThreadNew(UIButtonUpdateFunc, NULL, &UIButtonUpdate_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -330,15 +352,9 @@ void ReceiveCANFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  if (HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0) > 1){
-		  FDCAN_RxHeaderTypeDef CAN_RX_Config; // These are both empty at first and populated in pass-by-reference by the RX function.
-		  uint8_t CAN_read_buff[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; // Remember to specify which letters you want loaded in TouchGFX. I also disabled the Fallback "?" unknown character.
-		  // we defined this queue (CANMessageQueueHandle) to hold 64 bits (8 bytes), so
-		  // that is how it knows how many bytes to transfer by copy and avoids array pointer degredation (FreeRTOS is NOT transfer by reference)
-		  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_Config, CAN_read_buff);
-		  osMessageQueuePut(CANMessageQueueHandle, CAN_read_buff, 0, 0);
-	  }
-    osDelay(20);
+	FDCAN_RxHeaderTypeDef CAN_RX_info_handle;
+	CR_parse_CAN(&latest_CAN_Vals, &hfdcan1, FDCAN_RX_FIFO0, &CAN_RX_info_handle);
+    osDelay(1);
   }
   /* USER CODE END ReceiveCANFunc */
 }
@@ -356,21 +372,30 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	// pwm testing below
-	//TIM5->CCR4 = 100;
-//  __disable_irq();
-	uint32_t start_CNT = TIM5->CNT;
-	CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-	uint32_t end_CNT = TIM5->CNT;
-	uint32_t diff_CNT = end_CNT - start_CNT;
-//  __enable_irq();
-	osDelay(500);
-	CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-	osDelay(500);
-
-	//CR_Test_Sequence_Flash(&shift_light_handle);
+	//CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
+	CR_Test_Sequence_Flash(&shift_light_handle);
+	osDelay(100);
   }
   /* USER CODE END ShiftLightFunc */
+}
+
+/* USER CODE BEGIN Header_UIButtonUpdateFunc */
+/**
+* @brief Function implementing the UIButtonUpdate thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_UIButtonUpdateFunc */
+void UIButtonUpdateFunc(void *argument)
+{
+  /* USER CODE BEGIN UIButtonUpdateFunc */
+  /* Infinite loop */
+  for(;;)
+  {
+	  CR_check_encoder(&encoder_UI_handle);
+	  osDelay(5);
+  }
+  /* USER CODE END UIButtonUpdateFunc */
 }
 
 /* Private application code --------------------------------------------------*/

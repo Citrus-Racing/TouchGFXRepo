@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+#include "CR_CAN_parse.h"
+
 
 using namespace touchgfx;
 
@@ -29,9 +31,17 @@ public:
 
     virtual ~Screen1Presenter() {}
 
-    void updateGUIButton(GPIO_PinState status);
-    void updatePotDial(uint16_t adc_val);
-    void updateTextbox(const char * message, uint8_t bytes);
+    void update_CAN_info(CR_CAN_vals * CAN_data);
+    void open_menu();
+    void close_menu();
+    void cursor_up();
+    void cursor_down();
+    void encoder_click();
+
+    // Fuel level accessors called by the view
+    uint8_t getFuelLevel();
+    void saveFuelLevel(uint8_t litres);
+
 private:
     Screen1Presenter();
 

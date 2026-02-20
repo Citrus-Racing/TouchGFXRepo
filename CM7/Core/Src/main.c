@@ -80,6 +80,8 @@ CR_GPIO pin_encoder_DT = { .GPIO_Port = GPIOD, .GPIO_Pin = GPIO_PIN_13 };
 CR_GPIO pin_encoder_CLK = { .GPIO_Port = GPIOB, .GPIO_Pin = GPIO_PIN_10 };
 CR_GPIO pin_potentiometer_input = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_0 }; // Potentiometer is PA0_C, which is connected to PA0
 CR_GPIO pin_shift_light_pwm = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_3 };
+CR_GPIO pin_btn_back = { .GPIO_Port = GPIOC, .GPIO_Pin = GPIO_PIN_2 };
+CR_GPIO pin_btn_menu = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_4 };
 
 
 // CAN Bus Filter. Refer to RM0399 pg 2627 "Acceptance Filter."
@@ -91,9 +93,9 @@ CR_GPIO pin_shift_light_pwm = { .GPIO_Port = GPIOA, .GPIO_Pin = GPIO_PIN_3 };
 FDCAN_FilterTypeDef CAN_filter = {
 		.IdType = FDCAN_STANDARD_ID,
 		.FilterIndex = 0, // can be 0-127, and this MUST be within the range of [0, #filters) you configured.
-		.FilterType = FDCAN_FILTER_DUAL, // this is for one OR two specific ID filtering.
+		.FilterType = FDCAN_FILTER_RANGE, // this is for a range of ID filtering from ID1 to ID2.
 		.FilterConfig = FDCAN_FILTER_TO_RXFIFO0, // place matching ID messaged into RX FIFO0
-		.FilterID1 = 0x7FE, // ID to filter for
+		.FilterID1 = 0x000, // arbitrary range for now.
 		.FilterID2 = 0x7FF,
 		.RxBufferIndex = 0, // This property is ignored for the above FilterConfig
 		.IsCalibrationMsg = 0 // This property is ignored for the above FilterConfig
@@ -102,7 +104,10 @@ FDCAN_FilterTypeDef CAN_filter = {
 
 CR_shift_light shift_light_handle;
 CR_encoder encoder_UI_handle;
+CR_button_state menu_btn_state = BUTTON_RELEASED;
+CR_button_state back_btn_state = BUTTON_RELEASED;
 
+CR_encoder_status encoder_status = ENCODER_STANDBY;
 
 /* USER CODE END PV */
 
@@ -181,7 +186,6 @@ int main(void)
   MX_UART8_Init();
   MX_CRC_Init();
   MX_I2C2_Init();
-  MX_SPI2_Init();
   MX_TIM15_Init();
   MX_DSIHOST_DSI_Init();
   MX_RNG_Init();
@@ -359,36 +363,46 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	CR_encoder_status result = CR_check_encoder(&encoder_UI_handle);
-	if (result == ENCODER_CLICK){
-		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-	} else if (result == ENCODER_RIGHT){
-		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-	} else if (result == ENCODER_LEFT){
-		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
-		HAL_Delay(500);
-		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
-		HAL_Delay(500);
+//	if (GPIO_Pin == pin_encoder_CLK.GPIO_Pin || GPIO_Pin == pin_encoder_SW.GPIO_Pin || GPIO_Pin == pin_encoder_DT.GPIO_Pin){
+//
+//
+//	}
+//	if (encoder_UI_handle.status == ENCODER_CLICK){
+//		menu_btn_state = BUTTON_PRESSED;
+//	}
+//		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 255, 255, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	} else if (encoder_status == ENCODER_RIGHT){
+//		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	} else if (encoder_status == ENCODER_LEFT){
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 255);
+//		HAL_Delay(500);
+//		CR_set_all_lights(&shift_light_handle, 0, 0, 0);
+//		HAL_Delay(500);
+//	}
+	// Menu and back button rising interrupts
+	if (GPIO_Pin == pin_btn_menu.GPIO_Pin) {
+		menu_btn_state = BUTTON_PRESSED;
+	} else if (GPIO_Pin == pin_btn_back.GPIO_Pin){
+		back_btn_state = BUTTON_PRESSED;
 	}
 }
 

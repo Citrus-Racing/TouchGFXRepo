@@ -32,6 +32,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>Citrus_Libraries</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Citrus_Libraries</locationURI>
+		</link>
+		<link>
 			<name>Drivers/CMSIS/system_stm32h7xx_dualcore_boot_cm4_cm7.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c</locationURI>
