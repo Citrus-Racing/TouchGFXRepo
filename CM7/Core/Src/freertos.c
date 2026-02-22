@@ -372,9 +372,42 @@ void ShiftLightFunc(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	//CR_cascade_line_blink(&shift_light_handle, 0, 0, 100);
-	CR_Test_Sequence_Flash(&shift_light_handle);
-	osDelay(100);
+	uint16_t rpm = latest_CAN_Vals.engine_speed;
+
+	uint16_t lightnum = (uint16_t)(((float)rpm / 13000) * shift_light_handle.num_leds);
+
+	uint8_t r = 0;
+	uint8_t g = 0;
+	uint8_t b = 0;
+
+	if (rpm > 10000)
+	{
+		r = 255;
+		g = 0;
+		b = 0;
+	}
+	else if (rpm > 8000)
+	{
+		r = 255;
+		g = 155;
+		b = 0;
+	}
+	else
+	{
+		r = 0;
+		g = 255;
+		b = 0;
+	}
+
+	CR_clear_all_lights(&shift_light_handle);
+	for(int i = 0; i < shift_light_handle.num_leds; i++){
+		if (i < lightnum)
+			CR_set_light(&shift_light_handle, i, r, g, b); //green, blue, red
+		else
+			CR_set_light(&shift_light_handle, i, 0, 0, 0);
+	}
+
+	osDelay(20);
   }
   /* USER CODE END ShiftLightFunc */
 }
