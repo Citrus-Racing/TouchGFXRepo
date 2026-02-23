@@ -6,6 +6,7 @@
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 #include "CR_CAN_parse.h"
+#include "CR_flash_storage.h"
 
 
 using namespace touchgfx;
@@ -40,7 +41,15 @@ public:
 
     // Fuel level accessors called by the view
     uint8_t getFuelLevel();
-    void saveFuelLevel(uint8_t litres);
+    void saveFuelLevel(uint8_t tenths);
+
+    // Driver profile accessors called by the view
+    bool isProfileFilled(uint8_t index);
+    void getProfile(uint8_t index, CR_profile_t * out);
+    void saveProfile(uint8_t index, const CR_profile_t * profile);
+    void setActiveProfile(uint8_t index);
+    uint8_t getActiveProfileIndex();
+    void saveAll();
 
 private:
     Screen1Presenter();

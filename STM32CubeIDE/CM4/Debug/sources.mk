@@ -40,6 +40,10 @@ CPP_DEPS :=
 SUBDIRS := \
 Application/User/Core \
 Application/User/Startup \
+Citrus_Libraries/CAN_Bus_Lib \
+Citrus_Libraries/Flash_Storage_Lib \
+Citrus_Libraries/Rotary_Encoder_Lib \
+Citrus_Libraries/Shift_Light_Lib \
 Drivers/CMSIS \
 Drivers/STM32H7xx_HAL_Driver \
 

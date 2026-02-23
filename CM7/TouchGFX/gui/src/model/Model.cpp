@@ -16,13 +16,28 @@ extern CR_shift_light shift_light_handle;
 extern CR_encoder encoder_UI_handle;
 //extern osMessageQueueId_t ADCQueueHandle;
 //extern osMessageQueueId_t CANMessageQueueHandle;
-Model::Model() : fuel_level_tenths(55), modelListener(0),
-                 menu_btn_debounce_ticks(0), back_btn_debounce_ticks(0)
+Model::Model() : fuel_level_tenths(55), active_profile_index(0xFF),
+                 modelListener(0),
+                 menu_btn_debounce_ticks(0), back_btn_debounce_ticks(0),
+                 encoder_debounce_ticks(0)
 {
     // Read settings from flash.
     CR_settings_t settings;
     CR_flash_read_settings(&settings);
-    fuel_level_tenths = settings.fuel_level_tenths;
+    fuel_level_tenths    = settings.fuel_level_tenths;
+    active_profile_index = settings.active_profile_index;
+
+    // Read all driver profiles from flash.
+    CR_flash_read_all_profiles(profiles);
+}
+
+void Model::saveAll()
+{
+    CR_settings_t settings;
+    settings.magic                = CR_SETTINGS_MAGIC;
+    settings.fuel_level_tenths    = fuel_level_tenths;
+    settings.active_profile_index = active_profile_index;
+    CR_flash_write_all(&settings, profiles);
 }
 
 void Model::tick()
@@ -43,6 +58,7 @@ void Model::tick()
 	// Decrement debounce counters each tick
 	if(menu_btn_debounce_ticks > 0){ menu_btn_debounce_ticks--; }
 	if(back_btn_debounce_ticks > 0){ back_btn_debounce_ticks--; }
+	if(encoder_debounce_ticks > 0){ encoder_debounce_ticks--; }
 
 	if(menu_btn_state == BUTTON_PRESSED){
 		menu_btn_state = BUTTON_RELEASED;
@@ -62,12 +78,15 @@ void Model::tick()
 	if(encoder_UI_handle.status == ENCODER_RIGHT){
 		encoder_UI_handle.status = ENCODER_STANDBY;
 		modelListener->cursor_down();
-	} else if (encoder_UI_handle.status == ENCODER_LEFT){
+	} else if(encoder_UI_handle.status == ENCODER_LEFT){
 		encoder_UI_handle.status = ENCODER_STANDBY;
 		modelListener->cursor_up();
-	} else if (encoder_UI_handle.status == ENCODER_CLICK){
+	} else if(encoder_UI_handle.status == ENCODER_CLICK){
 		encoder_UI_handle.status = ENCODER_STANDBY;
-		modelListener->encoder_click();
+		if(encoder_debounce_ticks == 0){
+			encoder_debounce_ticks = ENCODER_DEBOUNCE_TICKS;
+			modelListener->encoder_click();
+		}
 	}
 
 }

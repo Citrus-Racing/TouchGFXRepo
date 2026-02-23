@@ -60,10 +60,29 @@ uint8_t Screen1Presenter::getFuelLevel(){
 
 void Screen1Presenter::saveFuelLevel(uint8_t tenths){
     model->fuel_level_tenths = tenths;
+    model->saveAll();
+}
 
-    // Persist to flash so the value survives a power cycle
-    CR_settings_t settings;
-    settings.magic             = CR_SETTINGS_MAGIC;
-    settings.fuel_level_tenths = tenths;
-    CR_flash_write_settings(&settings);
+bool Screen1Presenter::isProfileFilled(uint8_t index){
+    return (index < CR_MAX_PROFILES && model->profiles[index].magic == CR_PROFILE_MAGIC);
+}
+
+void Screen1Presenter::getProfile(uint8_t index, CR_profile_t * out){
+    if(index < CR_MAX_PROFILES) *out = model->profiles[index];
+}
+
+void Screen1Presenter::saveProfile(uint8_t index, const CR_profile_t * profile){
+    if(index < CR_MAX_PROFILES) model->profiles[index] = *profile;
+}
+
+void Screen1Presenter::setActiveProfile(uint8_t index){
+    model->active_profile_index = index;
+}
+
+uint8_t Screen1Presenter::getActiveProfileIndex(){
+    return model->active_profile_index;
+}
+
+void Screen1Presenter::saveAll(){
+    model->saveAll();
 }

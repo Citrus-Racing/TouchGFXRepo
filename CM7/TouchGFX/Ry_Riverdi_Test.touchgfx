@@ -13,7 +13,7 @@
           },
           {
             "Type": "Container",
-            "Name": "main_display",
+            "Name": "main_dashboard",
             "Width": 1024,
             "Height": 600,
             "Components": [
@@ -1011,7 +1011,7 @@
                 "X": 54,
                 "Y": 40,
                 "Width": 177,
-                "Height": 70,
+                "Height": 84,
                 "TextId": "__SingleUse_IODG",
                 "TextRotation": "0",
                 "Color": {
@@ -1039,6 +1039,1105 @@
                   "TextId": "__SingleUse_OTDM",
                   "UseBuffer": true,
                   "BufferSize": 11
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "display_customizer_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "dbx_widget_selector",
+                "X": 28,
+                "Y": 59,
+                "Width": 312,
+                "Height": 106,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 1
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_speed_1",
+                "X": 43,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_rpm_1",
+                "X": 370,
+                "Y": 29,
+                "Width": 284,
+                "Height": 58,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_fuel_1",
+                "X": 288,
+                "Y": 517,
+                "Width": 454,
+                "Height": 50,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "vx_oilt_1",
+                "X": 697,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_DRS_1",
+                "X": 697,
+                "Y": 187,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_alag_1",
+                "X": 697,
+                "Y": 295,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_lch_1",
+                "X": 697,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_gear_1",
+                "X": 370,
+                "Y": 116,
+                "Width": 284,
+                "Height": 248,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_oilp_1",
+                "X": 43,
+                "Y": 187,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_batt_1",
+                "X": 43,
+                "Y": 295,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_time_1",
+                "X": 43,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Color": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_batt_1",
+                "X": 48,
+                "Y": 301,
+                "Width": 47,
+                "Height": 30,
+                "TextId": "__SingleUse_HH01",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_time_1",
+                "X": 46,
+                "Y": 407,
+                "Width": 61,
+                "Height": 30,
+                "TextId": "__SingleUse_FWDL",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_speed_1",
+                "X": 911,
+                "Y": 78,
+                "Width": 65,
+                "Height": 25,
+                "TextId": "__SingleUse_35U5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_gear_1",
+                "X": 480,
+                "Y": 308,
+                "Width": 65,
+                "Height": 25,
+                "TextId": "__SingleUse_FFRV",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_v_batt_1",
+                "X": 279,
+                "Y": 300,
+                "Width": 47,
+                "Height": 30,
+                "TextId": "__SingleUse_ORIS",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_oilt_1",
+                "X": 47,
+                "Y": 79,
+                "Width": 55,
+                "Height": 25,
+                "TextId": "__SingleUse_W3D2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_f_oilt_1",
+                "X": 281,
+                "Y": 77,
+                "Width": 43,
+                "Height": 28,
+                "TextId": "__SingleUse_B388",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_mph_speed_1",
+                "X": 703,
+                "Y": 78,
+                "Width": 60,
+                "Height": 25,
+                "TextId": "__SingleUse_VGMQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_psi_oilp_1",
+                "X": 267,
+                "Y": 190,
+                "Width": 55,
+                "Height": 28,
+                "TextId": "__SingleUse_MHLG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_sw_alag_1",
+                "X": 702,
+                "Y": 300,
+                "Width": 55,
+                "Height": 29,
+                "TextId": "__SingleUse_TBK3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_sw_drs_1",
+                "X": 702,
+                "Y": 190,
+                "Width": 55,
+                "Height": 29,
+                "TextId": "__SingleUse_G132",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_sw_lch_1",
+                "X": 703,
+                "Y": 409,
+                "Width": 55,
+                "Height": 29,
+                "TextId": "__SingleUse_2IEW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_min_time_1",
+                "X": 263,
+                "Y": 407,
+                "Width": 55,
+                "Height": 29,
+                "TextId": "__SingleUse_LQ10",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_oilp_1",
+                "X": 47,
+                "Y": 190,
+                "Width": 53,
+                "Height": 25,
+                "TextId": "__SingleUse_O5WG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_batt_1",
+                "X": 107,
+                "Y": 301,
+                "Width": 163,
+                "Height": 63,
+                "TextId": "__SingleUse_JWEE",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_rpm_1",
+                "X": 370,
+                "Y": 25,
+                "Width": 284,
+                "Height": 66,
+                "TextId": "__SingleUse_L8VQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_speed_1",
+                "X": 742,
+                "Y": 80,
+                "Width": 195,
+                "Height": 64,
+                "TextId": "__SingleUse_46BI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_oilt_1",
+                "X": 107,
+                "Y": 80,
+                "Width": 163,
+                "Height": 64,
+                "TextId": "__SingleUse_ZGLI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_oilp_1",
+                "X": 87,
+                "Y": 193,
+                "Width": 195,
+                "Height": 64,
+                "TextId": "__SingleUse_D3N3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_alag_1",
+                "X": 742,
+                "Y": 300,
+                "Width": 195,
+                "Height": 64,
+                "TextId": "__SingleUse_COS8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_drs_1",
+                "X": 742,
+                "Y": 193,
+                "Width": 195,
+                "Height": 64,
+                "TextId": "__SingleUse_21B9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_lch_1",
+                "X": 742,
+                "Y": 408,
+                "Width": 195,
+                "Height": 64,
+                "TextId": "__SingleUse_MTKK",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_alag_1",
+                "X": 911,
+                "Y": 300,
+                "Width": 65,
+                "Height": 30,
+                "TextId": "__SingleUse_6W5P",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_drs_1",
+                "X": 911,
+                "Y": 191,
+                "Width": 65,
+                "Height": 30,
+                "TextId": "__SingleUse_0ZAO",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_lch_1",
+                "X": 928,
+                "Y": 408,
+                "Width": 51,
+                "Height": 30,
+                "TextId": "__SingleUse_7XVZ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_time_1",
+                "X": 76,
+                "Y": 409,
+                "Width": 218,
+                "Height": 61,
+                "TextId": "__SingleUse_NZF0",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_gear_1",
+                "X": 398,
+                "Y": 132,
+                "Width": 228,
+                "Height": 183,
+                "TextId": "__SingleUse_BERW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "lag_txt_1",
+                "X": 368,
+                "Y": 398,
+                "Width": 94,
+                "Height": 25,
+                "TextId": "__SingleUse_73QN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "launch_txt_1",
+                "X": 465,
+                "Y": 398,
+                "Width": 94,
+                "Height": 25,
+                "TextId": "__SingleUse_FIM6",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "ui_lock_txt_1",
+                "X": 560,
+                "Y": 398,
+                "Width": 94,
+                "Height": 25,
+                "TextId": "__SingleUse_U8RT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Circle",
+                "Name": "circ_uc_1",
+                "X": 395,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 13.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "dcirc_uc_1",
+                "X": 395,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 82,
+                  "Green": 166,
+                  "Blue": 250
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 10.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circ_can_1",
+                "X": 492,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 13.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "dcirc_can_1",
+                "X": 492,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 82,
+                  "Green": 166,
+                  "Blue": 250
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 10.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circ_lockui_1",
+                "X": 586,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 13.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "dcirc_lockui_1",
+                "X": 586,
+                "Y": 438,
+                "Width": 40,
+                "Height": 38,
+                "Color": {
+                  "Red": 82,
+                  "Green": 166,
+                  "Blue": 250
+                },
+                "CenterX": 20.0,
+                "CenterY": 20.0,
+                "Radius": 10.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Box",
+                "Name": "dbx_fuel_1",
+                "X": 294,
+                "Y": 523,
+                "Width": 442,
+                "Height": 38,
+                "Color": {
+                  "Red": 138,
+                  "Green": 138,
+                  "Blue": 138
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "image1_1",
+                "Y": 517,
+                "Width": 100,
+                "Height": 83,
+                "RelativeFilename": "TheCitrusRacingLogo_darkbgnd-768x641.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_title",
+                "X": 18,
+                "Y": 8,
+                "Width": 350,
+                "Height": 51,
+                "TextId": "__SingleUse_SYYP",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "driver_profiles_container",
+            "X": 339,
+            "Y": 72,
+            "Width": 344,
+            "Height": 409,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box3",
+                "X": 31,
+                "Y": 39,
+                "Width": 284,
+                "Height": 276,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "Alpha": 250
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "dbx_profile_selector",
+                "X": 116,
+                "Y": 123,
+                "Width": 71,
+                "Height": 28,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 2
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_driver_profiles_title",
+                "X": 49,
+                "Y": 64,
+                "Width": 249,
+                "Height": 42,
+                "TextId": "__SingleUse_V2W8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_1",
+                "X": 90,
+                "Y": 124,
+                "Width": 91,
+                "Height": 24,
+                "TextId": "__SingleUse_AR08",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_44BN",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_2",
+                "X": 90,
+                "Y": 158,
+                "Width": 91,
+                "Height": 24,
+                "TextId": "__SingleUse_4ML2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OLT5",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_3",
+                "X": 90,
+                "Y": 193,
+                "Width": 91,
+                "Height": 24,
+                "TextId": "__SingleUse_JY35",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_PEBN",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_4",
+                "X": 90,
+                "Y": 229,
+                "Width": 91,
+                "Height": 24,
+                "TextId": "__SingleUse_48MM",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_U5TG",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_5",
+                "X": 90,
+                "Y": 261,
+                "Width": 91,
+                "Height": 24,
+                "TextId": "__SingleUse_U9MG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O80J",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_1",
+                "X": 218,
+                "Y": 124,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_56UT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_H8NQ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_2",
+                "X": 218,
+                "Y": 158,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_XID2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_6N3Y",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_3",
+                "X": 218,
+                "Y": 193,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_NP9W",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_SKNR",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_4",
+                "X": 218,
+                "Y": 229,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_K8F1",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_LGAJ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_5",
+                "X": 218,
+                "Y": 261,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_FV0O",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_GI66",
+                  "UseBuffer": true,
+                  "BufferSize": 10
                 }
               }
             ]
