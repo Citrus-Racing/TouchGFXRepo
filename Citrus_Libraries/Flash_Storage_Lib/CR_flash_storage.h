@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-// Flash sector reserved for dashboard settings.
+// Flash sector reserved for dashboard settings. (Fuel level and the active profile)
 // Sector 4 of Bank 1 starts at 0x08080000. Chosen from an educated guess on where it should be written
 // Nothing has broken yet
 #define CR_SETTINGS_FLASH_ADDRESS   0x08080000
@@ -41,13 +41,15 @@ typedef struct
 
 // A single driver profile stored in one flashword.
 // Byte 0: magic (0xB7 if filled, 0xFF if empty/erased)
-// Bytes 1-12: color palette index (0-7) for each dashboard box
-// Bytes 13-15: reserved padding (will be used for bg and maybe something else)
+// Bytes 1-11: color palette index (0-7) for each dashboard box
+// Byte 12: background color palette index
+// Bytes 13-15: reserved padding
 typedef struct
 {
     uint8_t magic;
     uint8_t box_colors[CR_NUM_BOX_COLORS];
-    uint8_t reserved[4];
+    uint8_t bg_color;
+    uint8_t reserved[3];
 } CR_profile_t;
 
 // Erase the settings sector in preparation for a write.

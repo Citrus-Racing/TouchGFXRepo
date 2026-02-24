@@ -33,12 +33,12 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box bx_dashbackground;
     touchgfx::Container main_dashboard;
-    touchgfx::BoxWithBorder bx_speed;
+    touchgfx::Box bx_dashbackground;
+    touchgfx::BoxWithBorder bx_oilt;
     touchgfx::BoxWithBorder bx_rpm;
     touchgfx::BoxWithBorder bx_fuel;
-    touchgfx::BoxWithBorder vx_oilt;
+    touchgfx::BoxWithBorder bx_speed;
     touchgfx::BoxWithBorder bx_DRS;
     touchgfx::BoxWithBorder bx_alag;
     touchgfx::BoxWithBorder bx_lch;
@@ -103,6 +103,7 @@ protected:
     touchgfx::TextArea txt_fuel_level;
     touchgfx::TextAreaWithOneWildcard dtxt_set_level;
     touchgfx::Container display_customizer_container;
+    touchgfx::Box bx_dashbackground_1;
     touchgfx::BoxWithBorder dbx_widget_selector;
     touchgfx::BoxWithBorder bx_speed_1;
     touchgfx::BoxWithBorder bx_rpm_1;
@@ -160,7 +161,11 @@ protected:
     touchgfx::Box dbx_fuel_1;
     touchgfx::Image image1_1;
     touchgfx::TextArea txt_title;
-    touchgfx::Container driver_profiles_container;
+    touchgfx::BoxWithBorder bx_change_bg;
+    touchgfx::TextArea txt_change_background;
+    touchgfx::BoxWithBorder bx_reset;
+    touchgfx::TextArea txt_reset_default;
+    touchgfx::Container menu_driver_profiles_container;
     touchgfx::Box box3;
     touchgfx::BoxWithBorder dbx_profile_selector;
     touchgfx::TextArea txt_driver_profiles_title;

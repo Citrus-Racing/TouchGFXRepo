@@ -51,6 +51,7 @@ void CR_flash_write_all(const CR_settings_t * settings, const CR_profile_t profi
         for(int c = 0; c < CR_NUM_BOX_COLORS; c++){
             bytes[1 + c] = profiles[i].box_colors[c];
         }
+        bytes[12] = profiles[i].bg_color; // dashboard background color index
 
         uint32_t addr = CR_PROFILES_FLASH_BASE + (i * CR_PROFILE_FLASHWORD_SIZE);
         HAL_FLASH_Program(FLASH_TYPEPROGRAM_FLASHWORD, addr, (uint32_t)flashword);
@@ -94,6 +95,7 @@ HAL_StatusTypeDef CR_flash_read_profile(uint8_t index, CR_profile_t * profile)
     for(int c = 0; c < CR_NUM_BOX_COLORS; c++){
         profile->box_colors[c] = raw[1 + c];
     }
+    profile->bg_color = raw[12]; // dashboard background color index
     profile->reserved[0] = 0;
     profile->reserved[1] = 0;
     profile->reserved[2] = 0;

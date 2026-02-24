@@ -6,20 +6,20 @@
         "CanvasBufferSize": 15360,
         "Components": [
           {
-            "Type": "Box",
-            "Name": "bx_dashbackground",
-            "Width": 1024,
-            "Height": 600
-          },
-          {
             "Type": "Container",
             "Name": "main_dashboard",
             "Width": 1024,
             "Height": 600,
             "Components": [
               {
+                "Type": "Box",
+                "Name": "bx_dashbackground",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
                 "Type": "BoxWithBorder",
-                "Name": "bx_speed",
+                "Name": "bx_oilt",
                 "X": 43,
                 "Y": 74,
                 "Width": 284,
@@ -76,7 +76,7 @@
               },
               {
                 "Type": "BoxWithBorder",
-                "Name": "vx_oilt",
+                "Name": "bx_speed",
                 "X": 697,
                 "Y": 74,
                 "Width": 284,
@@ -1051,6 +1051,12 @@
             "Visible": false,
             "Components": [
               {
+                "Type": "Box",
+                "Name": "bx_dashbackground_1",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
                 "Type": "BoxWithBorder",
                 "Name": "dbx_widget_selector",
                 "X": 28,
@@ -1869,12 +1875,72 @@
                   "Green": 255,
                   "Blue": 255
                 }
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_change_bg",
+                "X": 717,
+                "Y": 9,
+                "Width": 236,
+                "Height": 49,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_change_background",
+                "X": 736,
+                "Y": 21,
+                "Width": 202,
+                "Height": 24,
+                "TextId": "__SingleUse_TIXJ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_reset",
+                "X": 755,
+                "Y": 518,
+                "Width": 236,
+                "Height": 49,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_reset_default",
+                "X": 787,
+                "Y": 530,
+                "Width": 172,
+                "Height": 24,
+                "TextId": "__SingleUse_IF7N",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
               }
             ]
           },
           {
             "Type": "Container",
-            "Name": "driver_profiles_container",
+            "Name": "menu_driver_profiles_container",
             "X": 339,
             "Y": 72,
             "Width": 344,
@@ -1900,7 +1966,7 @@
                 "Name": "dbx_profile_selector",
                 "X": 113,
                 "Y": 123,
-                "Width": 74,
+                "Width": 85,
                 "Height": 28,
                 "Color": {
                   "Red": 50,
@@ -1935,7 +2001,7 @@
                 "Name": "txt_profile_status_1",
                 "X": 90,
                 "Y": 124,
-                "Width": 91,
+                "Width": 105,
                 "Height": 24,
                 "TextId": "__SingleUse_AR08",
                 "TextRotation": "0",
@@ -1944,7 +2010,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_44BN",
                   "UseBuffer": true,
@@ -1956,7 +2021,7 @@
                 "Name": "txt_profile_status_2",
                 "X": 90,
                 "Y": 158,
-                "Width": 91,
+                "Width": 105,
                 "Height": 24,
                 "TextId": "__SingleUse_4ML2",
                 "TextRotation": "0",
@@ -1965,7 +2030,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_OLT5",
                   "UseBuffer": true,
@@ -1977,7 +2041,7 @@
                 "Name": "txt_profile_status_3",
                 "X": 90,
                 "Y": 193,
-                "Width": 91,
+                "Width": 105,
                 "Height": 24,
                 "TextId": "__SingleUse_JY35",
                 "TextRotation": "0",
@@ -1986,7 +2050,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_PEBN",
                   "UseBuffer": true,
@@ -1998,7 +2061,7 @@
                 "Name": "txt_profile_status_4",
                 "X": 90,
                 "Y": 229,
-                "Width": 91,
+                "Width": 105,
                 "Height": 24,
                 "TextId": "__SingleUse_48MM",
                 "TextRotation": "0",
@@ -2007,7 +2070,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_U5TG",
                   "UseBuffer": true,
@@ -2019,7 +2081,7 @@
                 "Name": "txt_profile_status_5",
                 "X": 90,
                 "Y": 261,
-                "Width": 91,
+                "Width": 105,
                 "Height": 24,
                 "TextId": "__SingleUse_U9MG",
                 "TextRotation": "0",
@@ -2028,7 +2090,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_O80J",
                   "UseBuffer": true,

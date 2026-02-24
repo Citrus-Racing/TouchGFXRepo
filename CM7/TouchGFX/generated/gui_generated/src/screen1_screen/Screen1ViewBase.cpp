@@ -15,16 +15,16 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    main_dashboard.setPosition(0, 0, 1024, 600);
     bx_dashbackground.setPosition(0, 0, 1024, 600);
     bx_dashbackground.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    add(bx_dashbackground);
+    main_dashboard.add(bx_dashbackground);
 
-    main_dashboard.setPosition(0, 0, 1024, 600);
-    bx_speed.setPosition(43, 74, 284, 76);
-    bx_speed.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
-    bx_speed.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    bx_speed.setBorderSize(3);
-    main_dashboard.add(bx_speed);
+    bx_oilt.setPosition(43, 74, 284, 76);
+    bx_oilt.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
+    bx_oilt.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bx_oilt.setBorderSize(3);
+    main_dashboard.add(bx_oilt);
 
     bx_rpm.setPosition(370, 29, 284, 58);
     bx_rpm.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
@@ -38,11 +38,11 @@ Screen1ViewBase::Screen1ViewBase()
     bx_fuel.setBorderSize(3);
     main_dashboard.add(bx_fuel);
 
-    vx_oilt.setPosition(697, 74, 284, 76);
-    vx_oilt.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
-    vx_oilt.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    vx_oilt.setBorderSize(3);
-    main_dashboard.add(vx_oilt);
+    bx_speed.setPosition(697, 74, 284, 76);
+    bx_speed.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
+    bx_speed.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bx_speed.setBorderSize(3);
+    main_dashboard.add(bx_speed);
 
     bx_DRS.setPosition(697, 187, 284, 76);
     bx_DRS.setColor(touchgfx::Color::getColorFromRGB(10, 10, 10));
@@ -423,6 +423,10 @@ Screen1ViewBase::Screen1ViewBase()
 
     display_customizer_container.setPosition(0, 0, 1024, 600);
     display_customizer_container.setVisible(false);
+    bx_dashbackground_1.setPosition(0, 0, 1024, 600);
+    bx_dashbackground_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    display_customizer_container.add(bx_dashbackground_1);
+
     dbx_widget_selector.setPosition(28, 59, 312, 106);
     dbx_widget_selector.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -743,71 +747,90 @@ Screen1ViewBase::Screen1ViewBase()
     txt_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SYYP));
     display_customizer_container.add(txt_title);
 
+    bx_change_bg.setPosition(717, 9, 236, 49);
+    bx_change_bg.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    bx_change_bg.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bx_change_bg.setBorderSize(3);
+    display_customizer_container.add(bx_change_bg);
+
+    txt_change_background.setXY(736, 21);
+    txt_change_background.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_change_background.setLinespacing(0);
+    txt_change_background.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TIXJ));
+    display_customizer_container.add(txt_change_background);
+
+    bx_reset.setPosition(755, 518, 236, 49);
+    bx_reset.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    bx_reset.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bx_reset.setBorderSize(3);
+    display_customizer_container.add(bx_reset);
+
+    txt_reset_default.setXY(787, 530);
+    txt_reset_default.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_reset_default.setLinespacing(0);
+    txt_reset_default.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IF7N));
+    display_customizer_container.add(txt_reset_default);
+
     add(display_customizer_container);
 
-    driver_profiles_container.setPosition(339, 72, 344, 409);
-    driver_profiles_container.setVisible(false);
+    menu_driver_profiles_container.setPosition(339, 72, 344, 409);
+    menu_driver_profiles_container.setVisible(false);
     box3.setPosition(31, 39, 284, 276);
     box3.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
     box3.setAlpha(250);
-    driver_profiles_container.add(box3);
+    menu_driver_profiles_container.add(box3);
 
-    dbx_profile_selector.setPosition(113, 123, 74, 28);
+    dbx_profile_selector.setPosition(113, 123, 85, 28);
     dbx_profile_selector.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
     dbx_profile_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dbx_profile_selector.setBorderSize(2);
-    driver_profiles_container.add(dbx_profile_selector);
+    menu_driver_profiles_container.add(dbx_profile_selector);
 
     txt_driver_profiles_title.setXY(49, 64);
     txt_driver_profiles_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_driver_profiles_title.setLinespacing(0);
     txt_driver_profiles_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_V2W8));
-    driver_profiles_container.add(txt_driver_profiles_title);
+    menu_driver_profiles_container.add(txt_driver_profiles_title);
 
-    txt_profile_status_1.setXY(90, 124);
+    txt_profile_status_1.setPosition(90, 124, 105, 24);
     txt_profile_status_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_profile_status_1.setLinespacing(0);
     Unicode::snprintf(txt_profile_status_1Buffer, TXT_PROFILE_STATUS_1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_44BN).getText());
     txt_profile_status_1.setWildcard(txt_profile_status_1Buffer);
-    txt_profile_status_1.resizeToCurrentText();
     txt_profile_status_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AR08));
-    driver_profiles_container.add(txt_profile_status_1);
+    menu_driver_profiles_container.add(txt_profile_status_1);
 
-    txt_profile_status_2.setXY(90, 158);
+    txt_profile_status_2.setPosition(90, 158, 105, 24);
     txt_profile_status_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_profile_status_2.setLinespacing(0);
     Unicode::snprintf(txt_profile_status_2Buffer, TXT_PROFILE_STATUS_2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OLT5).getText());
     txt_profile_status_2.setWildcard(txt_profile_status_2Buffer);
-    txt_profile_status_2.resizeToCurrentText();
     txt_profile_status_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4ML2));
-    driver_profiles_container.add(txt_profile_status_2);
+    menu_driver_profiles_container.add(txt_profile_status_2);
 
-    txt_profile_status_3.setXY(90, 193);
+    txt_profile_status_3.setPosition(90, 193, 105, 24);
     txt_profile_status_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_profile_status_3.setLinespacing(0);
     Unicode::snprintf(txt_profile_status_3Buffer, TXT_PROFILE_STATUS_3_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_PEBN).getText());
     txt_profile_status_3.setWildcard(txt_profile_status_3Buffer);
-    txt_profile_status_3.resizeToCurrentText();
     txt_profile_status_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JY35));
-    driver_profiles_container.add(txt_profile_status_3);
+    menu_driver_profiles_container.add(txt_profile_status_3);
 
-    txt_profile_status_4.setXY(90, 229);
+    txt_profile_status_4.setPosition(90, 229, 105, 24);
     txt_profile_status_4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_profile_status_4.setLinespacing(0);
     Unicode::snprintf(txt_profile_status_4Buffer, TXT_PROFILE_STATUS_4_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_U5TG).getText());
     txt_profile_status_4.setWildcard(txt_profile_status_4Buffer);
-    txt_profile_status_4.resizeToCurrentText();
     txt_profile_status_4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_48MM));
-    driver_profiles_container.add(txt_profile_status_4);
+    menu_driver_profiles_container.add(txt_profile_status_4);
 
-    txt_profile_status_5.setXY(90, 261);
+    txt_profile_status_5.setPosition(90, 261, 105, 24);
     txt_profile_status_5.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_profile_status_5.setLinespacing(0);
     Unicode::snprintf(txt_profile_status_5Buffer, TXT_PROFILE_STATUS_5_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_O80J).getText());
     txt_profile_status_5.setWildcard(txt_profile_status_5Buffer);
-    txt_profile_status_5.resizeToCurrentText();
     txt_profile_status_5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U9MG));
-    driver_profiles_container.add(txt_profile_status_5);
+    menu_driver_profiles_container.add(txt_profile_status_5);
 
     txt_profile_edit_1.setXY(218, 124);
     txt_profile_edit_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -816,7 +839,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_profile_edit_1.setWildcard(txt_profile_edit_1Buffer);
     txt_profile_edit_1.resizeToCurrentText();
     txt_profile_edit_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_56UT));
-    driver_profiles_container.add(txt_profile_edit_1);
+    menu_driver_profiles_container.add(txt_profile_edit_1);
 
     txt_profile_edit_2.setXY(218, 158);
     txt_profile_edit_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -825,7 +848,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_profile_edit_2.setWildcard(txt_profile_edit_2Buffer);
     txt_profile_edit_2.resizeToCurrentText();
     txt_profile_edit_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XID2));
-    driver_profiles_container.add(txt_profile_edit_2);
+    menu_driver_profiles_container.add(txt_profile_edit_2);
 
     txt_profile_edit_3.setXY(218, 193);
     txt_profile_edit_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -834,7 +857,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_profile_edit_3.setWildcard(txt_profile_edit_3Buffer);
     txt_profile_edit_3.resizeToCurrentText();
     txt_profile_edit_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NP9W));
-    driver_profiles_container.add(txt_profile_edit_3);
+    menu_driver_profiles_container.add(txt_profile_edit_3);
 
     txt_profile_edit_4.setXY(218, 229);
     txt_profile_edit_4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -843,7 +866,7 @@ Screen1ViewBase::Screen1ViewBase()
     txt_profile_edit_4.setWildcard(txt_profile_edit_4Buffer);
     txt_profile_edit_4.resizeToCurrentText();
     txt_profile_edit_4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_K8F1));
-    driver_profiles_container.add(txt_profile_edit_4);
+    menu_driver_profiles_container.add(txt_profile_edit_4);
 
     txt_profile_edit_5.setXY(218, 261);
     txt_profile_edit_5.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -852,9 +875,9 @@ Screen1ViewBase::Screen1ViewBase()
     txt_profile_edit_5.setWildcard(txt_profile_edit_5Buffer);
     txt_profile_edit_5.resizeToCurrentText();
     txt_profile_edit_5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_FV0O));
-    driver_profiles_container.add(txt_profile_edit_5);
+    menu_driver_profiles_container.add(txt_profile_edit_5);
 
-    add(driver_profiles_container);
+    add(menu_driver_profiles_container);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
