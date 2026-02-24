@@ -41,28 +41,28 @@ private:
 
     void refresh_fuel_display(uint8_t tenths);
 
-    // --- Driver profiles selector: 10 positions (5 profiles x 2 columns) ---
+    // Driver profiles selector: 10 positions (5 profiles x 2 columns)
     uint8_t profile_selector_index = 0;
     static const uint8_t  PROFILE_SELECTOR_MAX = 9;
     static const int16_t  PROFILE_STATUS_X = 113;
     static const int16_t  PROFILE_EDIT_X   = 210;
-    static const int16_t  PROFILE_STATUS_W = 74;
+    static const int16_t  PROFILE_STATUS_W = 74; // Box needs to change width based on if its on "Status" or "Edit"
     static const int16_t  PROFILE_EDIT_W   = 58;
     static constexpr int16_t PROFILE_ROW_Y[5] = { 123, 157, 192, 228, 260 };
 
     void update_profile_selector();
     void refresh_profile_status_texts();
 
-    // --- Color palette ---
+    // Color palette
     struct ColorEntry {
         uint8_t r, g, b;      // fill color
         uint8_t br, bg, bb;   // border color
     };
     static const ColorEntry COLOR_PALETTE[CR_NUM_PALETTE_COLORS];
 
-    // --- Display customizer state ---
+    // Display customizer state
     // 11 customizable boxes:
-    //  0:speed 1:rpm 2:gear 3:fuel(dbx_fuel) 4:oilt 5:oilp 6:batt 7:time 8:DRS 9:alag 10:lch
+    //  0:speed(Name of box, actually the OilT) 1:rpm 2:gear 3:fuel(dbx_fuel) 4:oilt 5:oilp 6:batt 7:time 8:DRS 9:alag 10:lch
     static const uint8_t NUM_CUSTOM_BOXES = 11;
 
     uint8_t customizer_scroll_pos = 0;      // position in scroll order (0-10)
@@ -71,7 +71,7 @@ private:
     uint8_t pending_colors[NUM_CUSTOM_BOXES] = {};  // working copy of color indices
 
     // Scroll order: left column top-down, center top-down, right column top-down
-    // Maps scroll position → box index in CUSTOMIZER_BOX_POS / pending_colors
+    // Maps scroll position to box index in CUSTOMIZER_BOX_POS / pending_colors
     static constexpr uint8_t BOX_SCROLL_ORDER[NUM_CUSTOM_BOXES] = {
         0, 5, 6, 7,    // left:   speed, oilp, batt, time
         1, 2, 3,        // center: rpm, gear, fuel(dbx_fuel)

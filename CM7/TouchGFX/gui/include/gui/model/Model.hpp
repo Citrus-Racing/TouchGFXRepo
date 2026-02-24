@@ -33,7 +33,7 @@ protected:
 
 private:
     // Ticks where input is ignored after triggering
-    // Fixes issue where a single click/turn registers multiple times
+    // Needed so that inputs work once and not a million times per click
     uint8_t menu_btn_debounce_ticks;
     uint8_t back_btn_debounce_ticks;
     uint8_t encoder_debounce_ticks;

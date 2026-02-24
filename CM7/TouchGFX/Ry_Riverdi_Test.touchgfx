@@ -1063,11 +1063,9 @@
                   "Blue": 255
                 },
                 "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
+                  "Red": 255
                 },
-                "BorderSize": 1
+                "BorderSize": 5
               },
               {
                 "Type": "BoxWithBorder",
@@ -1867,7 +1865,9 @@
                 "TextId": "__SingleUse_SYYP",
                 "TextRotation": "0",
                 "Color": {
-                  "Red": 255
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 }
               }
             ]
@@ -1898,9 +1898,9 @@
               {
                 "Type": "BoxWithBorder",
                 "Name": "dbx_profile_selector",
-                "X": 116,
+                "X": 113,
                 "Y": 123,
-                "Width": 71,
+                "Width": 74,
                 "Height": 28,
                 "Color": {
                   "Red": 50,

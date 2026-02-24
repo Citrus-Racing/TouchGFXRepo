@@ -425,8 +425,8 @@ Screen1ViewBase::Screen1ViewBase()
     display_customizer_container.setVisible(false);
     dbx_widget_selector.setPosition(28, 59, 312, 106);
     dbx_widget_selector.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    dbx_widget_selector.setBorderSize(1);
+    dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    dbx_widget_selector.setBorderSize(5);
     display_customizer_container.add(dbx_widget_selector);
 
     bx_speed_1.setPosition(43, 74, 284, 76);
@@ -738,7 +738,7 @@ Screen1ViewBase::Screen1ViewBase()
     display_customizer_container.add(image1_1);
 
     txt_title.setPosition(18, 8, 350, 51);
-    txt_title.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    txt_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_title.setLinespacing(0);
     txt_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SYYP));
     display_customizer_container.add(txt_title);
@@ -752,7 +752,7 @@ Screen1ViewBase::Screen1ViewBase()
     box3.setAlpha(250);
     driver_profiles_container.add(box3);
 
-    dbx_profile_selector.setPosition(116, 123, 71, 28);
+    dbx_profile_selector.setPosition(113, 123, 74, 28);
     dbx_profile_selector.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
     dbx_profile_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dbx_profile_selector.setBorderSize(2);

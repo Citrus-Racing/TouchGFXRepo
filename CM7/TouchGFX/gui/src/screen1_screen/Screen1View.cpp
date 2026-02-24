@@ -3,7 +3,7 @@
 
 // Hi there!
 // Remember to specify which letters you want loaded in TouchGFX.
-/// I disabled the Fallback "?" unknown character, so you'll see nothing if you don't.
+/// I disabled the Fallback "?" unknown character, so you'll see nothing if you don't. | No you didnt
 
 
 constexpr int16_t Screen1View::PROFILE_ROW_Y[5];
@@ -289,12 +289,13 @@ void Screen1View::cursor_down(){
 	menu_scontainer.invalidate();
 }
 
+// Only used in the display customizer
 void Screen1View::encoder_click(){
 	if(customize_profile_open){
 		// Toggle color edit mode for the currently selected box
 		color_edit_mode = !color_edit_mode;
 
-		// Visual feedback: red border when editing, white when browsing
+		// Red border when editing, white when browsing
 		if(color_edit_mode){
 			dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
 		} else {

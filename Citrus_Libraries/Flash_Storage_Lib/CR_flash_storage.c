@@ -31,7 +31,7 @@ void CR_flash_write_all(const CR_settings_t * settings, const CR_profile_t profi
 
     HAL_FLASH_Unlock();
 
-    // --- Write settings flashword at 0x08080000 ---
+    // Write settings flashword at 0x08080000
     memset(flashword, 0, sizeof(flashword));
     flashword[0] = ((uint32_t)settings->active_profile_index << 16) |
                    ((uint32_t)settings->fuel_level_tenths << 8) |
@@ -41,7 +41,7 @@ void CR_flash_write_all(const CR_settings_t * settings, const CR_profile_t profi
                       CR_SETTINGS_FLASH_ADDRESS,
                       (uint32_t)flashword);
 
-    // --- Write each profile flashword ---
+    // Write each profile flashword
     for(uint8_t i = 0; i < CR_MAX_PROFILES; i++)
     {
         memset(flashword, 0, sizeof(flashword));

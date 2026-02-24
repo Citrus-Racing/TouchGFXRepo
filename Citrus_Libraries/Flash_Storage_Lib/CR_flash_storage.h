@@ -42,7 +42,7 @@ typedef struct
 // A single driver profile stored in one flashword.
 // Byte 0: magic (0xB7 if filled, 0xFF if empty/erased)
 // Bytes 1-12: color palette index (0-7) for each dashboard box
-// Bytes 13-15: reserved padding
+// Bytes 13-15: reserved padding (will be used for bg and maybe something else)
 typedef struct
 {
     uint8_t magic;
