@@ -9,9 +9,7 @@
 constexpr int16_t Screen1View::PROFILE_ROW_Y[5];
 constexpr uint8_t Screen1View::BOX_SCROLL_ORDER[NUM_CUSTOM_BOXES];
 
-// Fill colors used for dashboard boxes. The border fields (br/bg/bb) are kept for
-// reference but are NOT used at runtime — borders are always white, except when the
-// fill is white (palette index 1), in which case borders and text are set to black.
+// Fill colors used for dashboard boxes
 const Screen1View::ColorEntry Screen1View::COLOR_PALETTE[CR_NUM_PALETTE_COLORS] = {
     {  10,  10,  10,  255, 255, 255 },  // 0: Black
     { 255, 255, 255,  180, 180, 180 },  // 1: White   (triggers black border + black text)
@@ -86,6 +84,9 @@ void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	dtxt_rpm.invalidate();
 }
 
+// This opens the main menu OR selects the menu item
+// OR saves the current values (Profile customizer or fuel)
+// to flash and goes back to the dashboard
 void Screen1View::open_menu(){
 	// If the customizer is open, menu button = save + apply + close
 	if(customize_profile_open){
@@ -109,7 +110,7 @@ void Screen1View::open_menu(){
 		bool filled = presenter->isProfileFilled(row);
 
 		if(!is_edit_column){
-			// STATUS column: select a filled profile and apply its colors + bg
+			// STATUS column: select a filled profile and apply its colors
 			if(filled){
 				CR_profile_t profile;
 				presenter->getProfile(row, &profile);
@@ -122,7 +123,7 @@ void Screen1View::open_menu(){
 				menu_driver_profiles_container.invalidate();
 			}
 		} else {
-			// EDIT/ADD column: open customizer
+			// EDIT column: open customizer
 			open_customizer_for_profile(row);
 		}
 		return;
@@ -152,6 +153,39 @@ void Screen1View::open_menu(){
 			menu_driver_profiles_container.setVisible(true);
 			menu_driver_profiles_container.invalidate();
 			driver_profiles_menu_open = true;
+		} else if(y_val == 189){
+			// "Sensor Readout" selected - close main menu, close dashboard, and open sensor readout
+			main_menu_open = false;
+			dashboard_open = false;
+			sensor_readout_open = true;
+			menu_scontainer.setVisible(false);
+			menu_scontainer.invalidate();
+			main_dashboard.setVisible(false);
+			main_dashboard.invalidate();
+			sensor_readout_container.setVisible(true);
+			sensor_readout_container.invalidate();
+		} else if(y_val == 239){
+			// "AiM Readout" selected - close main menu, close dashboard, and open AiM readout
+			main_menu_open = false;
+			dashboard_open = false;
+			aim_readout_open = true;
+			menu_scontainer.setVisible(false);
+			menu_scontainer.invalidate();
+			main_dashboard.setVisible(false);
+			main_dashboard.invalidate();
+			AiM_readout_container.setVisible(true);
+			AiM_readout_container.invalidate();
+		} else if(y_val == 289){
+			// "Error Status" selected - close main menu, close dashboard, and open Error Status
+			main_menu_open = false;
+			dashboard_open = false;
+			error_status_open = true;
+			menu_scontainer.setVisible(false);
+			menu_scontainer.invalidate();
+			main_dashboard.setVisible(false);
+			main_dashboard.invalidate();
+			error_status_container.setVisible(true);
+			error_status_container.invalidate();
 		}
 
 		return;
@@ -160,7 +194,7 @@ void Screen1View::open_menu(){
 	// Otherwise open the main menu
 	main_menu_open = true;
 	menu_scontainer.setVisible(true);
-	dbx_menu_selection.setY(89);
+	dbx_menu_selection.setY(89); // Set selector to be at the top of the menu
 	menu_scontainer.invalidate();
 }
 
@@ -182,9 +216,7 @@ void Screen1View::close_menu(){
 		menu_driver_profiles_container.invalidate();
 		driver_profiles_menu_open = true;
 		return;
-	}
-
-	if(fuel_menu_open){
+	} else if(fuel_menu_open){
 		fuel_menu_open = false;
 		set_fuel_container.setVisible(false);
 		set_fuel_container.invalidate();
@@ -193,23 +225,42 @@ void Screen1View::close_menu(){
 		pending_fuel_tenths = presenter->getFuelLevel();
 		refresh_fuel_display(pending_fuel_tenths);
 		return;
-	}
-
-	if(driver_profiles_menu_open){
+	} else if(driver_profiles_menu_open){
 		driver_profiles_menu_open = false;
 		menu_driver_profiles_container.setVisible(false);
 		menu_driver_profiles_container.invalidate();
 		return;
-	}
-
-	if(main_menu_open){
+	} else if(main_menu_open){
 		main_menu_open = false;
 		menu_scontainer.setVisible(false);
 		menu_scontainer.invalidate();
+	} else if (sensor_readout_open){
+		dashboard_open = true;
+		sensor_readout_open = false;
+		main_dashboard.setVisible(true);
+		main_dashboard.invalidate();
+		sensor_readout_container.setVisible(false);
+		sensor_readout_container.invalidate();
+	} else if (aim_readout_open){
+		dashboard_open = true;
+		aim_readout_open = false;
+		AiM_readout_container.setVisible(false);
+		AiM_readout_container.invalidate();
+		main_dashboard.setVisible(true);
+		main_dashboard.invalidate();
+	} else if (error_status_open){
+		dashboard_open = true;
+		error_status_open = false;
+		error_status_container.setVisible(false);
+		error_status_container.invalidate();
+		main_dashboard.setVisible(true);
+		main_dashboard.invalidate();
 	}
+
 }
 
 void Screen1View::cursor_up(){
+	// In the customizer
 	if(customize_profile_open){
 		uint8_t box = BOX_SCROLL_ORDER[customizer_scroll_pos];
 		if(color_edit_mode){
@@ -238,7 +289,7 @@ void Screen1View::cursor_up(){
 		return;
 	}
 
-	// When the fuel sub-menu is open, encoder up increments by 1 tenth (0.1L)
+	// When the fuel sub-menu is open, encoder_up increments by 1 tenth (0.1L)
 	if(fuel_menu_open){
 		if(pending_fuel_tenths < FUEL_MAX_TENTHS){
 			pending_fuel_tenths++;
@@ -254,12 +305,14 @@ void Screen1View::cursor_up(){
 		}
 		return;
 	}
-
-	int16_t y_val = dbx_menu_selection.getY();
-	if (y_val > 89){
-		dbx_menu_selection.setY(y_val-50);
+	if(main_menu_open) {
+		int16_t y_val = dbx_menu_selection.getY();
+		if (y_val > 89){
+			dbx_menu_selection.setY(y_val-50);
+		}
+		menu_scontainer.invalidate();
+		return;
 	}
-	menu_scontainer.invalidate();
 }
 
 void Screen1View::cursor_down(){
@@ -309,14 +362,18 @@ void Screen1View::cursor_down(){
 		return;
 	}
 
-	int16_t y_val = dbx_menu_selection.getY();
-	if (y_val < 245){
-		dbx_menu_selection.setY(y_val+50);
+	if (main_menu_open) {
+		int16_t y_val = dbx_menu_selection.getY();
+		if (y_val < 245){
+			dbx_menu_selection.setY(y_val+50);
+		}
+		menu_scontainer.invalidate();
+		return;
 	}
-	menu_scontainer.invalidate();
 }
 
-// Encoder click handler - only active in the display customizer.
+// Encoder click handler - only active in the display customizer
+// Its kind of awkward to use but idk what would be better
 // Normal boxes: toggles color_edit_mode (red selector = editing, white = browsing).
 // Reset box: immediately resets all colors to defaults instead of entering edit mode.
 void Screen1View::encoder_click(){
@@ -462,7 +519,6 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 	bx_dashbackground.invalidate();
 
 	// Text colors per box: black text on white fill for readability, white otherwise.
-	// Each box has 1-3 text widgets: label (txt_), unit (txt_), and dynamic value (dtxt_).
 	touchgfx::colortype tc;
 
 	tc = (colors[0] == 1) ? black : white; // oilt
@@ -554,10 +610,9 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 	txt_title.invalidate();
 
 	// Text colors per box: black on white fill, white otherwise.
-	// Text widget names match the sensor, NOT the box widget name (see note above).
 	touchgfx::colortype tc;
 
-	tc = (colors[0] == 1) ? black : white; // oilt (sits on bx_speed_1)
+	tc = (colors[0] == 1) ? black : white; // oilt
 	txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
 	txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
 
@@ -653,7 +708,7 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 	// Update text colors for the box's label, unit, and value widgets.
 	// Text widget names match the sensor name (not the box widget name).
 	switch(box_index){
-		case 0: // oilt texts (positioned on bx_speed_1)
+		case 0: // oilt texts
 			txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
 			txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
 			break;
@@ -740,7 +795,7 @@ void Screen1View::open_customizer_for_profile(uint8_t profile_index){
 	display_customizer_container.invalidate();
 }
 
-// Save pending colors + bg to flash, apply to dashboard, and close the customizer.
+// Save pending colors to flash, apply to dashboard, and close the customizer.
 // Triggered by pressing the menu button while the customizer is open.
 void Screen1View::save_and_apply_customizer(){
 	// Build profile struct from pending state (11 box colors + 1 bg color)
@@ -772,9 +827,12 @@ void Screen1View::save_and_apply_customizer(){
 // Triggered by clicking the encoder on the reset box (scroll position 12).
 // The user must still press menu to save, or back to discard.
 void Screen1View::reset_customizer_to_defaults(){
-	// Zero out all 11 box colors and background color
+	// Zero out all 11 box colors and background color except for fuel box, which is white
 	for(int i = 0; i < CR_NUM_BOX_COLORS; i++)
-		pending_colors[i] = 0;
+	{
+		(i == 6) ? pending_colors[i] = 1 : pending_colors[i] = 0;
+
+	}
 	pending_bg_color = 0;
 
 	// Refresh the customizer preview with default colors

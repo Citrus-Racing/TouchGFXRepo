@@ -29,6 +29,9 @@ private:
     bool main_menu_open = false;
     bool driver_profiles_menu_open = false;
     bool customize_profile_open = false;
+    bool sensor_readout_open = false;
+    bool aim_readout_open = false;
+    bool error_status_open = false;
     bool dashboard_open = true;
 
     // Staged fuel level while the user is scrolling, stored in tenths of a
@@ -75,7 +78,7 @@ private:
     uint8_t pending_colors[CR_NUM_BOX_COLORS] = {};  // working copy of 11 box color indices
     uint8_t pending_bg_color = 0;           // working copy of dashboard background color index
 
-    // Scroll order maps encoder positions to box indices (identity mapping for this layout)
+    // Scroll order maps encoder positions to box indices
     static constexpr uint8_t BOX_SCROLL_ORDER[NUM_CUSTOM_BOXES] = {
         0, 1, 2, 3,    // left col:   oilt, oilp, batt, time
         4, 5, 6,        // center col: rpm, gear, fuel
@@ -103,7 +106,7 @@ private:
     void open_customizer_for_profile(uint8_t profile_index);
     void save_and_apply_customizer();
 
-    // Reset all pending colors and bg to default (black, palette index 0)
+    // Reset all pending colors and bg to default
     // and refresh the customizer preview. Does not save to flash.
     void reset_customizer_to_defaults();
 };

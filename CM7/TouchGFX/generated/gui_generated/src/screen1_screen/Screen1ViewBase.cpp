@@ -878,6 +878,48 @@ Screen1ViewBase::Screen1ViewBase()
     menu_driver_profiles_container.add(txt_profile_edit_5);
 
     add(menu_driver_profiles_container);
+
+    sensor_readout_container.setPosition(0, 0, 1024, 600);
+    sensor_readout_container.setVisible(false);
+    bx_dashbackground_2.setPosition(0, 0, 1024, 600);
+    bx_dashbackground_2.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    sensor_readout_container.add(bx_dashbackground_2);
+
+    txt_sensors_title.setXY(313, 53);
+    txt_sensors_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_sensors_title.setLinespacing(0);
+    txt_sensors_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YK97));
+    sensor_readout_container.add(txt_sensors_title);
+
+    add(sensor_readout_container);
+
+    AiM_readout_container.setPosition(0, 0, 1024, 600);
+    AiM_readout_container.setVisible(false);
+    bx_dashbackground_3.setPosition(0, 0, 1024, 600);
+    bx_dashbackground_3.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    AiM_readout_container.add(bx_dashbackground_3);
+
+    txt_AiM_title.setXY(355, 48);
+    txt_AiM_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_AiM_title.setLinespacing(0);
+    txt_AiM_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XQKR));
+    AiM_readout_container.add(txt_AiM_title);
+
+    add(AiM_readout_container);
+
+    error_status_container.setPosition(0, 0, 1024, 600);
+    error_status_container.setVisible(false);
+    bx_dashbackground_4.setPosition(0, 0, 1024, 600);
+    bx_dashbackground_4.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    error_status_container.add(bx_dashbackground_4);
+
+    txt_errors_title.setXY(407, 44);
+    txt_errors_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_errors_title.setLinespacing(0);
+    txt_errors_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KDF9));
+    error_status_container.add(txt_errors_title);
+
+    add(error_status_container);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

@@ -2202,6 +2202,99 @@
                 }
               }
             ]
+          },
+          {
+            "Type": "Container",
+            "Name": "sensor_readout_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_dashbackground_2",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_sensors_title",
+                "X": 313,
+                "Y": 53,
+                "Width": 398,
+                "Height": 59,
+                "TextId": "__SingleUse_YK97",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "AiM_readout_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_dashbackground_3",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_AiM_title",
+                "X": 355,
+                "Y": 48,
+                "Width": 315,
+                "Height": 59,
+                "TextId": "__SingleUse_XQKR",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "error_status_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_dashbackground_4",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_errors_title",
+                "X": 407,
+                "Y": 44,
+                "Width": 210,
+                "Height": 59,
+                "TextId": "__SingleUse_KDF9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
           }
         ],
         "Interactions": []

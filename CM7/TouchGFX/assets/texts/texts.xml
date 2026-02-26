@@ -6,6 +6,15 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_YK97" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">Sensor Readout</Translation>
+      </Text>
+      <Text Id="__SingleUse_XQKR" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">AiM Readout</Translation>
+      </Text>
+      <Text Id="__SingleUse_KDF9" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">ERRORS</Translation>
+      </Text>
       <Text Id="__SingleUse_IF7N" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Reset to Defaults</Translation>
       </Text>

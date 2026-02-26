@@ -179,6 +179,15 @@ protected:
     touchgfx::TextAreaWithOneWildcard txt_profile_edit_3;
     touchgfx::TextAreaWithOneWildcard txt_profile_edit_4;
     touchgfx::TextAreaWithOneWildcard txt_profile_edit_5;
+    touchgfx::Container sensor_readout_container;
+    touchgfx::Box bx_dashbackground_2;
+    touchgfx::TextArea txt_sensors_title;
+    touchgfx::Container AiM_readout_container;
+    touchgfx::Box bx_dashbackground_3;
+    touchgfx::TextArea txt_AiM_title;
+    touchgfx::Container error_status_container;
+    touchgfx::Box bx_dashbackground_4;
+    touchgfx::TextArea txt_errors_title;
 
     /*
      * Wildcard Buffers
