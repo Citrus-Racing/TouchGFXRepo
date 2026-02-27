@@ -380,27 +380,32 @@ void ShiftLightFunc(void *argument)
 	uint8_t g = 0;
 	uint8_t b = 0;
 
-	if (rpm > 10000)
-	{
-		r = 255;
-		g = 0;
-		b = 0;
-	}
-	else if (rpm > 8000)
-	{
-		r = 255;
-		g = 155;
-		b = 0;
-	}
-	else
-	{
-		r = 0;
-		g = 255;
-		b = 0;
-	}
+	int threshold1 = 5000;
+	int threshold2 = 9000;
+	int maxrpm = 13000;
 
 	CR_clear_all_lights(&shift_light_handle);
 	for(int i = 0; i < shift_light_handle.num_leds; i++){
+
+		if ((float)i / shift_light_handle.num_leds > (float)threshold2 / maxrpm)
+		{
+			r = 255;
+			g = 0;
+			b = 0;
+		}
+		else if ((float)i / shift_light_handle.num_leds > (float)threshold1 / maxrpm)
+		{
+			r = 255;
+			g = 155;
+			b = 0;
+		}
+		else
+		{
+			r = 0;
+			g = 255;
+			b = 0;
+		}
+
 		if (i < lightnum)
 			CR_set_light(&shift_light_handle, i, r, g, b); //green, blue, red
 		else
