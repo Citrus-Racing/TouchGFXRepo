@@ -21,5 +21,4 @@
 *.d
 *.su
 
-STM32CubeIDE/CM7/Debug/*
-
+STM32CubeIDE/CM7/Debug/
