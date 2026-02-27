@@ -81,6 +81,7 @@
 "./Application/User/gui/Screen1Presenter.o"
 "./Application/User/gui/Screen1View.o"
 "./Citrus_Libraries/CAN_Bus_Lib/CR_CAN_parse.o"
+"./Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.o"
 "./Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.o"
 "./Citrus_Libraries/Rotary_Encoder_Lib/CR_encoder.o"
 "./Citrus_Libraries/Shift_Light_Lib/CR_shift_light.o"

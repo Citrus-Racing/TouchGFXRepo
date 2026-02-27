@@ -6,38 +6,6 @@
 /// I disabled the Fallback "?" unknown character, so you'll see nothing if you don't. | No you didnt
 
 
-constexpr int16_t Screen1View::PROFILE_ROW_Y[5];
-constexpr uint8_t Screen1View::BOX_SCROLL_ORDER[NUM_CUSTOM_BOXES];
-
-// Fill colors used for dashboard boxes
-const Screen1View::ColorEntry Screen1View::COLOR_PALETTE[CR_NUM_PALETTE_COLORS] = {
-    {  10,  10,  10,  255, 255, 255 },  // 0: Black
-    { 255, 255, 255,  180, 180, 180 },  // 1: White   (triggers black border + black text)
-    { 230,   0,   0,  161,   0,   0 },  // 2: Red
-    {   0, 180,   0,    0, 126,   0 },  // 3: Green
-    {   0,   0, 200,    0,   0, 140 },  // 4: Blue
-    { 200, 200,   0,  140, 140,   0 },  // 5: Yellow
-    { 220, 140,   0,  154,  98,   0 },  // 6: Orange
-    { 140,   0, 200,   98,   0, 140 },  // 7: Purple
-};
-
-// Bounding rectangles for the widget selector around each customizer box.
-// Derived from _1 box positions with ~15px margin.
-const Screen1View::BoxGeometry Screen1View::CUSTOMIZER_BOX_POS[NUM_CUSTOM_BOXES] = {
-    {  28,  59, 314, 106 },  // 0: bx_oilt_1
-    {  28, 172, 314, 106 },  // 1: bx_oilp_1
-    {  28, 280, 314, 106 },  // 2: bx_batt_1
-    {  28, 387, 314, 106 },  // 3: bx_time_1
-    { 355,  14, 314,  88 },  // 4: bx_rpm_1
-    { 355, 101, 314, 278 },  // 5: bx_gear_1
-    { 279, 508, 472,  68 },  // 6: dbx_fuel_1
-    { 702,  -6, 266,  79 },  // 7: bx_change_bg
-    { 682,  59, 314, 106 },  // 8: bx_speed_1
-    { 682, 172, 314, 106 },  // 9: bx_DRS_1
-    { 682, 280, 314, 106 },  // 10: bx_alag_1
-    { 682, 387, 314, 106 },  // 11: bx_lch_1
-    { 740, 503, 266,  79 },  // 12: bx_reset
-};
 
 Screen1View::Screen1View() {}
 
@@ -262,22 +230,15 @@ void Screen1View::close_menu(){
 void Screen1View::cursor_up(){
 	// In the customizer
 	if(customize_profile_open){
-		uint8_t box = BOX_SCROLL_ORDER[customizer_scroll_pos];
+		uint8_t box = CR_BOX_SCROLL_ORDER[customizer_scroll_pos];
 		if(color_edit_mode){
-			if(box == RESET_BOX_INDEX) { return; } // reset box has no color to cycle
-			if(box == BG_BOX_INDEX){
-				// BG box: cycle pending_bg_color (separate from pending_colors array)
-				pending_bg_color++;
-				if(pending_bg_color >= CR_NUM_PALETTE_COLORS)
-					pending_bg_color = 0;
+			if(box == CR_RESET_BOX_INDEX) { return; } // reset box has no color to cycle
+			if(box == CR_BG_BOX_INDEX){
+				pending_bg_color = CR_color_cycle_next(pending_bg_color);
 				apply_single_box_color_customizer(box, pending_bg_color);
 			} else {
-				// Normal box: map scroll index to pending_colors index.
-				// Indices 0-6 map directly; 8-11 map to 7-10 (skip bg at 7).
 				uint8_t ci = (box < 7) ? box : box - 1;
-				pending_colors[ci]++;
-				if(pending_colors[ci] >= CR_NUM_PALETTE_COLORS)
-					pending_colors[ci] = 0;
+				pending_colors[ci] = CR_color_cycle_next(pending_colors[ci]);
 				apply_single_box_color_customizer(box, pending_colors[ci]);
 			}
 		} else {
@@ -317,27 +278,19 @@ void Screen1View::cursor_up(){
 
 void Screen1View::cursor_down(){
 	if(customize_profile_open){
-		uint8_t box = BOX_SCROLL_ORDER[customizer_scroll_pos];
+		uint8_t box = CR_BOX_SCROLL_ORDER[customizer_scroll_pos];
 		if(color_edit_mode){
-			if(box == RESET_BOX_INDEX) { return; } // reset box has no color to cycle
-			if(box == BG_BOX_INDEX){
-				// BG box: cycle pending_bg_color backwards
-				if(pending_bg_color == 0)
-					pending_bg_color = CR_NUM_PALETTE_COLORS - 1;
-				else
-					pending_bg_color--;
+			if(box == CR_RESET_BOX_INDEX) { return; } // reset box has no color to cycle
+			if(box == CR_BG_BOX_INDEX){
+				pending_bg_color = CR_color_cycle_prev(pending_bg_color);
 				apply_single_box_color_customizer(box, pending_bg_color);
 			} else {
-				// Normal box: map scroll index to pending_colors index (skip bg at 7)
 				uint8_t ci = (box < 7) ? box : box - 1;
-				if(pending_colors[ci] == 0)
-					pending_colors[ci] = CR_NUM_PALETTE_COLORS - 1;
-				else
-					pending_colors[ci]--;
+				pending_colors[ci] = CR_color_cycle_prev(pending_colors[ci]);
 				apply_single_box_color_customizer(box, pending_colors[ci]);
 			}
 		} else {
-			if(customizer_scroll_pos < NUM_CUSTOM_BOXES - 1){
+			if(customizer_scroll_pos < CR_NUM_CUSTOM_BOXES - 1){
 				customizer_scroll_pos++;
 				update_widget_selector();
 			}
@@ -355,7 +308,7 @@ void Screen1View::cursor_down(){
 	}
 
 	if(driver_profiles_menu_open){
-		if(profile_selector_index < PROFILE_SELECTOR_MAX){
+		if(profile_selector_index < CR_PROFILE_SELECTOR_MAX){
 			profile_selector_index++;
 			update_profile_selector();
 		}
@@ -378,10 +331,10 @@ void Screen1View::cursor_down(){
 // Reset box: immediately resets all colors to defaults instead of entering edit mode.
 void Screen1View::encoder_click(){
 	if(customize_profile_open){
-		uint8_t box = BOX_SCROLL_ORDER[customizer_scroll_pos];
+		uint8_t box = CR_BOX_SCROLL_ORDER[customizer_scroll_pos];
 
 		// Reset box: trigger full color reset instead of entering color edit mode
-		if(box == RESET_BOX_INDEX){
+		if(box == CR_RESET_BOX_INDEX){
 			reset_customizer_to_defaults();
 			return;
 		}
@@ -402,13 +355,12 @@ void Screen1View::encoder_click(){
 }
 
 void Screen1View::update_profile_selector(){
-	uint8_t row = profile_selector_index / 2;
-	bool is_edit = (profile_selector_index % 2) != 0;
+	CR_profile_selector_pos_t pos = CR_profile_get_selector_pos(profile_selector_index);
 
 	dbx_profile_selector.invalidate();
-	dbx_profile_selector.setX(is_edit ? PROFILE_EDIT_X : PROFILE_STATUS_X);
-	dbx_profile_selector.setY(PROFILE_ROW_Y[row]);
-	dbx_profile_selector.setWidth(is_edit ? PROFILE_EDIT_W : PROFILE_STATUS_W);
+	dbx_profile_selector.setX(pos.x);
+	dbx_profile_selector.setY(pos.y);
+	dbx_profile_selector.setWidth(pos.w);
 	dbx_profile_selector.invalidate();
 }
 
@@ -454,27 +406,15 @@ void Screen1View::refresh_profile_status_texts(){
 	for(int i = 0; i < 5; i++){
 		bool filled = presenter->isProfileFilled(i);
 
-		// A profile shows "Default" if it was never saved (empty slot) OR if it
-		// was saved but all box_colors and bg_color are still 0 (all-black defaults).
-		bool is_default_colors = false;
+		int has_defaults = 1;
 		if(filled){
 			CR_profile_t p;
 			presenter->getProfile(i, &p);
-			is_default_colors = true;
-			for(int c = 0; c < CR_NUM_BOX_COLORS; c++){
-				if(p.box_colors[c] != 0){ is_default_colors = false; break; }
-			}
-			if(p.bg_color != 0) is_default_colors = false;
+			has_defaults = CR_profile_has_default_colors(&p);
 		}
 
-		// Priority: "In Use" > "Filled" > "Default"
-		if(filled && i == activeIdx){
-			Unicode::strncpy(status_bufs[i], "In Use", 10);
-		} else if(filled && !is_default_colors){
-			Unicode::strncpy(status_bufs[i], "Filled", 10);
-		} else {
-			Unicode::strncpy(status_bufs[i], "Default", 10);
-		}
+		const char* status = CR_profile_get_status_str(i, activeIdx, filled, has_defaults);
+		Unicode::strncpy(status_bufs[i], status, 10);
 		Unicode::strncpy(edit_bufs[i], filled ? "Edit" : "Add", 10);
 		status_txts[i]->invalidate();
 		edit_txts[i]->invalidate();
@@ -500,7 +440,7 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 
 	// Apply fill + border to each BoxWithBorder
 	for(int i = 0; i < 10; i++){
-		const ColorEntry& c = COLOR_PALETTE[colors[bwb_idx[i]]];
+		const CR_color_entry_t& c = CR_COLOR_PALETTE[colors[bwb_idx[i]]];
 		// Border rule: white unless fill is white (palette index 1), then black
 		touchgfx::colortype border = (colors[bwb_idx[i]] == 1) ? black : white;
 		boxes[i]->setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
@@ -509,12 +449,12 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 	}
 
 	// colors[6]: dbx_fuel is a plain Box (fill only, no border or text)
-	const ColorEntry& fc = COLOR_PALETTE[colors[6]];
+	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[6]];
 	dbx_fuel.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
 	dbx_fuel.invalidate();
 
 	// Dashboard background (plain Box, fill only)
-	const ColorEntry& bgc = COLOR_PALETTE[bg_color];
+	const CR_color_entry_t& bgc = CR_COLOR_PALETTE[bg_color];
 	bx_dashbackground.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
 	bx_dashbackground.invalidate();
 
@@ -580,7 +520,7 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 
 	// Apply fill + border to each BoxWithBorder
 	for(int i = 0; i < 10; i++){
-		const ColorEntry& c = COLOR_PALETTE[colors[bwb_idx[i]]];
+		const CR_color_entry_t& c = CR_COLOR_PALETTE[colors[bwb_idx[i]]];
 		touchgfx::colortype border = (colors[bwb_idx[i]] == 1) ? black : white;
 		boxes[i]->setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 		boxes[i]->setBorderColor(border);
@@ -588,12 +528,12 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 	}
 
 	// colors[6]: fuel bar preview (plain Box, fill only)
-	const ColorEntry& fc = COLOR_PALETTE[colors[6]];
+	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[6]];
 	dbx_fuel_1.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
 	dbx_fuel_1.invalidate();
 
 	// Background color applied to the customizer preview background
-	const ColorEntry& bgc = COLOR_PALETTE[bg_color];
+	const CR_color_entry_t& bgc = CR_COLOR_PALETTE[bg_color];
 	bx_dashbackground_1.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
 	bx_dashbackground_1.invalidate();
 
@@ -658,17 +598,17 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 // box_index is the scroll-order index (0-12), color_index is the palette index (0-7).
 // Applies fill, border (white/black rule), and text color for the targeted box only.
 void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t color_index){
-	const ColorEntry& c = COLOR_PALETTE[color_index];
+	const CR_color_entry_t& c = CR_COLOR_PALETTE[color_index];
 	touchgfx::colortype white = touchgfx::Color::getColorFromRGB(255, 255, 255);
 	touchgfx::colortype black = touchgfx::Color::getColorFromRGB(0, 0, 0);
 	touchgfx::colortype border = (color_index == 1) ? black : white; // border rule
 	touchgfx::colortype tc = border; // text color follows same white/black rule
 
 	// Reset box (index 12) is click-only — no color to apply
-	if(box_index == RESET_BOX_INDEX) return;
+	if(box_index == CR_RESET_BOX_INDEX) return;
 
 	// BG box (index 7): updates the preview background, change_bg box, and title text
-	if(box_index == BG_BOX_INDEX){
+	if(box_index == CR_BG_BOX_INDEX){
 		bx_dashbackground_1.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 		bx_dashbackground_1.invalidate();
 		bx_change_bg.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
@@ -752,8 +692,8 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 
 void Screen1View::update_widget_selector(){
 	dbx_widget_selector.invalidate();
-	uint8_t box = BOX_SCROLL_ORDER[customizer_scroll_pos];
-	const BoxGeometry& g = CUSTOMIZER_BOX_POS[box];
+	uint8_t box = CR_BOX_SCROLL_ORDER[customizer_scroll_pos];
+	const CR_box_geometry_t& g = CR_CUSTOMIZER_BOX_POS[box];
 	dbx_widget_selector.setPosition(g.x, g.y, g.w, g.h);
 	dbx_widget_selector.invalidate();
 }
@@ -800,13 +740,7 @@ void Screen1View::open_customizer_for_profile(uint8_t profile_index){
 void Screen1View::save_and_apply_customizer(){
 	// Build profile struct from pending state (11 box colors + 1 bg color)
 	CR_profile_t profile;
-	profile.magic = CR_PROFILE_MAGIC;
-	for(int i = 0; i < CR_NUM_BOX_COLORS; i++)
-		profile.box_colors[i] = pending_colors[i];
-	profile.bg_color = pending_bg_color;
-	profile.reserved[0] = 0;
-	profile.reserved[1] = 0;
-	profile.reserved[2] = 0;
+	CR_profile_build_from_pending(&profile, pending_colors, pending_bg_color);
 
 	// Persist to flash and mark as active profile
 	presenter->saveProfile(editing_profile_index, &profile);
@@ -827,13 +761,8 @@ void Screen1View::save_and_apply_customizer(){
 // Triggered by clicking the encoder on the reset box (scroll position 12).
 // The user must still press menu to save, or back to discard.
 void Screen1View::reset_customizer_to_defaults(){
-	// Zero out all 11 box colors and background color except for fuel box, which is white
-	for(int i = 0; i < CR_NUM_BOX_COLORS; i++)
-	{
-		(i == 6) ? pending_colors[i] = 1 : pending_colors[i] = 0;
-
-	}
-	pending_bg_color = 0;
+	// Reset all box colors and background color to defaults
+	CR_profile_reset_pending(pending_colors, &pending_bg_color);
 
 	// Refresh the customizer preview with default colors
 	apply_colors_to_customizer(pending_colors, pending_bg_color);

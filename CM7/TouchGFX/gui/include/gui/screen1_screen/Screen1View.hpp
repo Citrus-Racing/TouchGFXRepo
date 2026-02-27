@@ -6,6 +6,7 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include "CR_CAN_parse.h"
 #include "CR_flash_storage.h"
+#include "CR_driver_profile.h"
 
 class Screen1View : public Screen1ViewBase
 {
@@ -46,50 +47,16 @@ private:
 
     // Driver profiles selector: 10 positions (5 profiles x 2 columns)
     uint8_t profile_selector_index = 0;
-    static const uint8_t  PROFILE_SELECTOR_MAX = 9;
-    static const int16_t  PROFILE_STATUS_X = 113;
-    static const int16_t  PROFILE_EDIT_X   = 210;
-    static const int16_t  PROFILE_STATUS_W = 85; // Box needs to change width based on if its on "Status" or "Edit"
-    static const int16_t  PROFILE_EDIT_W   = 58;
-    static constexpr int16_t PROFILE_ROW_Y[5] = { 123, 157, 192, 228, 260 };
 
     void update_profile_selector();
     void refresh_profile_status_texts();
 
-    // Color palette
-    struct ColorEntry {
-        uint8_t r, g, b;      // fill color
-        uint8_t br, bg, bb;   // border color
-    };
-    static const ColorEntry COLOR_PALETTE[CR_NUM_PALETTE_COLORS];
-
     // Display customizer state
-    // 13 scrollable positions (ordered left col, center col, right col):
-    //  0:oilt 1:oilp 2:batt 3:time 4:rpm 5:gear 6:fuel
-    //  7:change_bg 8:speed 9:DRS 10:alag 11:lch 12:reset
-
-    static const uint8_t NUM_CUSTOM_BOXES = 13;   // total scrollable positions
-    static const uint8_t BG_BOX_INDEX = 7;        // scroll pos for bx_change_bg
-    static const uint8_t RESET_BOX_INDEX = 12;    // scroll pos for bx_reset (click-only, no color)
-
     uint8_t customizer_scroll_pos = 0;      // current position in scroll order (0-12)
     bool    color_edit_mode = false;        // true = encoder cycles palette colors
     uint8_t editing_profile_index = 0;      // which profile slot we're editing (0-4)
     uint8_t pending_colors[CR_NUM_BOX_COLORS] = {};  // working copy of 11 box color indices
     uint8_t pending_bg_color = 0;           // working copy of dashboard background color index
-
-    // Scroll order maps encoder positions to box indices
-    static constexpr uint8_t BOX_SCROLL_ORDER[NUM_CUSTOM_BOXES] = {
-        0, 1, 2, 3,    // left col:   oilt, oilp, batt, time
-        4, 5, 6,        // center col: rpm, gear, fuel
-        7,              // right col:  change_bg (cycles pending_bg_color)
-        8, 9, 10, 11,  // right col:  speed, DRS, alag, lch
-        12              // right col:  reset (triggers reset_customizer_to_defaults)
-    };
-
-    // Bounding rectangles for the widget selector highlight around each customizer box
-    struct BoxGeometry { int16_t x, y, w, h; };
-    static const BoxGeometry CUSTOMIZER_BOX_POS[NUM_CUSTOM_BOXES];
 
     // Apply palette colors to all dashboard boxes, text, borders, and background.
     void apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color);

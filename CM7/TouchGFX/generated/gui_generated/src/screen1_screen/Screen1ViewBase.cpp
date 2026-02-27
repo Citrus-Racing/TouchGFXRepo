@@ -341,7 +341,7 @@ Screen1ViewBase::Screen1ViewBase()
     main_dashboard.add(dcirc_lockui);
 
     dbx_fuel.setPosition(294, 523, 442, 38);
-    dbx_fuel.setColor(touchgfx::Color::getColorFromRGB(138, 138, 138));
+    dbx_fuel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     main_dashboard.add(dbx_fuel);
 
     image1.setXY(0, 517);

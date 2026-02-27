@@ -52,6 +52,7 @@ Application/User/USB_HOST/Target \
 Application/User/generated \
 Application/User/gui \
 Citrus_Libraries/CAN_Bus_Lib \
+Citrus_Libraries/Driver_Profile_Lib \
 Citrus_Libraries/Flash_Storage_Lib \
 Citrus_Libraries/Rotary_Encoder_Lib \
 Citrus_Libraries/Shift_Light_Lib \
