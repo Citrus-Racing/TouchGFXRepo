@@ -174,8 +174,8 @@ void Screen1View::close_menu(){
 		// Discard changes, go back to driver profiles menu
 		customize_profile_open = false;
 		color_edit_mode = false;
-		display_customizer_container.setVisible(false);
-		display_customizer_container.invalidate();
+		color_customizer_container.setVisible(false);
+		color_customizer_container.invalidate();
 
 		profile_selector_index = 0;
 		update_profile_selector();
@@ -344,11 +344,11 @@ void Screen1View::encoder_click(){
 
 		// Visual feedback: red selector border = editing, white = browsing
 		if(color_edit_mode){
-			dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+			bx_color_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
 		} else {
-			dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+			bx_color_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 		}
-		dbx_widget_selector.invalidate();
+		bx_color_widget_selector.invalidate();
 		return;
 	}
 
@@ -357,11 +357,11 @@ void Screen1View::encoder_click(){
 void Screen1View::update_profile_selector(){
 	CR_profile_selector_pos_t pos = CR_profile_get_selector_pos(profile_selector_index);
 
-	dbx_profile_selector.invalidate();
-	dbx_profile_selector.setX(pos.x);
-	dbx_profile_selector.setY(pos.y);
-	dbx_profile_selector.setWidth(pos.w);
-	dbx_profile_selector.invalidate();
+	bx_profile_selector.invalidate();
+	bx_profile_selector.setX(pos.x);
+	bx_profile_selector.setY(pos.y);
+	bx_profile_selector.setWidth(pos.w);
+	bx_profile_selector.invalidate();
 }
 
 void Screen1View::refresh_fuel_display(uint8_t tenths){
@@ -429,7 +429,7 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 	touchgfx::BoxWithBorder* boxes[10] = {
 		&bx_oilt, &bx_oilp, &bx_batt, &bx_time,
 		&bx_rpm, &bx_gear, /* skip 6 */ &bx_speed,
-		&bx_DRS, &bx_alag, &bx_lch
+		&bx_drs, &bx_alag, &bx_lch
 	};
 	// Maps the 10-element boxes[] array to indices in the 11-element colors[] array.
 	// Skips index 6 (fuel bar) since it's a plain Box, not BoxWithBorder.
@@ -503,14 +503,14 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 	txt_lch.invalidate(); txt_sw_lch.invalidate(); dtxt_lch.invalidate();
 }
 
-// Apply all profile colors to the customizer preview (the _1 widgets).
+// Apply all profile colors to the customizer preview (the _color_ widgets).
 // Same border/text rules as the dashboard version.
 void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color){
 	// 10 BoxWithBorder widgets in the customizer preview (same order as dashboard)
 	touchgfx::BoxWithBorder* boxes[10] = {
-		&bx_speed_1, &bx_oilp_1, &bx_batt_1, &bx_time_1,
-		&bx_rpm_1, &bx_gear_1, /* skip 6 */ &vx_oilt_1,
-		&bx_DRS_1, &bx_alag_1, &bx_lch_1
+		&bx_color_oilt, &bx_color_oilp, &bx_color_batt, &bx_color_time,
+		&bx_color_rpm, &bx_color_gear, /* skip 6 */ &bx_color_speed,
+		&bx_color_drs, &bx_color_alag, &bx_color_lch
 	};
 	// Same mapping as dashboard: skip colors[6] (fuel bar)
 	static const uint8_t bwb_idx[10] = { 0, 1, 2, 3, 4, 5, 7, 8, 9, 10 };
@@ -529,69 +529,69 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 
 	// colors[6]: fuel bar preview (plain Box, fill only)
 	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[6]];
-	dbx_fuel_1.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
-	dbx_fuel_1.invalidate();
+	dbx_color_fuel.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
+	dbx_color_fuel.invalidate();
 
 	// Background color applied to the customizer preview background
 	const CR_color_entry_t& bgc = CR_COLOR_PALETTE[bg_color];
-	bx_dashbackground_1.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
-	bx_dashbackground_1.invalidate();
+	bx_color_bg.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
+	bx_color_bg.invalidate();
 
-	// bx_change_bg box mirrors the background color so user sees what they're picking
+	// bx_color_change_bg box mirrors the background color so user sees what they're picking
 	touchgfx::colortype bg_border = (bg_color == 1) ? black : white;
-	bx_change_bg.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
-	bx_change_bg.setBorderColor(bg_border);
-	bx_change_bg.invalidate();
+	bx_color_change_bg.setColor(touchgfx::Color::getColorFromRGB(bgc.r, bgc.g, bgc.b));
+	bx_color_change_bg.setBorderColor(bg_border);
+	bx_color_change_bg.invalidate();
 
 	// Text on the change_bg box and the customizer title follow bg color rule
-	txt_change_background.setColor((bg_color == 1) ? black : white);
-	txt_change_background.invalidate();
-	txt_title.setColor((bg_color == 1) ? black : white);
-	txt_title.invalidate();
+	txt_color_change_background.setColor((bg_color == 1) ? black : white);
+	txt_color_change_background.invalidate();
+	txt_color_title.setColor((bg_color == 1) ? black : white);
+	txt_color_title.invalidate();
 
 	// Text colors per box: black on white fill, white otherwise.
 	touchgfx::colortype tc;
 
 	tc = (colors[0] == 1) ? black : white; // oilt
-	txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
-	txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
+	txt_color_oilt.setColor(tc); txt_color_f_oilt.setColor(tc); dtxt_color_oilt.setColor(tc);
+	txt_color_oilt.invalidate(); txt_color_f_oilt.invalidate(); dtxt_color_oilt.invalidate();
 
 	tc = (colors[1] == 1) ? black : white; // oilp
-	txt_oilp_1.setColor(tc); txt_psi_oilp_1.setColor(tc); dtxt_oilp_1.setColor(tc);
-	txt_oilp_1.invalidate(); txt_psi_oilp_1.invalidate(); dtxt_oilp_1.invalidate();
+	txt_color_oilp.setColor(tc); txt_color_psi_oilp.setColor(tc); dtxt_color_oilp.setColor(tc);
+	txt_color_oilp.invalidate(); txt_color_psi_oilp.invalidate(); dtxt_color_oilp.invalidate();
 
 	tc = (colors[2] == 1) ? black : white; // batt
-	txt_batt_1.setColor(tc); txt_v_batt_1.setColor(tc); dtxt_batt_1.setColor(tc);
-	txt_batt_1.invalidate(); txt_v_batt_1.invalidate(); dtxt_batt_1.invalidate();
+	txt_color_batt.setColor(tc); txt_color_v_batt.setColor(tc); dtxt_color_batt.setColor(tc);
+	txt_color_batt.invalidate(); txt_color_v_batt.invalidate(); dtxt_color_batt.invalidate();
 
 	tc = (colors[3] == 1) ? black : white; // time
-	txt_time_1.setColor(tc); txt_min_time_1.setColor(tc); dtxt_time_1.setColor(tc);
-	txt_time_1.invalidate(); txt_min_time_1.invalidate(); dtxt_time_1.invalidate();
+	txt_color_time.setColor(tc); txt_color_min_time.setColor(tc); dtxt_color_time.setColor(tc);
+	txt_color_time.invalidate(); txt_color_min_time.invalidate(); dtxt_color_time.invalidate();
 
 	tc = (colors[4] == 1) ? black : white; // rpm (value only)
-	dtxt_rpm_1.setColor(tc); dtxt_rpm_1.invalidate();
+	dtxt_color_rpm.setColor(tc); dtxt_color_rpm.invalidate();
 
 	tc = (colors[5] == 1) ? black : white; // gear
-	txt_gear_1.setColor(tc); dtxt_gear_1.setColor(tc);
-	txt_gear_1.invalidate(); dtxt_gear_1.invalidate();
+	txt_color_gear.setColor(tc); dtxt_color_gear.setColor(tc);
+	txt_color_gear.invalidate(); dtxt_color_gear.invalidate();
 
 	// colors[6] = fuel bar — no text widgets
 
 	tc = (colors[7] == 1) ? black : white; // speed
-	txt_speed_1.setColor(tc); txt_mph_speed_1.setColor(tc); dtxt_speed_1.setColor(tc);
-	txt_speed_1.invalidate(); txt_mph_speed_1.invalidate(); dtxt_speed_1.invalidate();
+	txt_color_speed.setColor(tc); txt_color_mph_speed.setColor(tc); dtxt_color_speed.setColor(tc);
+	txt_color_speed.invalidate(); txt_color_mph_speed.invalidate(); dtxt_color_speed.invalidate();
 
 	tc = (colors[8] == 1) ? black : white; // DRS
-	txt_drs_1.setColor(tc); txt_sw_drs_1.setColor(tc); dtxt_drs_1.setColor(tc);
-	txt_drs_1.invalidate(); txt_sw_drs_1.invalidate(); dtxt_drs_1.invalidate();
+	txt_color_drs.setColor(tc); txt_color_sw_drs.setColor(tc); dtxt_color_drs.setColor(tc);
+	txt_color_drs.invalidate(); txt_color_sw_drs.invalidate(); dtxt_color_drs.invalidate();
 
 	tc = (colors[9] == 1) ? black : white; // alag
-	txt_alag_1.setColor(tc); txt_sw_alag_1.setColor(tc); dtxt_alag_1.setColor(tc);
-	txt_alag_1.invalidate(); txt_sw_alag_1.invalidate(); dtxt_alag_1.invalidate();
+	txt_color_alag.setColor(tc); txt_color_sw_alag.setColor(tc); dtxt_color_alag.setColor(tc);
+	txt_color_alag.invalidate(); txt_color_sw_alag.invalidate(); dtxt_color_alag.invalidate();
 
 	tc = (colors[10] == 1) ? black : white; // lch
-	txt_lch_1.setColor(tc); txt_sw_lch_1.setColor(tc); dtxt_lch_1.setColor(tc);
-	txt_lch_1.invalidate(); txt_sw_lch_1.invalidate(); dtxt_lch_1.invalidate();
+	txt_color_lch.setColor(tc); txt_color_sw_lch.setColor(tc); dtxt_color_lch.setColor(tc);
+	txt_color_lch.invalidate(); txt_color_sw_lch.invalidate(); dtxt_color_lch.invalidate();
 }
 
 // Update a single customizer box during live color cycling (called by cursor_up/down).
@@ -609,31 +609,31 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 
 	// BG box (index 7): updates the preview background, change_bg box, and title text
 	if(box_index == CR_BG_BOX_INDEX){
-		bx_dashbackground_1.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
-		bx_dashbackground_1.invalidate();
-		bx_change_bg.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
-		bx_change_bg.setBorderColor(border);
-		bx_change_bg.invalidate();
-		txt_change_background.setColor(tc);
-		txt_change_background.invalidate();
-		txt_title.setColor(tc); // title sits on the background
-		txt_title.invalidate();
+		bx_color_bg.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
+		bx_color_bg.invalidate();
+		bx_color_change_bg.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
+		bx_color_change_bg.setBorderColor(border);
+		bx_color_change_bg.invalidate();
+		txt_color_change_background.setColor(tc);
+		txt_color_change_background.invalidate();
+		txt_color_title.setColor(tc); // title sits on the background
+		txt_color_title.invalidate();
 		return;
 	}
 
 	// Fuel bar (index 6): plain Box, fill only, no border or text
 	if(box_index == 6){
-		dbx_fuel_1.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
-		dbx_fuel_1.invalidate();
+		dbx_color_fuel.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
+		dbx_color_fuel.invalidate();
 		return;
 	}
 
 	// Standard BoxWithBorder: map scroll index to the 10-element boxes array.
 	// Indices 0-5 map directly, 8-11 map to arr 6-9 (skipping fuel=6 and bg=7).
 	touchgfx::BoxWithBorder* boxes[10] = {
-		&bx_speed_1, &bx_oilp_1, &bx_batt_1, &bx_time_1,
-		&bx_rpm_1, &bx_gear_1, /* skip 6,7 */ &vx_oilt_1,
-		&bx_DRS_1, &bx_alag_1, &bx_lch_1
+		&bx_color_oilt, &bx_color_oilp, &bx_color_batt, &bx_color_time,
+		&bx_color_rpm, &bx_color_gear, /* skip 6,7 */ &bx_color_speed,
+		&bx_color_drs, &bx_color_alag, &bx_color_lch
 	};
 	uint8_t arr_idx;
 	if(box_index < 6)
@@ -649,53 +649,53 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 	// Text widget names match the sensor name (not the box widget name).
 	switch(box_index){
 		case 0: // oilt texts
-			txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
-			txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
+			txt_color_oilt.setColor(tc); txt_color_f_oilt.setColor(tc); dtxt_color_oilt.setColor(tc);
+			txt_color_oilt.invalidate(); txt_color_f_oilt.invalidate(); dtxt_color_oilt.invalidate();
 			break;
 		case 1: // oilp
-			txt_oilp_1.setColor(tc); txt_psi_oilp_1.setColor(tc); dtxt_oilp_1.setColor(tc);
-			txt_oilp_1.invalidate(); txt_psi_oilp_1.invalidate(); dtxt_oilp_1.invalidate();
+			txt_color_oilp.setColor(tc); txt_color_psi_oilp.setColor(tc); dtxt_color_oilp.setColor(tc);
+			txt_color_oilp.invalidate(); txt_color_psi_oilp.invalidate(); dtxt_color_oilp.invalidate();
 			break;
 		case 2: // batt
-			txt_batt_1.setColor(tc); txt_v_batt_1.setColor(tc); dtxt_batt_1.setColor(tc);
-			txt_batt_1.invalidate(); txt_v_batt_1.invalidate(); dtxt_batt_1.invalidate();
+			txt_color_batt.setColor(tc); txt_color_v_batt.setColor(tc); dtxt_color_batt.setColor(tc);
+			txt_color_batt.invalidate(); txt_color_v_batt.invalidate(); dtxt_color_batt.invalidate();
 			break;
 		case 3: // time
-			txt_time_1.setColor(tc); txt_min_time_1.setColor(tc); dtxt_time_1.setColor(tc);
-			txt_time_1.invalidate(); txt_min_time_1.invalidate(); dtxt_time_1.invalidate();
+			txt_color_time.setColor(tc); txt_color_min_time.setColor(tc); dtxt_color_time.setColor(tc);
+			txt_color_time.invalidate(); txt_color_min_time.invalidate(); dtxt_color_time.invalidate();
 			break;
 		case 4: // rpm (value only)
-			dtxt_rpm_1.setColor(tc); dtxt_rpm_1.invalidate();
+			dtxt_color_rpm.setColor(tc); dtxt_color_rpm.invalidate();
 			break;
 		case 5: // gear
-			txt_gear_1.setColor(tc); dtxt_gear_1.setColor(tc);
-			txt_gear_1.invalidate(); dtxt_gear_1.invalidate();
+			txt_color_gear.setColor(tc); dtxt_color_gear.setColor(tc);
+			txt_color_gear.invalidate(); dtxt_color_gear.invalidate();
 			break;
-		case 8: // speed texts (positioned on vx_oilt_1)
-			txt_speed_1.setColor(tc); txt_mph_speed_1.setColor(tc); dtxt_speed_1.setColor(tc);
-			txt_speed_1.invalidate(); txt_mph_speed_1.invalidate(); dtxt_speed_1.invalidate();
+		case 8: // speed texts (positioned on bx_color_oilt)
+			txt_color_speed.setColor(tc); txt_color_mph_speed.setColor(tc); dtxt_color_speed.setColor(tc);
+			txt_color_speed.invalidate(); txt_color_mph_speed.invalidate(); dtxt_color_speed.invalidate();
 			break;
 		case 9: // DRS
-			txt_drs_1.setColor(tc); txt_sw_drs_1.setColor(tc); dtxt_drs_1.setColor(tc);
-			txt_drs_1.invalidate(); txt_sw_drs_1.invalidate(); dtxt_drs_1.invalidate();
+			txt_color_drs.setColor(tc); txt_color_sw_drs.setColor(tc); dtxt_color_drs.setColor(tc);
+			txt_color_drs.invalidate(); txt_color_sw_drs.invalidate(); dtxt_color_drs.invalidate();
 			break;
 		case 10: // alag
-			txt_alag_1.setColor(tc); txt_sw_alag_1.setColor(tc); dtxt_alag_1.setColor(tc);
-			txt_alag_1.invalidate(); txt_sw_alag_1.invalidate(); dtxt_alag_1.invalidate();
+			txt_color_alag.setColor(tc); txt_color_sw_alag.setColor(tc); dtxt_color_alag.setColor(tc);
+			txt_color_alag.invalidate(); txt_color_sw_alag.invalidate(); dtxt_color_alag.invalidate();
 			break;
 		case 11: // lch
-			txt_lch_1.setColor(tc); txt_sw_lch_1.setColor(tc); dtxt_lch_1.setColor(tc);
-			txt_lch_1.invalidate(); txt_sw_lch_1.invalidate(); dtxt_lch_1.invalidate();
+			txt_color_lch.setColor(tc); txt_color_sw_lch.setColor(tc); dtxt_color_lch.setColor(tc);
+			txt_color_lch.invalidate(); txt_color_sw_lch.invalidate(); dtxt_color_lch.invalidate();
 			break;
 	}
 }
 
 void Screen1View::update_widget_selector(){
-	dbx_widget_selector.invalidate();
+	bx_color_widget_selector.invalidate();
 	uint8_t box = CR_BOX_SCROLL_ORDER[customizer_scroll_pos];
 	const CR_box_geometry_t& g = CR_CUSTOMIZER_BOX_POS[box];
-	dbx_widget_selector.setPosition(g.x, g.y, g.w, g.h);
-	dbx_widget_selector.invalidate();
+	bx_color_widget_selector.setPosition(g.x, g.y, g.w, g.h);
+	bx_color_widget_selector.invalidate();
 }
 
 // Open the display customizer for a given profile slot.
@@ -723,7 +723,7 @@ void Screen1View::open_customizer_for_profile(uint8_t profile_index){
 
 	// Position widget selector at first box with white border
 	update_widget_selector();
-	dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	bx_color_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 
 	// Close driver profiles, open customizer
 	driver_profiles_menu_open = false;
@@ -731,8 +731,8 @@ void Screen1View::open_customizer_for_profile(uint8_t profile_index){
 	menu_driver_profiles_container.invalidate();
 
 	customize_profile_open = true;
-	display_customizer_container.setVisible(true);
-	display_customizer_container.invalidate();
+	color_customizer_container.setVisible(true);
+	color_customizer_container.invalidate();
 }
 
 // Save pending colors to flash, apply to dashboard, and close the customizer.
@@ -753,8 +753,8 @@ void Screen1View::save_and_apply_customizer(){
 	// Close customizer and return to dashboard view
 	customize_profile_open = false;
 	color_edit_mode = false;
-	display_customizer_container.setVisible(false);
-	display_customizer_container.invalidate();
+	color_customizer_container.setVisible(false);
+	color_customizer_container.invalidate();
 }
 
 // Reset all customizer colors to defaults (black fill, palette index 0) without saving.
@@ -769,6 +769,6 @@ void Screen1View::reset_customizer_to_defaults(){
 
 	// Ensure we're in browse mode (not color edit mode) after reset
 	color_edit_mode = false;
-	dbx_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-	dbx_widget_selector.invalidate();
+	bx_color_widget_selector.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	bx_color_widget_selector.invalidate();
 }

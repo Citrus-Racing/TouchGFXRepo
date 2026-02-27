@@ -61,8 +61,8 @@ private:
     // Apply palette colors to all dashboard boxes, text, borders, and background.
     void apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color);
 
-    // Same as above but for the customizer preview (the _1 widgets).
-    // Also updates bx_change_bg, txt_change_background, and txt_title.
+    // Same as above but for the customizer preview (the _color_ widgets).
+    // Also updates bx_color_change_bg, txt_color_change_background, and txt_color_title.
     void apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color);
 
     // Update a single customizer box during live color editing (called by cursor_up/down).
