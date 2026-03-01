@@ -1,0 +1,2 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/images/src/BitmapDatabase.cpp:17:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	4	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/images/src/BitmapDatabase.cpp:22:10:uint16_t BitmapDatabase::getInstanceSize()	4	static

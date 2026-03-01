@@ -1,0 +1,14 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:78:6:MX_QUADSPI_Init	8	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:107:6:HAL_QSPI_MspInit	256	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:175:6:HAL_QSPI_MspDeInit	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:209:1:CSP_QSPI_EraseSector	72	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:256:9:QSPI_Enter4Bytes	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:292:1:QSPI_EnterQuad	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:317:9:QSPI_WriteEnable	96	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:359:1:QSPI_ResetChip	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:458:1:CSP_QSPI_EnableMemoryMappedMode	72	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:489:1:CSP_QSPI_WriteMemory	96	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:584:1:QSPI_AutoPollingMemReady_Quad	88	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:619:1:CSP_QSPI_Erase_Chip	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:662:1:CSP_QUADSPI_Init	8	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/quadspi.c:707:9:QSPI_DummyCyclesCfg	72	static

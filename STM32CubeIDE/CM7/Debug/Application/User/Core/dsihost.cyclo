@@ -1,0 +1,4 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/dsihost.c:27:6:BSP_LCD_Reset	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/dsihost.c:51:6:MX_DSIHOST_DSI_Init	12
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/dsihost.c:228:6:HAL_DSI_MspInit	3
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/dsihost.c:255:6:HAL_DSI_MspDeInit	2

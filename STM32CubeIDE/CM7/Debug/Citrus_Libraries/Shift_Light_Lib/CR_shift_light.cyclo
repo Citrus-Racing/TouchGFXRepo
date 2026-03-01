@@ -1,0 +1,8 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:35:23:CR_shift_light_init	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:53:23:CR_shift_light_deinit	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:59:23:CR_set_brightness	3
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:82:23:CR_set_all_lights	6
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:103:23:CR_set_light	5
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:118:23:CR_clear_all_lights	3
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:135:23:CR_cascade_line_blink	2
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.c:148:23:CR_Test_Sequence_Flash	7

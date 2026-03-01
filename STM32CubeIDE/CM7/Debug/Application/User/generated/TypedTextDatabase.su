@@ -1,0 +1,7 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:83:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:88:10:uint16_t TypedTextDatabase::getInstanceSize()	4	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:93:24:const touchgfx::Font** TypedTextDatabase::getFonts()	4	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:98:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:105:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:126:1:void __static_initialization_and_destruction_0()	8	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:126:1:cpp)	8	static

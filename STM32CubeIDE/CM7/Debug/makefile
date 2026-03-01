@@ -18,6 +18,7 @@ RM := rm -rf
 -include Citrus_Libraries/Shift_Light_Lib/subdir.mk
 -include Citrus_Libraries/Rotary_Encoder_Lib/subdir.mk
 -include Citrus_Libraries/Flash_Storage_Lib/subdir.mk
+-include Citrus_Libraries/Driver_Profile_Lib/subdir.mk
 -include Citrus_Libraries/CAN_Bus_Lib/subdir.mk
 -include Application/User/gui/subdir.mk
 -include Application/User/generated/subdir.mk

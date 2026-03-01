@@ -6,854 +6,954 @@
         "CanvasBufferSize": 15360,
         "Components": [
           {
-            "Type": "Box",
-            "Name": "bx_dashbackground",
-            "Width": 1024,
-            "Height": 600
-          },
-          {
             "Type": "Container",
-            "Name": "main_display",
+            "Name": "main_dashboard",
             "Width": 1024,
             "Height": 600,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "bx_speed",
-                "X": 43,
-                "Y": 74,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_rpm",
-                "X": 370,
-                "Y": 29,
-                "Width": 284,
-                "Height": 58,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_fuel",
-                "X": 288,
-                "Y": 517,
-                "Width": 454,
-                "Height": 50,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "vx_oilt",
-                "X": 697,
-                "Y": 74,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_DRS",
-                "X": 697,
-                "Y": 187,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_alag",
-                "X": 697,
-                "Y": 295,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_lch",
-                "X": 697,
-                "Y": 402,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_gear",
-                "X": 370,
-                "Y": 116,
-                "Width": 284,
-                "Height": 248,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_oilp",
-                "X": 43,
-                "Y": 187,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_batt",
-                "X": 43,
-                "Y": 295,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "BoxWithBorder",
-                "Name": "bx_time",
-                "X": 43,
-                "Y": 402,
-                "Width": 284,
-                "Height": 76,
-                "Color": {
-                  "Red": 10,
-                  "Green": 10,
-                  "Blue": 10
-                },
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 3
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_batt",
-                "X": 48,
-                "Y": 301,
-                "Width": 47,
-                "Height": 30,
-                "TextId": "__SingleUse_4JVN",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_time",
-                "X": 46,
-                "Y": 407,
-                "Width": 61,
-                "Height": 30,
-                "TextId": "__SingleUse_6HEZ",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_speed",
-                "X": 911,
-                "Y": 78,
-                "Width": 65,
-                "Height": 25,
-                "TextId": "__SingleUse_Q8E5",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_gear",
-                "X": 480,
-                "Y": 308,
-                "Width": 65,
-                "Height": 25,
-                "TextId": "__SingleUse_YOZY",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_v_batt",
-                "X": 279,
-                "Y": 300,
-                "Width": 47,
-                "Height": 30,
-                "TextId": "__SingleUse_UL8J",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_oilt",
-                "X": 47,
-                "Y": 79,
-                "Width": 55,
-                "Height": 25,
-                "TextId": "__SingleUse_B01J",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_f_oilt",
-                "X": 281,
-                "Y": 77,
-                "Width": 43,
-                "Height": 28,
-                "TextId": "__SingleUse_2AOB",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_mph_speed",
-                "X": 703,
-                "Y": 78,
-                "Width": 60,
-                "Height": 25,
-                "TextId": "__SingleUse_AKKH",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_psi_oilp",
-                "X": 267,
-                "Y": 190,
-                "Width": 55,
-                "Height": 28,
-                "TextId": "__SingleUse_LXXP",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_sw_alag",
-                "X": 702,
-                "Y": 300,
-                "Width": 55,
-                "Height": 29,
-                "TextId": "__SingleUse_QOMC",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_sw_drs",
-                "X": 702,
-                "Y": 190,
-                "Width": 55,
-                "Height": 29,
-                "TextId": "__SingleUse_968F",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_sw_lch",
-                "X": 703,
-                "Y": 409,
-                "Width": 55,
-                "Height": 29,
-                "TextId": "__SingleUse_W12I",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_min_time",
-                "X": 263,
-                "Y": 407,
-                "Width": 55,
-                "Height": 29,
-                "TextId": "__SingleUse_BIHT",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_oilp",
-                "X": 47,
-                "Y": 190,
-                "Width": 53,
-                "Height": 25,
-                "TextId": "__SingleUse_DXHQ",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_batt",
-                "X": 107,
-                "Y": 301,
-                "Width": 163,
-                "Height": 63,
-                "TextId": "__SingleUse_68XF",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_8XEQ",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_rpm",
-                "X": 370,
-                "Y": 25,
-                "Width": 284,
-                "Height": 66,
-                "TextId": "__SingleUse_VWLS",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_9ZAY",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_speed",
-                "X": 742,
-                "Y": 80,
-                "Width": 195,
-                "Height": 64,
-                "TextId": "__SingleUse_WADU",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_1DKY",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_oilt",
-                "X": 107,
-                "Y": 80,
-                "Width": 163,
-                "Height": 64,
-                "TextId": "__SingleUse_FGOS",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_K8B0",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_oilp",
-                "X": 87,
-                "Y": 193,
-                "Width": 195,
-                "Height": 64,
-                "TextId": "__SingleUse_T8PN",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_PCKH",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_alag",
-                "X": 742,
-                "Y": 300,
-                "Width": 195,
-                "Height": 64,
-                "TextId": "__SingleUse_LH5C",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_15M6",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_drs",
-                "X": 742,
-                "Y": 193,
-                "Width": 195,
-                "Height": 64,
-                "TextId": "__SingleUse_9HX3",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_5LF1",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_lch",
-                "X": 742,
-                "Y": 408,
-                "Width": 195,
-                "Height": 64,
-                "TextId": "__SingleUse_L3KX",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_8EP6",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_alag",
-                "X": 911,
-                "Y": 300,
-                "Width": 65,
-                "Height": 30,
-                "TextId": "__SingleUse_83R9",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_drs",
-                "X": 911,
-                "Y": 191,
-                "Width": 65,
-                "Height": 30,
-                "TextId": "__SingleUse_80TJ",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "txt_lch",
-                "X": 928,
-                "Y": 408,
-                "Width": 51,
-                "Height": 30,
-                "TextId": "__SingleUse_9GHM",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_time",
-                "X": 76,
-                "Y": 409,
-                "Width": 218,
-                "Height": 61,
-                "TextId": "__SingleUse_K927",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_UIC5",
-                  "UseBuffer": true,
-                  "BufferSize": 11
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "dtxt_gear",
-                "X": 398,
-                "Y": 132,
-                "Width": 228,
-                "Height": 183,
-                "TextId": "__SingleUse_B5YI",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_2T5S",
-                  "UseBuffer": true,
-                  "BufferSize": 2
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "lag_txt",
-                "X": 368,
-                "Y": 398,
-                "Width": 94,
-                "Height": 25,
-                "TextId": "__SingleUse_2ZVL",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "launch_txt",
-                "X": 465,
-                "Y": 398,
-                "Width": 94,
-                "Height": 25,
-                "TextId": "__SingleUse_TPJ0",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "ui_lock_txt",
-                "X": 560,
-                "Y": 398,
-                "Width": 94,
-                "Height": 25,
-                "TextId": "__SingleUse_CP3M",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                }
-              },
-              {
-                "Type": "Circle",
-                "Name": "circ_uc",
-                "X": 395,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 13.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
-                "Type": "Circle",
-                "Name": "dcirc_uc",
-                "X": 395,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 82,
-                  "Green": 166,
-                  "Blue": 250
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 10.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
-                "Type": "Circle",
-                "Name": "circ_can",
-                "X": 492,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 13.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
-                "Type": "Circle",
-                "Name": "dcirc_can",
-                "X": 492,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 82,
-                  "Green": 166,
-                  "Blue": 250
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 10.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
-                "Type": "Circle",
-                "Name": "circ_lockui",
-                "X": 586,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 13.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
-                "Type": "Circle",
-                "Name": "dcirc_lockui",
-                "X": 586,
-                "Y": 438,
-                "Width": 40,
-                "Height": 38,
-                "Color": {
-                  "Red": 82,
-                  "Green": 166,
-                  "Blue": 250
-                },
-                "CenterX": 20.0,
-                "CenterY": 20.0,
-                "Radius": 10.0,
-                "EndAngle": 360.0,
-                "CapPrecision": "Butt"
-              },
-              {
                 "Type": "Box",
-                "Name": "dbx_fuel",
-                "X": 294,
-                "Y": 523,
-                "Width": 442,
-                "Height": 38,
-                "Color": {
-                  "Red": 138,
-                  "Green": 138,
-                  "Blue": 138
-                }
+                "Name": "bx_dashbackground",
+                "Width": 1024,
+                "Height": 600
               },
               {
                 "Type": "Image",
-                "Name": "image1",
+                "Name": "img_citrus_logo",
                 "Y": 517,
                 "Width": 100,
                 "Height": 83,
                 "RelativeFilename": "TheCitrusRacingLogo_darkbgnd-768x641.png"
+              },
+              {
+                "Type": "Container",
+                "Name": "fuel_container",
+                "X": 288,
+                "Y": 517,
+                "Width": 454,
+                "Height": 50,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_fuel",
+                    "Width": 454,
+                    "Height": 50,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "Box",
+                    "Name": "dbx_fuel",
+                    "X": 6,
+                    "Y": 6,
+                    "Width": 442,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "state_indicators_container",
+                "X": 376,
+                "Y": 398,
+                "Width": 278,
+                "Height": 80,
+                "Components": [
+                  {
+                    "Type": "TextArea",
+                    "Name": "lag_txt",
+                    "X": -8,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_2ZVL",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "launch_txt",
+                    "X": 89,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_TPJ0",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "ui_lock_txt",
+                    "X": 184,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_CP3M",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_uc",
+                    "X": 19,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_uc",
+                    "X": 19,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_can",
+                    "X": 116,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_can",
+                    "X": 116,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_lockui",
+                    "X": 210,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_lockui",
+                    "X": 210,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilt_container",
+                "X": 43,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_oilt",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_oilt",
+                    "X": 4,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 25,
+                    "TextId": "__SingleUse_B01J",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_f_oilt",
+                    "X": 238,
+                    "Y": 3,
+                    "Width": 43,
+                    "Height": 28,
+                    "TextId": "__SingleUse_2AOB",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_oilt",
+                    "X": 64,
+                    "Y": 6,
+                    "Width": 163,
+                    "Height": 64,
+                    "TextId": "__SingleUse_FGOS",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_K8B0",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilp_container",
+                "X": 43,
+                "Y": 188,
+                "Width": 284,
+                "Height": 75,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_oilp",
+                    "Y": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_oilp",
+                    "X": 44,
+                    "Y": 5,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_T8PN",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_PCKH",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_psi_oilp",
+                    "X": 224,
+                    "Y": 2,
+                    "Width": 55,
+                    "Height": 28,
+                    "TextId": "__SingleUse_LXXP",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_oilp",
+                    "X": 4,
+                    "Y": 2,
+                    "Width": 53,
+                    "Height": 25,
+                    "TextId": "__SingleUse_DXHQ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "batt_container",
+                "X": 44,
+                "Y": 295,
+                "Width": 283,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_batt",
+                    "X": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_batt",
+                    "X": 4,
+                    "Y": 6,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_4JVN",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_v_batt",
+                    "X": 235,
+                    "Y": 5,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_UL8J",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_batt",
+                    "X": 63,
+                    "Y": 6,
+                    "Width": 163,
+                    "Height": 63,
+                    "TextId": "__SingleUse_68XF",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_8XEQ",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "time_container",
+                "X": 44,
+                "Y": 402,
+                "Width": 283,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_time",
+                    "X": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_time",
+                    "X": 32,
+                    "Y": 7,
+                    "Width": 218,
+                    "Height": 61,
+                    "TextId": "__SingleUse_K927",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_UIC5",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_time",
+                    "X": 2,
+                    "Y": 5,
+                    "Width": 61,
+                    "Height": 30,
+                    "TextId": "__SingleUse_6HEZ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_min_time",
+                    "X": 219,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_BIHT",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "gear_container",
+                "X": 368,
+                "Y": 116,
+                "Width": 286,
+                "Height": 248,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_gear",
+                    "X": 2,
+                    "Width": 284,
+                    "Height": 248,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_gear",
+                    "X": 30,
+                    "Y": 16,
+                    "Width": 228,
+                    "Height": 183,
+                    "TextId": "__SingleUse_B5YI",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_2T5S",
+                      "UseBuffer": true,
+                      "BufferSize": 2
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_gear",
+                    "X": 112,
+                    "Y": 192,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_YOZY",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "rpm_container",
+                "X": 370,
+                "Y": 29,
+                "Width": 284,
+                "Height": 61,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_rpm",
+                    "Width": 284,
+                    "Height": 58,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_rpm",
+                    "Y": -4,
+                    "Width": 284,
+                    "Height": 66,
+                    "TextId": "__SingleUse_VWLS",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_9ZAY",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "speed_container",
+                "X": 697,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_speed",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_speed",
+                    "X": 214,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_Q8E5",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_speed",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_WADU",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_1DKY",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_mph_speed",
+                    "X": 6,
+                    "Y": 4,
+                    "Width": 60,
+                    "Height": 25,
+                    "TextId": "__SingleUse_AKKH",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "drs_container",
+                "X": 697,
+                "Y": 186,
+                "Width": 284,
+                "Height": 77,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_drs",
+                    "Y": 1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_drs",
+                    "X": 214,
+                    "Y": 5,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_80TJ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_drs",
+                    "X": 45,
+                    "Y": 7,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_9HX3",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_5LF1",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_sw_drs",
+                    "X": 5,
+                    "Y": 4,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_968F",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "alag_container",
+                "X": 697,
+                "Y": 296,
+                "Width": 284,
+                "Height": 75,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_alag",
+                    "Y": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_alag",
+                    "X": 214,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_83R9",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_alag",
+                    "X": 45,
+                    "Y": 4,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_LH5C",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_15M6",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_sw_alag",
+                    "X": 5,
+                    "Y": 4,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_QOMC",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "lch_container",
+                "X": 697,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_lch",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_sw_lch",
+                    "X": 6,
+                    "Y": 7,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_W12I",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_lch",
+                    "X": 231,
+                    "Y": 6,
+                    "Width": 51,
+                    "Height": 30,
+                    "TextId": "__SingleUse_9GHM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_lch",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_L3KX",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "Wildcard1": {
+                      "TextId": "__SingleUse_8EP6",
+                      "UseBuffer": true,
+                      "BufferSize": 11
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -1040,6 +1140,2436 @@
                   "UseBuffer": true,
                   "BufferSize": 11
                 }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "color_customizer_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_color_bg",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_color_widget_selector",
+                "X": 28,
+                "Y": 59,
+                "Width": 312,
+                "Height": 106,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderColor": {
+                  "Red": 255
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "fuel_color_container",
+                "X": 288,
+                "Y": 517,
+                "Width": 454,
+                "Height": 49,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_fuel",
+                    "Width": 454,
+                    "Height": 50,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "Box",
+                    "Name": "dbx_color_fuel",
+                    "X": 6,
+                    "Y": 6,
+                    "Width": 442,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "gear_color_container",
+                "X": 370,
+                "Y": 116,
+                "Width": 284,
+                "Height": 248,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_gear",
+                    "Width": 284,
+                    "Height": 248,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_gear",
+                    "X": 110,
+                    "Y": 192,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_6U7F",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_gear",
+                    "X": 28,
+                    "Y": 16,
+                    "Width": 228,
+                    "Height": 183,
+                    "TextId": "__SingleUse_IOC3",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "lch_color_container",
+                "X": 697,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_lch",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_lch",
+                    "X": 231,
+                    "Y": 6,
+                    "Width": 51,
+                    "Height": 30,
+                    "TextId": "__SingleUse_IP5K",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_lch",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_05ZL",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_sw_lch",
+                    "X": 6,
+                    "Y": 7,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_MXTX",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "alag_color_container",
+                "X": 697,
+                "Y": 295,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_alag",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_alag",
+                    "X": 214,
+                    "Y": 5,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_RAW5",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_alag",
+                    "X": 45,
+                    "Y": 5,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_X8X2",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_sw_alag",
+                    "X": 5,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_30P2",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "drs_color_container",
+                "X": 697,
+                "Y": 186,
+                "Width": 284,
+                "Height": 77,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_drs",
+                    "Y": 1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_drs",
+                    "X": 214,
+                    "Y": 5,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_TXKS",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_drs",
+                    "X": 45,
+                    "Y": 7,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_TYTB",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_sw_drs",
+                    "X": 5,
+                    "Y": 4,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_OZEW",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "speed_color_container",
+                "X": 697,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_speed",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_mph_speed",
+                    "X": 6,
+                    "Y": 4,
+                    "Width": 60,
+                    "Height": 25,
+                    "TextId": "__SingleUse_BT48",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_speed",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_IVK1",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_speed",
+                    "X": 214,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_97TI",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "rpm_color_container",
+                "X": 368,
+                "Y": 29,
+                "Width": 286,
+                "Height": 58,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_rpm",
+                    "X": 2,
+                    "Width": 284,
+                    "Height": 58,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_rpm",
+                    "X": 2,
+                    "Y": -4,
+                    "Width": 284,
+                    "Height": 66,
+                    "TextId": "__SingleUse_2R2I",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "time_color_container",
+                "X": 43,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_time",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_time",
+                    "X": 33,
+                    "Y": 7,
+                    "Width": 218,
+                    "Height": 61,
+                    "TextId": "__SingleUse_UN2Q",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_min_time",
+                    "X": 220,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_2JGJ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_time",
+                    "X": 3,
+                    "Y": 5,
+                    "Width": 61,
+                    "Height": 30,
+                    "TextId": "__SingleUse_Q2ZU",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "batt_color_container",
+                "X": 44,
+                "Y": 296,
+                "Width": 283,
+                "Height": 75,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_batt",
+                    "X": -1,
+                    "Y": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_batt",
+                    "X": 63,
+                    "Y": 5,
+                    "Width": 163,
+                    "Height": 63,
+                    "TextId": "__SingleUse_PTIY",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_v_batt",
+                    "X": 235,
+                    "Y": 4,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_7H0D",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_batt",
+                    "X": 4,
+                    "Y": 5,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_80UF",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilp_color_container",
+                "X": 43,
+                "Y": 187,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_oilp",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_psi_oilp",
+                    "X": 224,
+                    "Y": 3,
+                    "Width": 55,
+                    "Height": 28,
+                    "TextId": "__SingleUse_S20S",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_oilp",
+                    "X": 4,
+                    "Y": 3,
+                    "Width": 53,
+                    "Height": 25,
+                    "TextId": "__SingleUse_KJ8K",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_oilp",
+                    "X": 44,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_XO7K",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "state_indicators_color_container",
+                "X": 370,
+                "Y": 398,
+                "Width": 284,
+                "Height": 80,
+                "Components": [
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_lag",
+                    "X": -2,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_RGKH",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_launch",
+                    "X": 95,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_BERQ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_ui_lock",
+                    "X": 190,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_0FU8",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_color__uc",
+                    "X": 25,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_color_can",
+                    "X": 122,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_color_lockui",
+                    "X": 216,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_color_uc",
+                    "X": 25,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_color_can",
+                    "X": 122,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_color_lockui",
+                    "X": 216,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "reset_color_container",
+                "X": 755,
+                "Y": 517,
+                "Width": 236,
+                "Height": 50,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_reset_color",
+                    "Y": 1,
+                    "Width": 236,
+                    "Height": 49,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_reset_color",
+                    "X": 32,
+                    "Y": 13,
+                    "Width": 172,
+                    "Height": 24,
+                    "TextId": "__SingleUse_TIMW",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "switch_to_data_color_container_1",
+                "X": 34,
+                "Y": 517,
+                "Width": 236,
+                "Height": 50,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_switch_to_data",
+                    "Width": 236,
+                    "Height": 49,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_switch_to_data",
+                    "X": 65,
+                    "Y": 12,
+                    "Width": 92,
+                    "Height": 24,
+                    "TextId": "__SingleUse_SNJE",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilt_color_container",
+                "X": 43,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_oilt",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_f_oilt",
+                    "X": 238,
+                    "Y": 3,
+                    "Width": 43,
+                    "Height": 28,
+                    "TextId": "__SingleUse_VWUR",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_color_oilt",
+                    "X": 64,
+                    "Y": 6,
+                    "Width": 163,
+                    "Height": 64,
+                    "TextId": "__SingleUse_KOLA",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_oilt",
+                    "X": 4,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 25,
+                    "TextId": "__SingleUse_0JXE",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "change_bg_color_container",
+                "X": 714,
+                "Y": 9,
+                "Width": 239,
+                "Height": 49,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_color_change_bg",
+                    "X": 3,
+                    "Width": 236,
+                    "Height": 49,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_color_change_background",
+                    "X": 22,
+                    "Y": 12,
+                    "Width": 202,
+                    "Height": 24,
+                    "TextId": "__SingleUse_TIXJ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_color_title",
+                "X": 39,
+                "Y": 12,
+                "Width": 292,
+                "Height": 35,
+                "TextId": "__SingleUse_AWAF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "menu_driver_profiles_container",
+            "X": 339,
+            "Y": 72,
+            "Width": 344,
+            "Height": 409,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box3",
+                "X": 31,
+                "Y": 39,
+                "Width": 284,
+                "Height": 276,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "Alpha": 250
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_profile_selector",
+                "X": 113,
+                "Y": 123,
+                "Width": 85,
+                "Height": 28,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 2
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_driver_profiles_title",
+                "X": 49,
+                "Y": 64,
+                "Width": 249,
+                "Height": 35,
+                "TextId": "__SingleUse_V2W8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_1",
+                "X": 90,
+                "Y": 124,
+                "Width": 105,
+                "Height": 24,
+                "TextId": "__SingleUse_AR08",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_44BN",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_2",
+                "X": 90,
+                "Y": 158,
+                "Width": 105,
+                "Height": 24,
+                "TextId": "__SingleUse_4ML2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OLT5",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_3",
+                "X": 90,
+                "Y": 193,
+                "Width": 105,
+                "Height": 24,
+                "TextId": "__SingleUse_JY35",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_PEBN",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_4",
+                "X": 90,
+                "Y": 229,
+                "Width": 105,
+                "Height": 24,
+                "TextId": "__SingleUse_48MM",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_U5TG",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_status_5",
+                "X": 90,
+                "Y": 261,
+                "Width": 105,
+                "Height": 24,
+                "TextId": "__SingleUse_U9MG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O80J",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_1",
+                "X": 218,
+                "Y": 124,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_56UT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_H8NQ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_2",
+                "X": 218,
+                "Y": 158,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_XID2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_6N3Y",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_3",
+                "X": 218,
+                "Y": 193,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_NP9W",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_SKNR",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_4",
+                "X": 218,
+                "Y": 229,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_K8F1",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_LGAJ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_profile_edit_5",
+                "X": 218,
+                "Y": 261,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_FV0O",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_GI66",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "sensor_readout_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_sensors_bg",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_sensors_title",
+                "X": 313,
+                "Y": 53,
+                "Width": 398,
+                "Height": 59,
+                "TextId": "__SingleUse_YK97",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "AiM_readout_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_aim_bg",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_AiM_title",
+                "X": 355,
+                "Y": 48,
+                "Width": 315,
+                "Height": 59,
+                "TextId": "__SingleUse_XQKR",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "error_status_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_error_bg",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_errors_title",
+                "X": 407,
+                "Y": 44,
+                "Width": 210,
+                "Height": 59,
+                "TextId": "__SingleUse_KDF9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "data_customizer_container",
+            "Width": 1024,
+            "Height": 600,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "bx_dashbackground_1_1",
+                "Width": 1024,
+                "Height": 600
+              },
+              {
+                "Type": "BoxWithBorder",
+                "Name": "bx_data_widget_selector",
+                "X": 28,
+                "Y": 59,
+                "Width": 312,
+                "Height": 106,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderColor": {
+                  "Red": 255
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "fuel_data_container",
+                "X": 288,
+                "Y": 517,
+                "Width": 454,
+                "Height": 49,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_fuel",
+                    "Width": 454,
+                    "Height": 50,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "Box",
+                    "Name": "dbx_data_fuel",
+                    "X": 6,
+                    "Y": 6,
+                    "Width": 442,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "gear_data_container",
+                "X": 370,
+                "Y": 116,
+                "Width": 284,
+                "Height": 248,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_gear",
+                    "Width": 284,
+                    "Height": 248,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_gear",
+                    "X": 110,
+                    "Y": 192,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_3VE3",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_gear",
+                    "X": 28,
+                    "Y": 16,
+                    "Width": 228,
+                    "Height": 183,
+                    "TextId": "__SingleUse_YAHL",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "lch_data_container",
+                "X": 697,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_lch",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_lch",
+                    "X": 231,
+                    "Y": 6,
+                    "Width": 51,
+                    "Height": 30,
+                    "TextId": "__SingleUse_V9TY",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_lch",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_QZAU",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_sw_lch",
+                    "X": 6,
+                    "Y": 7,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_Z5YT",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "alag_data_container",
+                "X": 697,
+                "Y": 295,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_alag",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_alag",
+                    "X": 214,
+                    "Y": 5,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_X2F1",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_alag",
+                    "X": 45,
+                    "Y": 5,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_8Q5G",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_sw_alag",
+                    "X": 5,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_0YCB",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "drs_data_container",
+                "X": 697,
+                "Y": 186,
+                "Width": 284,
+                "Height": 77,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_drs",
+                    "Y": 1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_drs",
+                    "X": 214,
+                    "Y": 5,
+                    "Width": 65,
+                    "Height": 30,
+                    "TextId": "__SingleUse_PPMN",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_drs",
+                    "X": 45,
+                    "Y": 7,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_O169",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_sw_drs",
+                    "X": 5,
+                    "Y": 4,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_E7J2",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "speed_data_container",
+                "X": 697,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_speed",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_mph_speed",
+                    "X": 6,
+                    "Y": 4,
+                    "Width": 60,
+                    "Height": 25,
+                    "TextId": "__SingleUse_WD1V",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_speed",
+                    "X": 45,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_VJ4M",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_speed",
+                    "X": 214,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 25,
+                    "TextId": "__SingleUse_OD8Y",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "rpm_data_container",
+                "X": 368,
+                "Y": 29,
+                "Width": 286,
+                "Height": 58,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_rpm",
+                    "X": 2,
+                    "Width": 284,
+                    "Height": 58,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_rpm",
+                    "X": 2,
+                    "Y": -4,
+                    "Width": 284,
+                    "Height": 66,
+                    "TextId": "__SingleUse_G3MN",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "time_data_container",
+                "X": 43,
+                "Y": 402,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_time",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_time",
+                    "X": 33,
+                    "Y": 7,
+                    "Width": 218,
+                    "Height": 61,
+                    "TextId": "__SingleUse_5CV2",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_min_time",
+                    "X": 220,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 29,
+                    "TextId": "__SingleUse_YCEC",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_time",
+                    "X": 3,
+                    "Y": 5,
+                    "Width": 61,
+                    "Height": 30,
+                    "TextId": "__SingleUse_V0R8",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "batt_data_container",
+                "X": 44,
+                "Y": 296,
+                "Width": 283,
+                "Height": 75,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_batt",
+                    "X": -1,
+                    "Y": -1,
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_batt",
+                    "X": 63,
+                    "Y": 5,
+                    "Width": 163,
+                    "Height": 63,
+                    "TextId": "__SingleUse_BTEO",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_v_batt",
+                    "X": 235,
+                    "Y": 4,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_PS8X",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_batt",
+                    "X": 4,
+                    "Y": 5,
+                    "Width": 47,
+                    "Height": 30,
+                    "TextId": "__SingleUse_W9MX",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilp_data_container",
+                "X": 43,
+                "Y": 187,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_oilp",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_psi_oilp",
+                    "X": 224,
+                    "Y": 3,
+                    "Width": 55,
+                    "Height": 28,
+                    "TextId": "__SingleUse_GO9L",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_oilp",
+                    "X": 4,
+                    "Y": 3,
+                    "Width": 53,
+                    "Height": 25,
+                    "TextId": "__SingleUse_2MIY",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_oilp",
+                    "X": 44,
+                    "Y": 6,
+                    "Width": 195,
+                    "Height": 64,
+                    "TextId": "__SingleUse_HLG0",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "state_indicators_data_container",
+                "X": 370,
+                "Y": 398,
+                "Width": 284,
+                "Height": 80,
+                "Components": [
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_lag",
+                    "X": -2,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_C19V",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_launch",
+                    "X": 95,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_URU0",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_ui_lock",
+                    "X": 190,
+                    "Width": 94,
+                    "Height": 25,
+                    "TextId": "__SingleUse_FJJZ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_data__uc",
+                    "X": 25,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_data_can",
+                    "X": 122,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "circ_data_lockui",
+                    "X": 216,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 13.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_data_uc",
+                    "X": 25,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_data_can",
+                    "X": 122,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  },
+                  {
+                    "Type": "Circle",
+                    "Name": "dcirc_data_lockui",
+                    "X": 216,
+                    "Y": 40,
+                    "Width": 40,
+                    "Height": 38,
+                    "Color": {
+                      "Red": 82,
+                      "Green": 166,
+                      "Blue": 250
+                    },
+                    "CenterX": 20.0,
+                    "CenterY": 20.0,
+                    "Radius": 10.0,
+                    "EndAngle": 360.0,
+                    "CapPrecision": "Butt"
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "reset_data_container",
+                "X": 755,
+                "Y": 517,
+                "Width": 236,
+                "Height": 50,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_reset_data",
+                    "Y": 1,
+                    "Width": 236,
+                    "Height": 49,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_reset_data",
+                    "X": 32,
+                    "Y": 13,
+                    "Width": 172,
+                    "Height": 24,
+                    "TextId": "__SingleUse_45XG",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "switch_to_color_data_container",
+                "X": 34,
+                "Y": 517,
+                "Width": 236,
+                "Height": 50,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_switch_to_color",
+                    "Width": 236,
+                    "Height": 49,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_switch_to_color",
+                    "X": 65,
+                    "Y": 12,
+                    "Width": 107,
+                    "Height": 24,
+                    "TextId": "__SingleUse_RK3Z",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "oilt_data_container",
+                "X": 43,
+                "Y": 74,
+                "Width": 284,
+                "Height": 76,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "bx_data_oilt",
+                    "Width": 284,
+                    "Height": 76,
+                    "Color": {
+                      "Red": 10,
+                      "Green": 10,
+                      "Blue": 10
+                    },
+                    "BorderColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_f_oilt",
+                    "X": 238,
+                    "Y": 3,
+                    "Width": 43,
+                    "Height": 28,
+                    "TextId": "__SingleUse_OQYH",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "dtxt_data_oilt",
+                    "X": 64,
+                    "Y": 6,
+                    "Width": 163,
+                    "Height": 64,
+                    "TextId": "__SingleUse_F0YQ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "txt_data_oilt",
+                    "X": 4,
+                    "Y": 5,
+                    "Width": 55,
+                    "Height": 25,
+                    "TextId": "__SingleUse_KIV9",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    }
+                  }
+                ]
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_data_title",
+                "X": 39,
+                "Y": 12,
+                "Width": 292,
+                "Height": 35,
+                "TextId": "__SingleUse_T6T9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
               }
             ]
           }

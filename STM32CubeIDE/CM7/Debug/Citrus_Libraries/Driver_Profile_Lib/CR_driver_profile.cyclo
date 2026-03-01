@@ -1,0 +1,7 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:42:13:CR_profile_get_status_str	5
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:52:5:CR_profile_has_default_colors	6
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:68:6:CR_profile_build_from_pending	2
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:81:6:CR_profile_reset_pending	2
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:90:9:CR_color_cycle_next	2
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:98:9:CR_color_cycle_prev	2
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:105:27:CR_profile_get_selector_pos	3

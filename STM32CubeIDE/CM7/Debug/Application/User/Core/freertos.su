@@ -1,0 +1,9 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:165:6:vApplicationIdleHook	4	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:180:6:vApplicationStackOverflowHook	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:193:6:MX_FREERTOS_Init	8	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:266:6:StartDefaultTask	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:306:6:ButtonTaskFunc	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:327:6:PollADCFunc	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:349:6:ReceiveCANFunc	56	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:369:6:ShiftLightFunc	48	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/freertos.c:427:6:UIButtonUpdateFunc	16	static

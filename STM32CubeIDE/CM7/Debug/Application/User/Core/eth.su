@@ -1,0 +1,3 @@
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/eth.c:51:6:MX_ETH_Init	8	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/eth.c:95:6:HAL_ETH_MspInit	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/Core/Src/eth.c:150:6:HAL_ETH_MspDeInit	16	static
