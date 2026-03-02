@@ -380,9 +380,18 @@ void ShiftLightFunc(void *argument)
 	uint8_t g = 0;
 	uint8_t b = 0;
 
-	int threshold1 = 5000;
-	int threshold2 = 9000;
-	int maxrpm = 13000;
+	int threshold1 = 5000;		// Yellow threshold
+	int threshold2 = 9000;		// Red threshold
+	int flashthreshold = 12000;	// Flashing threshold
+	int maxrpm = 13000;			// Max expected rpm
+
+	while (latest_CAN_Vals.engine_speed > flashthreshold)
+	{
+		CR_set_all_lights(&shift_light_handle, 255, 0, 0);
+		osDelay(50);
+		CR_clear_all_lights(&shift_light_handle);
+		osDelay(50);
+	}
 
 	CR_clear_all_lights(&shift_light_handle);
 	for(int i = 0; i < shift_light_handle.num_leds; i++){
