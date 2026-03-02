@@ -43,9 +43,7 @@ Application/User/generated/Screen1ViewBase.o: \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp \
  ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/Model.hpp \
- ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- ../../CM7/../../CM7/TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
- ../../../CM7/Core/Inc/main.h \
+ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../../CM7/Core/Inc/stm32h7xx_hal_conf.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -109,6 +107,9 @@ Application/User/generated/Screen1ViewBase.o: \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
+ ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
+ ../../CM7/../../CM7/TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ ../../../CM7/Core/Inc/main.h \
  ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp \
  C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_Bus_Lib/CR_CAN_parse.h \
  ../../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
@@ -124,11 +125,11 @@ Application/User/generated/Screen1ViewBase.o: \
  ../../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../../../CM7/Core/Inc/fdcan.h ../../../CM7/Core/Inc/main.h \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
+ ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
- ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
@@ -143,11 +144,11 @@ Application/User/generated/Screen1ViewBase.o: \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp \
- ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
+ ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp \
  ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp \
- ../../CM7/../../CM7/TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp \
- ../../CM7/../../CM7/TouchGFX/generated/images/include/images/BitmapDatabase.hpp
+ ../../CM7/../../CM7/TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
+ ../../CM7/../../CM7/TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp
 ../../CM7/../../CM7/TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
 ../../CM7/../../CM7/TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
 ../../CM7/../../CM7/TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:
@@ -191,9 +192,7 @@ Application/User/generated/Screen1ViewBase.o: \
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp:
 ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/Model.hpp:
-../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
-../../CM7/../../CM7/TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
-../../../CM7/Core/Inc/main.h:
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../../CM7/Core/Inc/stm32h7xx_hal_conf.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -257,6 +256,9 @@ Application/User/generated/Screen1ViewBase.o: \
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
+../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
+../../CM7/../../CM7/TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+../../../CM7/Core/Inc/main.h:
 ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp:
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_Bus_Lib/CR_CAN_parse.h:
 ../../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -273,11 +275,11 @@ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_
 ../../../CM7/Core/Inc/fdcan.h:
 ../../../CM7/Core/Inc/main.h:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
+../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
-../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
@@ -292,8 +294,8 @@ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp:
-../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
+../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp:
-../../CM7/../../CM7/TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:
 ../../CM7/../../CM7/TouchGFX/generated/images/include/images/BitmapDatabase.hpp:
+../../CM7/../../CM7/TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:

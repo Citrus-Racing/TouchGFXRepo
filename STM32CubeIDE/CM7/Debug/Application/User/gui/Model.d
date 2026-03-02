@@ -1,8 +1,7 @@
 Application/User/gui/Model.o: \
  C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/model/Model.cpp \
  ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/Model.hpp \
- ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp \
- ../../../CM7/Core/Inc/main.h \
+ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../../CM7/Core/Inc/stm32h7xx_hal_conf.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -66,6 +65,8 @@ Application/User/gui/Model.o: \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h \
  ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
+ ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp \
+ ../../../CM7/Core/Inc/main.h \
  C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_Bus_Lib/CR_CAN_parse.h \
  ../../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../../CM7/Core/Inc/FreeRTOSConfig.h \
@@ -82,11 +83,9 @@ Application/User/gui/Model.o: \
  ../../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Structs/CR_structs.h \
  C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Rotary_Encoder_Lib/CR_encoder.h \
- C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.h \
- C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h
+ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.h
 ../../CM7/../../CM7/TouchGFX/gui/include/gui/model/Model.hpp:
-../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp:
-../../../CM7/Core/Inc/main.h:
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../../CM7/Core/Inc/stm32h7xx_hal_conf.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -150,6 +149,8 @@ Application/User/gui/Model.o: \
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h:
 ../../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
+../../CM7/../../CM7/TouchGFX/gui/include/gui/model/ModelListener.hpp:
+../../../CM7/Core/Inc/main.h:
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_Bus_Lib/CR_CAN_parse.h:
 ../../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../../CM7/Core/Inc/FreeRTOSConfig.h:
@@ -168,4 +169,3 @@ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/CAN_
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Structs/CR_structs.h:
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Rotary_Encoder_Lib/CR_encoder.h:
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Shift_Light_Lib/CR_shift_light.h:
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.h:

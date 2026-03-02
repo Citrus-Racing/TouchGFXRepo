@@ -1,3 +1,5 @@
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:6:6:CR_flash_erase_settings	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:24:6:CR_flash_write_settings	48	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:44:19:CR_flash_read_settings	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:8:6:CR_flash_erase_settings	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:26:6:CR_flash_write_all	64	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:63:19:CR_flash_read_settings	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:87:19:CR_flash_read_profile	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Flash_Storage_Lib/CR_flash_storage.c:107:6:CR_flash_read_all_profiles	24	static

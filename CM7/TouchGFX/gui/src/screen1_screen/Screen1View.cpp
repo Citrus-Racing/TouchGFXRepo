@@ -352,6 +352,9 @@ void Screen1View::encoder_click(){
 		return;
 	}
 
+	// For all other menus (main menu, driver profiles, fuel, or dashboard),
+	// encoder click behaves the same as the menu button
+	open_menu();
 }
 
 void Screen1View::update_profile_selector(){
