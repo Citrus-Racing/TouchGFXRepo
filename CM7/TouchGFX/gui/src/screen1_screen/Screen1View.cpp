@@ -40,11 +40,15 @@ void Screen1View::update_CAN_info(CR_CAN_vals * CAN_data){
 	Unicode::itoa(((CAN_data->engine_oil_temperature-40)*1.8)+32, dtxt_oiltBuffer, 11, 10); // -40 celsius offset + America offset.
 	Unicode::itoa((CAN_data->engine_oil_pressure)/68.94757, dtxt_oilpBuffer, 11, 10); // 0.1kpa to 1 PSI
 	Unicode::itoa(CAN_data->ecu_battery_voltage*0.1, dtxt_battBuffer, 11, 10); // 0.1v scale
+	Unicode::itoa(((CAN_data->coolant_temperature-40)*1.8)+32, dtxt_cooltempBuffer, 11, 10); // -40 celsius offset + America offset
+	Unicode::snprintf(dtxt_fuelmixBuffer, DTXT_FUELMIX_SIZE, "%d.%02d", CAN_data->fuel_mixture_aim / 100, CAN_data->fuel_mixture_aim % 100); // 0.01 lambda scale
 	Unicode::strncpy(dtxt_alagBuffer, (CAN_data->anti_lag_state ? "OFF" : "ON"), 11);
 	Unicode::strncpy(dtxt_lchBuffer, (CAN_data->launch_state ? "OFF" : "ON"), 11);
 	dtxt_lch.invalidate();
 	dtxt_alag.invalidate();
 	dtxt_batt.invalidate();
+	dtxt_cooltemp.invalidate();
+	dtxt_fuelmix.invalidate();
 	dtxt_oilp.invalidate();
 	dtxt_oilt.invalidate();
 	dtxt_gear.invalidate();
@@ -237,9 +241,8 @@ void Screen1View::cursor_up(){
 				pending_bg_color = CR_color_cycle_next(pending_bg_color);
 				apply_single_box_color_customizer(box, pending_bg_color);
 			} else {
-				uint8_t ci = (box < 7) ? box : box - 1;
-				pending_colors[ci] = CR_color_cycle_next(pending_colors[ci]);
-				apply_single_box_color_customizer(box, pending_colors[ci]);
+				pending_colors[box] = CR_color_cycle_next(pending_colors[box]);
+				apply_single_box_color_customizer(box, pending_colors[box]);
 			}
 		} else {
 			if(customizer_scroll_pos > 0){
@@ -285,9 +288,8 @@ void Screen1View::cursor_down(){
 				pending_bg_color = CR_color_cycle_prev(pending_bg_color);
 				apply_single_box_color_customizer(box, pending_bg_color);
 			} else {
-				uint8_t ci = (box < 7) ? box : box - 1;
-				pending_colors[ci] = CR_color_cycle_prev(pending_colors[ci]);
-				apply_single_box_color_customizer(box, pending_colors[ci]);
+				pending_colors[box] = CR_color_cycle_prev(pending_colors[box]);
+				apply_single_box_color_customizer(box, pending_colors[box]);
 			}
 		} else {
 			if(customizer_scroll_pos < CR_NUM_CUSTOM_BOXES - 1){
@@ -428,31 +430,30 @@ void Screen1View::refresh_profile_status_texts(){
 // Sets fill color from palette, border to white (or black if fill is white),
 // and text to white (or black if fill is white) for each box's labels and values.
 void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color){
-	// 10 BoxWithBorder widgets (all dashboard boxes except fuel bar)
-	touchgfx::BoxWithBorder* boxes[10] = {
-		&bx_oilt, &bx_oilp, &bx_batt, &bx_time,
-		&bx_rpm, &bx_gear, /* skip 6 */ &bx_speed,
-		&bx_drs, &bx_alag, &bx_lch
+	// 12 BoxWithBorder widgets (all dashboard boxes except fuel bar)
+	touchgfx::BoxWithBorder* boxes[12] = {
+		&bx_oilt, &bx_oilp, &bx_batt, &bx_cooltemp,
+		&bx_fuelmix, &bx_time, &bx_rpm, &bx_gear,
+		&bx_speed, &bx_drs, &bx_alag, &bx_lch
 	};
-	// Maps the 10-element boxes[] array to indices in the 11-element colors[] array.
-	// Skips index 6 (fuel bar) since it's a plain Box, not BoxWithBorder.
-	static const uint8_t bwb_idx[10] = { 0, 1, 2, 3, 4, 5, 7, 8, 9, 10 };
+	// Maps the 12-element boxes[] array to indices in the 13-element colors[] array.
+	// Skips index 8 (fuel bar) since it's a plain Box, not BoxWithBorder.
+	static const uint8_t bwb_idx[12] = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12 };
 
 	touchgfx::colortype white = touchgfx::Color::getColorFromRGB(255, 255, 255);
 	touchgfx::colortype black = touchgfx::Color::getColorFromRGB(0, 0, 0);
 
 	// Apply fill + border to each BoxWithBorder
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 12; i++){
 		const CR_color_entry_t& c = CR_COLOR_PALETTE[colors[bwb_idx[i]]];
-		// Border rule: white unless fill is white (palette index 1), then black
 		touchgfx::colortype border = (colors[bwb_idx[i]] == 1) ? black : white;
 		boxes[i]->setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 		boxes[i]->setBorderColor(border);
 		boxes[i]->invalidate();
 	}
 
-	// colors[6]: dbx_fuel is a plain Box (fill only, no border or text)
-	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[6]];
+	// colors[8]: dbx_fuel is a plain Box (fill only, no border or text)
+	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[8]];
 	dbx_fuel.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
 	dbx_fuel.invalidate();
 
@@ -476,32 +477,40 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 	txt_batt.setColor(tc); txt_v_batt.setColor(tc); dtxt_batt.setColor(tc);
 	txt_batt.invalidate(); txt_v_batt.invalidate(); dtxt_batt.invalidate();
 
-	tc = (colors[3] == 1) ? black : white; // time
+	tc = (colors[3] == 1) ? black : white; // cooltemp
+	txt_cooltemp.setColor(tc); txt_f_cooltemp.setColor(tc); dtxt_cooltemp.setColor(tc);
+	txt_cooltemp.invalidate(); txt_f_cooltemp.invalidate(); dtxt_cooltemp.invalidate();
+
+	tc = (colors[4] == 1) ? black : white; // fuelmix
+	txt_fuelmix.setColor(tc); txt_lambda_fuelmix.setColor(tc); dtxt_fuelmix.setColor(tc);
+	txt_fuelmix.invalidate(); txt_lambda_fuelmix.invalidate(); dtxt_fuelmix.invalidate();
+
+	tc = (colors[5] == 1) ? black : white; // time
 	txt_time.setColor(tc); txt_min_time.setColor(tc); dtxt_time.setColor(tc);
 	txt_time.invalidate(); txt_min_time.invalidate(); dtxt_time.invalidate();
 
-	tc = (colors[4] == 1) ? black : white; // rpm (value only, no label)
+	tc = (colors[6] == 1) ? black : white; // rpm (value only, no label)
 	dtxt_rpm.setColor(tc); dtxt_rpm.invalidate();
 
-	tc = (colors[5] == 1) ? black : white; // gear
+	tc = (colors[7] == 1) ? black : white; // gear
 	txt_gear.setColor(tc); dtxt_gear.setColor(tc);
 	txt_gear.invalidate(); dtxt_gear.invalidate();
 
-	// colors[6] = fuel bar — no text widgets
+	// colors[8] = fuel bar — no text widgets
 
-	tc = (colors[7] == 1) ? black : white; // speed
+	tc = (colors[9] == 1) ? black : white; // speed
 	txt_speed.setColor(tc); txt_mph_speed.setColor(tc); dtxt_speed.setColor(tc);
 	txt_speed.invalidate(); txt_mph_speed.invalidate(); dtxt_speed.invalidate();
 
-	tc = (colors[8] == 1) ? black : white; // DRS
+	tc = (colors[10] == 1) ? black : white; // DRS
 	txt_drs.setColor(tc); txt_sw_drs.setColor(tc); dtxt_drs.setColor(tc);
 	txt_drs.invalidate(); txt_sw_drs.invalidate(); dtxt_drs.invalidate();
 
-	tc = (colors[9] == 1) ? black : white; // alag
+	tc = (colors[11] == 1) ? black : white; // alag
 	txt_alag.setColor(tc); txt_sw_alag.setColor(tc); dtxt_alag.setColor(tc);
 	txt_alag.invalidate(); txt_sw_alag.invalidate(); dtxt_alag.invalidate();
 
-	tc = (colors[10] == 1) ? black : white; // lch
+	tc = (colors[12] == 1) ? black : white; // lch
 	txt_lch.setColor(tc); txt_sw_lch.setColor(tc); dtxt_lch.setColor(tc);
 	txt_lch.invalidate(); txt_sw_lch.invalidate(); dtxt_lch.invalidate();
 }
@@ -509,20 +518,20 @@ void Screen1View::apply_colors_to_dashboard(const uint8_t colors[CR_NUM_BOX_COLO
 // Apply all profile colors to the customizer preview (the _color_ widgets).
 // Same border/text rules as the dashboard version.
 void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COLORS], uint8_t bg_color){
-	// 10 BoxWithBorder widgets in the customizer preview (same order as dashboard)
-	touchgfx::BoxWithBorder* boxes[10] = {
-		&bx_color_oilt, &bx_color_oilp, &bx_color_batt, &bx_color_time,
-		&bx_color_rpm, &bx_color_gear, /* skip 6 */ &bx_color_speed,
-		&bx_color_drs, &bx_color_alag, &bx_color_lch
+	// 12 BoxWithBorder widgets in the customizer preview (same order as dashboard)
+	touchgfx::BoxWithBorder* boxes[12] = {
+		&bx_oilt_1, &bx_color_oilp, &bx_color_batt, &bx_color_cooltemp,
+		&bx_color_fuelmix, &bx_color_time, &bx_color_rpm, &bx_color_gear,
+		&bx_color_speed, &bx_color_drs, &bx_alag_1, &bx_color_lch
 	};
-	// Same mapping as dashboard: skip colors[6] (fuel bar)
-	static const uint8_t bwb_idx[10] = { 0, 1, 2, 3, 4, 5, 7, 8, 9, 10 };
+	// Same mapping as dashboard: skip colors[8] (fuel bar)
+	static const uint8_t bwb_idx[12] = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12 };
 
 	touchgfx::colortype white = touchgfx::Color::getColorFromRGB(255, 255, 255);
 	touchgfx::colortype black = touchgfx::Color::getColorFromRGB(0, 0, 0);
 
 	// Apply fill + border to each BoxWithBorder
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 12; i++){
 		const CR_color_entry_t& c = CR_COLOR_PALETTE[colors[bwb_idx[i]]];
 		touchgfx::colortype border = (colors[bwb_idx[i]] == 1) ? black : white;
 		boxes[i]->setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
@@ -530,8 +539,8 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 		boxes[i]->invalidate();
 	}
 
-	// colors[6]: fuel bar preview (plain Box, fill only)
-	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[6]];
+	// colors[8]: fuel bar preview (plain Box, fill only)
+	const CR_color_entry_t& fc = CR_COLOR_PALETTE[colors[8]];
 	dbx_color_fuel.setColor(touchgfx::Color::getColorFromRGB(fc.r, fc.g, fc.b));
 	dbx_color_fuel.invalidate();
 
@@ -556,8 +565,8 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 	touchgfx::colortype tc;
 
 	tc = (colors[0] == 1) ? black : white; // oilt
-	txt_color_oilt.setColor(tc); txt_color_f_oilt.setColor(tc); dtxt_color_oilt.setColor(tc);
-	txt_color_oilt.invalidate(); txt_color_f_oilt.invalidate(); dtxt_color_oilt.invalidate();
+	txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
+	txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
 
 	tc = (colors[1] == 1) ? black : white; // oilp
 	txt_color_oilp.setColor(tc); txt_color_psi_oilp.setColor(tc); dtxt_color_oilp.setColor(tc);
@@ -567,32 +576,40 @@ void Screen1View::apply_colors_to_customizer(const uint8_t colors[CR_NUM_BOX_COL
 	txt_color_batt.setColor(tc); txt_color_v_batt.setColor(tc); dtxt_color_batt.setColor(tc);
 	txt_color_batt.invalidate(); txt_color_v_batt.invalidate(); dtxt_color_batt.invalidate();
 
-	tc = (colors[3] == 1) ? black : white; // time
+	tc = (colors[3] == 1) ? black : white; // cooltemp
+	txt_color_cooltemp.setColor(tc); txt_color_f_cooltemp.setColor(tc); dtxt_color_cooltemp.setColor(tc);
+	txt_color_cooltemp.invalidate(); txt_color_f_cooltemp.invalidate(); dtxt_color_cooltemp.invalidate();
+
+	tc = (colors[4] == 1) ? black : white; // fuelmix
+	txt_color_fuelmix.setColor(tc); txt_color_lambda_fuelmix.setColor(tc); dtxt_color_fuelmix.setColor(tc);
+	txt_color_fuelmix.invalidate(); txt_color_lambda_fuelmix.invalidate(); dtxt_color_fuelmix.invalidate();
+
+	tc = (colors[5] == 1) ? black : white; // time
 	txt_color_time.setColor(tc); txt_color_min_time.setColor(tc); dtxt_color_time.setColor(tc);
 	txt_color_time.invalidate(); txt_color_min_time.invalidate(); dtxt_color_time.invalidate();
 
-	tc = (colors[4] == 1) ? black : white; // rpm (value only)
+	tc = (colors[6] == 1) ? black : white; // rpm (value only)
 	dtxt_color_rpm.setColor(tc); dtxt_color_rpm.invalidate();
 
-	tc = (colors[5] == 1) ? black : white; // gear
+	tc = (colors[7] == 1) ? black : white; // gear
 	txt_color_gear.setColor(tc); dtxt_color_gear.setColor(tc);
 	txt_color_gear.invalidate(); dtxt_color_gear.invalidate();
 
-	// colors[6] = fuel bar — no text widgets
+	// colors[8] = fuel bar — no text widgets
 
-	tc = (colors[7] == 1) ? black : white; // speed
+	tc = (colors[9] == 1) ? black : white; // speed
 	txt_color_speed.setColor(tc); txt_color_mph_speed.setColor(tc); dtxt_color_speed.setColor(tc);
 	txt_color_speed.invalidate(); txt_color_mph_speed.invalidate(); dtxt_color_speed.invalidate();
 
-	tc = (colors[8] == 1) ? black : white; // DRS
+	tc = (colors[10] == 1) ? black : white; // DRS
 	txt_color_drs.setColor(tc); txt_color_sw_drs.setColor(tc); dtxt_color_drs.setColor(tc);
 	txt_color_drs.invalidate(); txt_color_sw_drs.invalidate(); dtxt_color_drs.invalidate();
 
-	tc = (colors[9] == 1) ? black : white; // alag
-	txt_color_alag.setColor(tc); txt_color_sw_alag.setColor(tc); dtxt_color_alag.setColor(tc);
-	txt_color_alag.invalidate(); txt_color_sw_alag.invalidate(); dtxt_color_alag.invalidate();
+	tc = (colors[11] == 1) ? black : white; // alag
+	txt_alag_1.setColor(tc); txt_sw_alag_1.setColor(tc); dtxt_alag_1.setColor(tc);
+	txt_alag_1.invalidate(); txt_sw_alag_1.invalidate(); dtxt_alag_1.invalidate();
 
-	tc = (colors[10] == 1) ? black : white; // lch
+	tc = (colors[12] == 1) ? black : white; // lch
 	txt_color_lch.setColor(tc); txt_color_sw_lch.setColor(tc); dtxt_color_lch.setColor(tc);
 	txt_color_lch.invalidate(); txt_color_sw_lch.invalidate(); dtxt_color_lch.invalidate();
 }
@@ -607,10 +624,10 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 	touchgfx::colortype border = (color_index == 1) ? black : white; // border rule
 	touchgfx::colortype tc = border; // text color follows same white/black rule
 
-	// Reset box (index 12) is click-only — no color to apply
+	// Reset box (index 14) is click-only — no color to apply
 	if(box_index == CR_RESET_BOX_INDEX) return;
 
-	// BG box (index 7): updates the preview background, change_bg box, and title text
+	// BG box (index 13): updates the preview background, change_bg box, and title text
 	if(box_index == CR_BG_BOX_INDEX){
 		bx_color_bg.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 		bx_color_bg.invalidate();
@@ -624,36 +641,34 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 		return;
 	}
 
-	// Fuel bar (index 6): plain Box, fill only, no border or text
-	if(box_index == 6){
+	// Fuel bar (index 8): plain Box, fill only, no border or text
+	if(box_index == 8){
 		dbx_color_fuel.setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 		dbx_color_fuel.invalidate();
 		return;
 	}
 
-	// Standard BoxWithBorder: map scroll index to the 10-element boxes array.
-	// Indices 0-5 map directly, 8-11 map to arr 6-9 (skipping fuel=6 and bg=7).
-	touchgfx::BoxWithBorder* boxes[10] = {
-		&bx_color_oilt, &bx_color_oilp, &bx_color_batt, &bx_color_time,
-		&bx_color_rpm, &bx_color_gear, /* skip 6,7 */ &bx_color_speed,
-		&bx_color_drs, &bx_color_alag, &bx_color_lch
+	// Standard BoxWithBorder: map box index to the 12-element boxes array.
+	// Indices 0-7 map directly, 9-12 map to arr 8-11 (skipping fuel=8).
+	touchgfx::BoxWithBorder* boxes[12] = {
+		&bx_oilt_1, &bx_color_oilp, &bx_color_batt, &bx_color_cooltemp,
+		&bx_color_fuelmix, &bx_color_time, &bx_color_rpm, &bx_color_gear,
+		&bx_color_speed, &bx_color_drs, &bx_alag_1, &bx_color_lch
 	};
 	uint8_t arr_idx;
-	if(box_index < 6)
+	if(box_index < 8)
 		arr_idx = box_index;
-	else // box_index 8-11 → arr_idx 6-9
-		arr_idx = box_index - 2;
+	else // box_index 9-12 → arr_idx 8-11
+		arr_idx = box_index - 1;
 
 	boxes[arr_idx]->setColor(touchgfx::Color::getColorFromRGB(c.r, c.g, c.b));
 	boxes[arr_idx]->setBorderColor(border);
 	boxes[arr_idx]->invalidate();
 
-	// Update text colors for the box's label, unit, and value widgets.
-	// Text widget names match the sensor name (not the box widget name).
 	switch(box_index){
-		case 0: // oilt texts
-			txt_color_oilt.setColor(tc); txt_color_f_oilt.setColor(tc); dtxt_color_oilt.setColor(tc);
-			txt_color_oilt.invalidate(); txt_color_f_oilt.invalidate(); dtxt_color_oilt.invalidate();
+		case 0: // oilt
+			txt_oilt_1.setColor(tc); txt_f_oilt_1.setColor(tc); dtxt_oilt_1.setColor(tc);
+			txt_oilt_1.invalidate(); txt_f_oilt_1.invalidate(); dtxt_oilt_1.invalidate();
 			break;
 		case 1: // oilp
 			txt_color_oilp.setColor(tc); txt_color_psi_oilp.setColor(tc); dtxt_color_oilp.setColor(tc);
@@ -663,30 +678,38 @@ void Screen1View::apply_single_box_color_customizer(uint8_t box_index, uint8_t c
 			txt_color_batt.setColor(tc); txt_color_v_batt.setColor(tc); dtxt_color_batt.setColor(tc);
 			txt_color_batt.invalidate(); txt_color_v_batt.invalidate(); dtxt_color_batt.invalidate();
 			break;
-		case 3: // time
+		case 3: // cooltemp
+			txt_color_cooltemp.setColor(tc); txt_color_f_cooltemp.setColor(tc); dtxt_color_cooltemp.setColor(tc);
+			txt_color_cooltemp.invalidate(); txt_color_f_cooltemp.invalidate(); dtxt_color_cooltemp.invalidate();
+			break;
+		case 4: // fuelmix
+			txt_color_fuelmix.setColor(tc); txt_color_lambda_fuelmix.setColor(tc); dtxt_color_fuelmix.setColor(tc);
+			txt_color_fuelmix.invalidate(); txt_color_lambda_fuelmix.invalidate(); dtxt_color_fuelmix.invalidate();
+			break;
+		case 5: // time
 			txt_color_time.setColor(tc); txt_color_min_time.setColor(tc); dtxt_color_time.setColor(tc);
 			txt_color_time.invalidate(); txt_color_min_time.invalidate(); dtxt_color_time.invalidate();
 			break;
-		case 4: // rpm (value only)
+		case 6: // rpm (value only)
 			dtxt_color_rpm.setColor(tc); dtxt_color_rpm.invalidate();
 			break;
-		case 5: // gear
+		case 7: // gear
 			txt_color_gear.setColor(tc); dtxt_color_gear.setColor(tc);
 			txt_color_gear.invalidate(); dtxt_color_gear.invalidate();
 			break;
-		case 8: // speed texts (positioned on bx_color_oilt)
+		case 9: // speed
 			txt_color_speed.setColor(tc); txt_color_mph_speed.setColor(tc); dtxt_color_speed.setColor(tc);
 			txt_color_speed.invalidate(); txt_color_mph_speed.invalidate(); dtxt_color_speed.invalidate();
 			break;
-		case 9: // DRS
+		case 10: // DRS
 			txt_color_drs.setColor(tc); txt_color_sw_drs.setColor(tc); dtxt_color_drs.setColor(tc);
 			txt_color_drs.invalidate(); txt_color_sw_drs.invalidate(); dtxt_color_drs.invalidate();
 			break;
-		case 10: // alag
-			txt_color_alag.setColor(tc); txt_color_sw_alag.setColor(tc); dtxt_color_alag.setColor(tc);
-			txt_color_alag.invalidate(); txt_color_sw_alag.invalidate(); dtxt_color_alag.invalidate();
+		case 11: // alag
+			txt_alag_1.setColor(tc); txt_sw_alag_1.setColor(tc); dtxt_alag_1.setColor(tc);
+			txt_alag_1.invalidate(); txt_sw_alag_1.invalidate(); dtxt_alag_1.invalidate();
 			break;
-		case 11: // lch
+		case 12: // lch
 			txt_color_lch.setColor(tc); txt_color_sw_lch.setColor(tc); dtxt_color_lch.setColor(tc);
 			txt_color_lch.invalidate(); txt_color_sw_lch.invalidate(); dtxt_color_lch.invalidate();
 			break;

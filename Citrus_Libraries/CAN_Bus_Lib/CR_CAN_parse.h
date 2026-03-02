@@ -32,6 +32,7 @@ typedef struct
 	uint16_t 	engine_oil_pressure;
 	int16_t 	boost_pressure;
 	uint16_t 	boost_aim;
+	uint16_t	fuel_mixture_aim;
 	uint8_t 	coolant_temperature;
 	uint8_t 	engine_oil_temperature;
 	uint8_t 	ecu_battery_voltage;
@@ -78,6 +79,15 @@ typedef struct
 	int16_t		inlet_manifold_temperature;
 	uint16_t	throttle_position;
 } CR_CAN_0x640;
+
+typedef struct
+{
+	uint16_t	fuel_volume;
+	uint16_t	fuel_mixture_aim;
+	uint16_t	fuel_pressure_sensor;
+	uint8_t		fuel_injector_duty_cycle;
+	uint8_t		engine_efficiency;
+} CR_CAN_0x641;
 
 typedef struct
 {
@@ -216,6 +226,7 @@ void CR_parse_CAN(CR_CAN_vals * data_handle, FDCAN_HandleTypeDef* hfdcan, uint32
 
 // Helper functions to populate the central struct
 void parse_0x640(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
+void parse_0x641(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
 void parse_0x644(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
 void parse_0x649(CR_CAN_vals * data_handle, uint8_t * CAN_msg);
 void parse_0x64D(CR_CAN_vals * data_handle, uint8_t * CAN_msg);

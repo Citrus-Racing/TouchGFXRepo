@@ -23,9 +23,9 @@ typedef struct {
 } CR_profile_selector_pos_t;
 
 
-#define CR_NUM_CUSTOM_BOXES   13
-#define CR_BG_BOX_INDEX       7
-#define CR_RESET_BOX_INDEX    12
+#define CR_NUM_CUSTOM_BOXES   15
+#define CR_BG_BOX_INDEX       13
+#define CR_RESET_BOX_INDEX    14
 
 extern const CR_color_entry_t   CR_COLOR_PALETTE[CR_NUM_PALETTE_COLORS];
 extern const CR_box_geometry_t  CR_CUSTOMIZER_BOX_POS[CR_NUM_CUSTOM_BOXES];

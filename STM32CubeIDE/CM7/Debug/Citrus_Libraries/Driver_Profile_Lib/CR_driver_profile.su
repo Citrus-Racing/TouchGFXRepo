@@ -1,7 +1,7 @@
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:42:13:CR_profile_get_status_str	24	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:52:5:CR_profile_has_default_colors	24	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:68:6:CR_profile_build_from_pending	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:81:6:CR_profile_reset_pending	24	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:90:9:CR_color_cycle_next	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:98:9:CR_color_cycle_prev	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:105:27:CR_profile_get_selector_pos	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:43:13:CR_profile_get_status_str	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:53:5:CR_profile_has_default_colors	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:69:6:CR_profile_build_from_pending	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:80:6:CR_profile_reset_pending	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:89:9:CR_color_cycle_next	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:97:9:CR_color_cycle_prev	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/Citrus_Libraries/Driver_Profile_Lib/CR_driver_profile.c:104:27:CR_profile_get_selector_pos	32	static

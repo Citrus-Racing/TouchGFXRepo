@@ -25,7 +25,7 @@ extern "C" {
 #define CR_PROFILE_MAGIC            0xB7
 
 #define CR_MAX_PROFILES             5
-#define CR_NUM_BOX_COLORS           11
+#define CR_NUM_BOX_COLORS           13
 #define CR_NUM_PALETTE_COLORS       8
 
 // Layout of the settings flashword (32 bytes = 256-bit HAL flashword).
@@ -41,15 +41,15 @@ typedef struct
 
 // A single driver profile stored in one flashword.
 // Byte 0: magic (0xB7 if filled, 0xFF if empty/erased)
-// Bytes 1-11: color palette index (0-7) for each dashboard box
-// Byte 12: background color palette index
-// Bytes 13-15: reserved padding
+// Bytes 1-13: color palette index (0-7) for each dashboard box
+// Byte 14: background color palette index
+// Byte 15: reserved padding
 typedef struct
 {
     uint8_t magic;
     uint8_t box_colors[CR_NUM_BOX_COLORS];
     uint8_t bg_color;
-    uint8_t reserved[3];
+    uint8_t reserved[1];
 } CR_profile_t;
 
 // Erase the settings sector in preparation for a write.

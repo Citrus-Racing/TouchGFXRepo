@@ -6,77 +6,158 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_GFOF" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_WUYH" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_PS7Q" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[°F]</Translation>
+      </Text>
+      <Text Id="__SingleUse_D62T" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Oil T</Translation>
+      </Text>
+      <Text Id="__SingleUse_XZVB" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Oil P</Translation>
+      </Text>
+      <Text Id="__SingleUse_LYT9" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[PSI]</Translation>
+      </Text>
+      <Text Id="__SingleUse_HJCN" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_4GI1" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_HZKX" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_3HO4" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_20SM" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[V]</Translation>
+      </Text>
+      <Text Id="__SingleUse_IYLL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Batt</Translation>
+      </Text>
+      <Text Id="__SingleUse_PGON" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Fuel Mix</Translation>
+      </Text>
+      <Text Id="__SingleUse_6GVV" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[Lamba]</Translation>
+      </Text>
+      <Text Id="__SingleUse_LFAR" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_LNEL" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_FZCB" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[MIN]</Translation>
+      </Text>
+      <Text Id="__SingleUse_S0OD" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Time</Translation>
+      </Text>
+      <Text Id="__SingleUse_9J2D" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0:00</Translation>
+      </Text>
+      <Text Id="__SingleUse_0VLC" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_3L2L" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[MPH]</Translation>
+      </Text>
+      <Text Id="__SingleUse_88DS" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_APHC" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XVV0" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Speed</Translation>
+      </Text>
+      <Text Id="__SingleUse_UAMB" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[SW]</Translation>
+      </Text>
+      <Text Id="__SingleUse_06WD" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">OFF&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WO1C" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_724G" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">DRS</Translation>
+      </Text>
+      <Text Id="__SingleUse_2AVS" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[SW]</Translation>
+      </Text>
+      <Text Id="__SingleUse_CQLM" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">OFF&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_KWNL" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_2566" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">A-Lag</Translation>
+      </Text>
+      <Text Id="__SingleUse_NM7T" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">OFF&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_I7Y4" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JL2E" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">LCH</Translation>
+      </Text>
+      <Text Id="__SingleUse_99SM" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[SW]</Translation>
+      </Text>
+      <Text Id="__SingleUse_EY03" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Coolant T</Translation>
+      </Text>
+      <Text Id="__SingleUse_ANN5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[F]</Translation>
+      </Text>
+      <Text Id="__SingleUse_PX4B" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_BRAE" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZLES" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Coolant T</Translation>
+      </Text>
+      <Text Id="__SingleUse_UGIZ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[F]</Translation>
+      </Text>
+      <Text Id="__SingleUse_3EB4" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_MZ7U" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_AJWX" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Fuel Mix</Translation>
+      </Text>
+      <Text Id="__SingleUse_O1XV" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">[Lamba]</Translation>
+      </Text>
+      <Text Id="__SingleUse_AGC5" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_R7K6" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_IOC3" Alignment="Center" TypographyId="typography_gear">
         <Translation Language="GB">N</Translation>
       </Text>
       <Text Id="__SingleUse_6U7F" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Gear</Translation>
       </Text>
-      <Text Id="__SingleUse_MXTX" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_05ZL" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_IP5K" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">LCH</Translation>
-      </Text>
-      <Text Id="__SingleUse_30P2" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_X8X2" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_RAW5" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">A-Lag</Translation>
-      </Text>
-      <Text Id="__SingleUse_OZEW" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_TYTB" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_TXKS" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">DRS</Translation>
-      </Text>
-      <Text Id="__SingleUse_97TI" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Speed</Translation>
-      </Text>
-      <Text Id="__SingleUse_IVK1" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_BT48" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[MPH]</Translation>
-      </Text>
       <Text Id="__SingleUse_2R2I" Alignment="Center" TypographyId="Large">
         <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_Q2ZU" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Time</Translation>
-      </Text>
-      <Text Id="__SingleUse_2JGJ" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[MIN]</Translation>
-      </Text>
-      <Text Id="__SingleUse_UN2Q" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_80UF" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Batt</Translation>
-      </Text>
-      <Text Id="__SingleUse_7H0D" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[V]</Translation>
-      </Text>
-      <Text Id="__SingleUse_PTIY" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_XO7K" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_KJ8K" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Oil P</Translation>
-      </Text>
-      <Text Id="__SingleUse_S20S" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[PSI]</Translation>
       </Text>
       <Text Id="__SingleUse_0FU8" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">UI-Lock&#10;&#10;</Translation>
@@ -90,119 +171,8 @@
       <Text Id="__SingleUse_TIMW" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Reset to Defaults</Translation>
       </Text>
-      <Text Id="__SingleUse_SNJE" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Edit Data</Translation>
-      </Text>
-      <Text Id="__SingleUse_0JXE" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Oil T</Translation>
-      </Text>
-      <Text Id="__SingleUse_KOLA" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_VWUR" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[°F]</Translation>
-      </Text>
       <Text Id="__SingleUse_AWAF" Alignment="Left" TypographyId="medium">
-        <Translation Language="GB">Data Customizer</Translation>
-      </Text>
-      <Text Id="__SingleUse_RK3Z" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Edit Colors</Translation>
-      </Text>
-      <Text Id="__SingleUse_45XG" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Reset to Defaults</Translation>
-      </Text>
-      <Text Id="__SingleUse_T6T9" Alignment="Left" TypographyId="medium">
-        <Translation Language="GB">Data Customizer</Translation>
-      </Text>
-      <Text Id="__SingleUse_FJJZ" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">UI-Lock&#10;&#10;</Translation>
-      </Text>
-      <Text Id="__SingleUse_URU0" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">CAN&#10;</Translation>
-      </Text>
-      <Text Id="__SingleUse_C19V" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">μC</Translation>
-      </Text>
-      <Text Id="__SingleUse_YAHL" Alignment="Center" TypographyId="typography_gear">
-        <Translation Language="GB">N</Translation>
-      </Text>
-      <Text Id="__SingleUse_5CV2" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_V9TY" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">LCH</Translation>
-      </Text>
-      <Text Id="__SingleUse_PPMN" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">DRS</Translation>
-      </Text>
-      <Text Id="__SingleUse_X2F1" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">A-Lag</Translation>
-      </Text>
-      <Text Id="__SingleUse_QZAU" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_O169" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_8Q5G" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">OFF</Translation>
-      </Text>
-      <Text Id="__SingleUse_HLG0" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_F0YQ" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_VJ4M" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_G3MN" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_BTEO" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_2MIY" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Oil P</Translation>
-      </Text>
-      <Text Id="__SingleUse_YCEC" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[MIN]</Translation>
-      </Text>
-      <Text Id="__SingleUse_Z5YT" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_E7J2" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_0YCB" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[SW]</Translation>
-      </Text>
-      <Text Id="__SingleUse_GO9L" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[PSI]</Translation>
-      </Text>
-      <Text Id="__SingleUse_WD1V" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[MPH]</Translation>
-      </Text>
-      <Text Id="__SingleUse_OQYH" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[°F]</Translation>
-      </Text>
-      <Text Id="__SingleUse_KIV9" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Oil T</Translation>
-      </Text>
-      <Text Id="__SingleUse_PS8X" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">[V]</Translation>
-      </Text>
-      <Text Id="__SingleUse_3VE3" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Gear</Translation>
-      </Text>
-      <Text Id="__SingleUse_OD8Y" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Speed</Translation>
-      </Text>
-      <Text Id="__SingleUse_V0R8" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Time</Translation>
-      </Text>
-      <Text Id="__SingleUse_W9MX" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Batt</Translation>
+        <Translation Language="GB">Color Customizer</Translation>
       </Text>
       <Text Id="__SingleUse_YK97" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">Sensor Readout</Translation>

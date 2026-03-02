@@ -114,9 +114,9 @@
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:46:7:touchgfx::ScrollableContainer::~ScrollableContainer()	1
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:46:7:virtual touchgfx::ScrollableContainer::~ScrollableContainer()	1
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	1
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1404:1:Screen1ViewBase::~Screen1ViewBase()	1
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1404:1:virtual Screen1ViewBase::~Screen1ViewBase()	1
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1409:6:virtual void Screen1ViewBase::setupScreen()	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1131:1:Screen1ViewBase::~Screen1ViewBase()	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1131:1:virtual Screen1ViewBase::~Screen1ViewBase()	1
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1136:6:virtual void Screen1ViewBase::setupScreen()	1
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:100:10:void touchgfx::Circle::setCenter(T, T) [with T = int]	1
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:195:10:void touchgfx::Circle::setArc(T, T) [with T = int]	1
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = Screen1Presenter]	1

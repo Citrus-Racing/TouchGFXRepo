@@ -14,27 +14,28 @@ const CR_color_entry_t CR_COLOR_PALETTE[CR_NUM_PALETTE_COLORS] = {
 };
 
 const CR_box_geometry_t CR_CUSTOMIZER_BOX_POS[CR_NUM_CUSTOM_BOXES] = {
-    {  28,  59, 314, 106 },  // 0: bx_oilt_1
-    {  28, 172, 314, 106 },  // 1: bx_oilp_1
-    {  28, 280, 314, 106 },  // 2: bx_batt_1
-    {  28, 387, 314, 106 },  // 3: bx_time_1
-    { 355,  14, 314,  88 },  // 4: bx_rpm_1
-    { 355, 101, 314, 278 },  // 5: bx_gear_1
-    { 279, 508, 472,  68 },  // 6: dbx_fuel_1
-    { 702,  -6, 266,  79 },  // 7: bx_change_bg
-    { 682,  59, 314, 106 },  // 8: bx_speed_1
-    { 682, 172, 314, 106 },  // 9: bx_DRS_1
-    { 682, 280, 314, 106 },  // 10: bx_alag_1
-    { 682, 387, 314, 106 },  // 11: bx_lch_1
-    { 740, 503, 266,  79 },  // 12: bx_reset
+    {  31,  14, 312, 106 },  // 0:  oilt
+    {  31, 111, 312, 106 },  // 1:  oilp
+    {  32, 207, 312, 106 },  // 2:  batt
+    {  32, 303, 312, 106 },  // 3:  cooltemp
+    {  31, 400, 312, 107 },  // 4:  fuelmix
+    { 685, 400, 312, 106 },  // 5:  time
+    { 356,  14, 314,  88 },  // 6:  rpm
+    { 358, 101, 312, 278 },  // 7:  gear
+    { 276, 502, 482,  79 },  // 8:  fuel bar
+    { 685,  14, 312, 106 },  // 9:  speed
+    { 685, 111, 312, 107 },  // 10: DRS
+    { 685, 207, 312, 105 },  // 11: alag
+    { 685, 303, 312, 106 },  // 12: lch
+    {  19, 499, 267,  82 },  // 13: change_bg (bottom left)
+    { 743, 502, 264,  80 },  // 14: reset
 };
 
 const uint8_t CR_BOX_SCROLL_ORDER[CR_NUM_CUSTOM_BOXES] = {
-    0, 1, 2, 3,    // left col:   oilt, oilp, batt, time
-    4, 5, 6,       // center col: rpm, gear, fuel
-    7,             // right col:  change_bg (cycles pending_bg_color)
-    8, 9, 10, 11,  // right col:  speed, DRS, alag, lch
-    12             // right col:  reset (triggers reset_customizer_to_defaults)
+    0, 1, 2, 3, 4, 13,    // left col:    oilt, oilp, batt, cooltemp, fuelmix, change_bg
+    6, 7, 8,           // center col:  rpm, gear, fuel
+    9, 10, 11, 12, 5,  // right col:   speed, DRS, alag, lch, time
+    14                  // bottom right: reset (triggers reset_customizer_to_defaults)
 };
 
 const int16_t CR_PROFILE_ROW_Y[5] = { 123, 157, 192, 228, 260 };
@@ -53,7 +54,7 @@ int CR_profile_has_default_colors(const CR_profile_t* profile)
 {
     for (int i = 0; i < CR_NUM_BOX_COLORS; i++) {
     	// Fuel Box Should be white
-    	if(i==6 && profile->box_colors[i] != 1){
+    	if(i==8 && profile->box_colors[i] != 1){
     		return 0;
     	// Everything else should be black
     	} else if (profile->box_colors[i] != 0) {
@@ -74,8 +75,6 @@ void CR_profile_build_from_pending(CR_profile_t* out,
         out->box_colors[i] = pending_colors[i];
     out->bg_color = pending_bg_color;
     out->reserved[0] = 0;
-    out->reserved[1] = 0;
-    out->reserved[2] = 0;
 }
 
 void CR_profile_reset_pending(uint8_t pending_colors[CR_NUM_BOX_COLORS],
@@ -83,7 +82,7 @@ void CR_profile_reset_pending(uint8_t pending_colors[CR_NUM_BOX_COLORS],
 {
 	// Sets all to black (fuel to white)
     for (int i = 0; i < CR_NUM_BOX_COLORS; i++)
-        pending_colors[i] = (i == 6) ? 1 : 0;
+        pending_colors[i] = (i == 8) ? 1 : 0;
     *pending_bg_color = 0;
 }
 
