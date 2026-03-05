@@ -6,6 +6,36 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_KYHT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">11000</Translation>
+      </Text>
+      <Text Id="__SingleUse_CV12" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_M76P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">9000</Translation>
+      </Text>
+      <Text Id="__SingleUse_TZNK" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_OGYY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">7000</Translation>
+      </Text>
+      <Text Id="__SingleUse_2R6D" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_YXEM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Danger Threshold Start</Translation>
+      </Text>
+      <Text Id="__SingleUse_FW2Q" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Red Threshold Start</Translation>
+      </Text>
+      <Text Id="__SingleUse_JR7C" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Yellow Threshold Start</Translation>
+      </Text>
+      <Text Id="__SingleUse_UREP" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Settings</Translation>
+      </Text>
       <Text Id="__SingleUse_GFOF" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">0.0</Translation>
       </Text>

@@ -21,17 +21,17 @@ C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:30:6:virtual void Screen1View::tearDownScreen()	16	static
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:35:6:void Screen1View::update_CAN_info(CR_CAN_vals*)	32	static
 C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:62:6:void Screen1View::open_menu()	40	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:173:6:void Screen1View::close_menu()	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:234:6:void Screen1View::cursor_up()	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:282:6:void Screen1View::cursor_down()	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:334:6:void Screen1View::encoder_click()	40	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:362:6:void Screen1View::update_profile_selector()	24	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:372:6:void Screen1View::refresh_fuel_display(uint8_t)	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:388:6:void Screen1View::refresh_profile_status_texts()	128	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:432:6:void Screen1View::apply_colors_to_dashboard(const uint8_t*, uint8_t)	416	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:520:6:void Screen1View::apply_colors_to_customizer(const uint8_t*, uint8_t)	440	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:620:6:void Screen1View::apply_single_box_color_customizer(uint8_t, uint8_t)	424	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:719:6:void Screen1View::update_widget_selector()	40	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:729:6:void Screen1View::open_customizer_for_profile(uint8_t)	56	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:766:6:void Screen1View::save_and_apply_customizer()	32	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:789:6:void Screen1View::reset_customizer_to_defaults()	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:186:6:void Screen1View::close_menu()	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:249:6:void Screen1View::cursor_up()	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:297:6:void Screen1View::cursor_down()	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:349:6:void Screen1View::encoder_click()	40	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:377:6:void Screen1View::update_profile_selector()	24	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:387:6:void Screen1View::refresh_fuel_display(uint8_t)	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:403:6:void Screen1View::refresh_profile_status_texts()	128	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:447:6:void Screen1View::apply_colors_to_dashboard(const uint8_t*, uint8_t)	416	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:535:6:void Screen1View::apply_colors_to_customizer(const uint8_t*, uint8_t)	440	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:635:6:void Screen1View::apply_single_box_color_customizer(uint8_t, uint8_t)	424	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:734:6:void Screen1View::update_widget_selector()	40	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:744:6:void Screen1View::open_customizer_for_profile(uint8_t)	56	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:781:6:void Screen1View::save_and_apply_customizer()	32	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:804:6:void Screen1View::reset_customizer_to_defaults()	32	static

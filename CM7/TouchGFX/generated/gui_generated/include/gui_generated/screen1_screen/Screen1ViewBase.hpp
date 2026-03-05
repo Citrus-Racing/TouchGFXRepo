@@ -119,6 +119,7 @@ protected:
     touchgfx::TextArea txt_sensor_readout;
     touchgfx::TextArea txt_aim_readout;
     touchgfx::TextArea txt_error_status;
+    touchgfx::TextArea txt_setting;
     touchgfx::TextArea txt_set_fuel;
     touchgfx::Container set_fuel_container;
     touchgfx::Box box2;
@@ -233,6 +234,14 @@ protected:
     touchgfx::Container error_status_container;
     touchgfx::Box bx_error_bg;
     touchgfx::TextArea txt_errors_title;
+    touchgfx::Container settings_container;
+    touchgfx::Box box4;
+    touchgfx::TextArea txt_rpm_threshold_1;
+    touchgfx::TextArea txt_rpm_threshold_2;
+    touchgfx::TextArea txt_rpm_threshold_3;
+    touchgfx::TextAreaWithOneWildcard dtxt_rpm_threshold_1;
+    touchgfx::TextAreaWithOneWildcard dtxt_rpm_threshold_2;
+    touchgfx::TextAreaWithOneWildcard dtxt_rpm_threshold_3;
 
     /*
      * Wildcard Buffers
@@ -303,6 +312,12 @@ protected:
     touchgfx::Unicode::UnicodeChar txt_profile_edit_4Buffer[TXT_PROFILE_EDIT_4_SIZE];
     static const uint16_t TXT_PROFILE_EDIT_5_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txt_profile_edit_5Buffer[TXT_PROFILE_EDIT_5_SIZE];
+    static const uint16_t DTXT_RPM_THRESHOLD_1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dtxt_rpm_threshold_1Buffer[DTXT_RPM_THRESHOLD_1_SIZE];
+    static const uint16_t DTXT_RPM_THRESHOLD_2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dtxt_rpm_threshold_2Buffer[DTXT_RPM_THRESHOLD_2_SIZE];
+    static const uint16_t DTXT_RPM_THRESHOLD_3_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dtxt_rpm_threshold_3Buffer[DTXT_RPM_THRESHOLD_3_SIZE];
 
 private:
 

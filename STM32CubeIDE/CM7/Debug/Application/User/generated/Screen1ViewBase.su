@@ -113,10 +113,10 @@
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:46:7:touchgfx::ScrollableContainer::~ScrollableContainer()	16	static
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:46:7:virtual touchgfx::ScrollableContainer::~ScrollableContainer()	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	4224	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1131:1:Screen1ViewBase::~Screen1ViewBase()	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1131:1:virtual Screen1ViewBase::~Screen1ViewBase()	16	static
-C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1136:6:virtual void Screen1ViewBase::setupScreen()	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	4496	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1191:1:Screen1ViewBase::~Screen1ViewBase()	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1191:1:virtual Screen1ViewBase::~Screen1ViewBase()	16	static
+C:/Users/victo/OneDrive/Documents/Programming/TouchGFXRepo/CM7/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:1196:6:virtual void Screen1ViewBase::setupScreen()	16	static
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:100:10:void touchgfx::Circle::setCenter(T, T) [with T = int]	40	static
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:195:10:void touchgfx::Circle::setArc(T, T) [with T = int]	40	static
 ../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = Screen1Presenter]	16	static

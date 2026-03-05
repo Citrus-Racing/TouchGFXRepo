@@ -34,10 +34,14 @@ private:
     bool aim_readout_open = false;
     bool error_status_open = false;
     bool dashboard_open = true;
+    bool settings_open = false;
 
     // Staged fuel level while the user is scrolling, stored in tenths of a
     // litre (0-55 represents 0.0L - 5.5L). Committed to model on save.
     uint8_t pending_fuel_tenths = 55;
+
+    uint16_t pendin_threshold_1;
+
 
     // Width of dbx_fuel at 100% (5.5L). Anchored left at x=294.
     static const uint16_t FUEL_BAR_MAX_WIDTH  = 442;

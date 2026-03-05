@@ -66,6 +66,11 @@ void Screen1View::open_menu(){
 		return;
 	}
 
+	if(settings_open){
+		// Save and apply settings
+		return;
+	}
+
 	// If the fuel sub-menu is open, the menu button saves the pending fuel
 	// level and closes the fuel sub-menu.
 	if(fuel_menu_open){
@@ -158,8 +163,15 @@ void Screen1View::open_menu(){
 			main_dashboard.invalidate();
 			error_status_container.setVisible(true);
 			error_status_container.invalidate();
+		} else if(y_val == 339){
+			// "Settings" selected - close main menu, open settings menu
+			main_menu_open = false;
+			settings_open = true;
+			menu_scontainer.setVisible(false);
+			menu_scontainer.invalidate();
+			settings_container.setVisible(true);
+			settings_container.invalidate();
 		}
-
 		return;
 	}
 
@@ -180,7 +192,6 @@ void Screen1View::close_menu(){
 		color_edit_mode = false;
 		color_customizer_container.setVisible(false);
 		color_customizer_container.invalidate();
-
 		profile_selector_index = 0;
 		update_profile_selector();
 		refresh_profile_status_texts();
@@ -227,6 +238,9 @@ void Screen1View::close_menu(){
 		error_status_container.invalidate();
 		main_dashboard.setVisible(true);
 		main_dashboard.invalidate();
+	} else if(settings_open){
+		settings_container.setVisible(false);
+		settings_container.invalidate();
 	}
 
 }
@@ -319,7 +333,7 @@ void Screen1View::cursor_down(){
 
 	if (main_menu_open) {
 		int16_t y_val = dbx_menu_selection.getY();
-		if (y_val < 245){
+		if (y_val < 295){
 			dbx_menu_selection.setY(y_val+50);
 		}
 		menu_scontainer.invalidate();

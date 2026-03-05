@@ -444,7 +444,7 @@ Screen1ViewBase::Screen1ViewBase()
 
     add(main_dashboard);
 
-    menu_scontainer.setPosition(339, 72, 344, 409);
+    menu_scontainer.setPosition(339, 72, 344, 459);
     menu_scontainer.enableHorizontalScroll(false);
     menu_scontainer.setScrollbarsColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     menu_scontainer.setScrollbarsAlpha(255);
@@ -483,6 +483,12 @@ Screen1ViewBase::Screen1ViewBase()
     txt_error_status.setLinespacing(0);
     txt_error_status.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5US4));
     menu_scontainer.add(txt_error_status);
+
+    txt_setting.setPosition(93, 345, 156, 25);
+    txt_setting.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_setting.setLinespacing(0);
+    txt_setting.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UREP));
+    menu_scontainer.add(txt_setting);
 
     txt_set_fuel.setPosition(93, 95, 156, 25);
     txt_set_fuel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -1126,6 +1132,60 @@ Screen1ViewBase::Screen1ViewBase()
     error_status_container.add(txt_errors_title);
 
     add(error_status_container);
+
+    settings_container.setPosition(329, 144, 367, 182);
+    settings_container.setVisible(false);
+    box4.setPosition(-5, -2, 373, 191);
+    box4.setColor(touchgfx::Color::getColorFromRGB(50, 69, 105));
+    box4.setAlpha(250);
+    settings_container.add(box4);
+
+    txt_rpm_threshold_1.setXY(33, 27);
+    txt_rpm_threshold_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_rpm_threshold_1.setLinespacing(0);
+    txt_rpm_threshold_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JR7C));
+    settings_container.add(txt_rpm_threshold_1);
+
+    txt_rpm_threshold_2.setXY(33, 78);
+    txt_rpm_threshold_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_rpm_threshold_2.setLinespacing(0);
+    txt_rpm_threshold_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_FW2Q));
+    settings_container.add(txt_rpm_threshold_2);
+
+    txt_rpm_threshold_3.setXY(33, 128);
+    txt_rpm_threshold_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txt_rpm_threshold_3.setLinespacing(0);
+    txt_rpm_threshold_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YXEM));
+    settings_container.add(txt_rpm_threshold_3);
+
+    dtxt_rpm_threshold_1.setXY(277, 27);
+    dtxt_rpm_threshold_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    dtxt_rpm_threshold_1.setLinespacing(0);
+    Unicode::snprintf(dtxt_rpm_threshold_1Buffer, DTXT_RPM_THRESHOLD_1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OGYY).getText());
+    dtxt_rpm_threshold_1.setWildcard(dtxt_rpm_threshold_1Buffer);
+    dtxt_rpm_threshold_1.resizeToCurrentText();
+    dtxt_rpm_threshold_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2R6D));
+    settings_container.add(dtxt_rpm_threshold_1);
+
+    dtxt_rpm_threshold_2.setXY(278, 78);
+    dtxt_rpm_threshold_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    dtxt_rpm_threshold_2.setLinespacing(0);
+    Unicode::snprintf(dtxt_rpm_threshold_2Buffer, DTXT_RPM_THRESHOLD_2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_M76P).getText());
+    dtxt_rpm_threshold_2.setWildcard(dtxt_rpm_threshold_2Buffer);
+    dtxt_rpm_threshold_2.resizeToCurrentText();
+    dtxt_rpm_threshold_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TZNK));
+    settings_container.add(dtxt_rpm_threshold_2);
+
+    dtxt_rpm_threshold_3.setXY(277, 129);
+    dtxt_rpm_threshold_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    dtxt_rpm_threshold_3.setLinespacing(0);
+    Unicode::snprintf(dtxt_rpm_threshold_3Buffer, DTXT_RPM_THRESHOLD_3_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KYHT).getText());
+    dtxt_rpm_threshold_3.setWildcard(dtxt_rpm_threshold_3Buffer);
+    dtxt_rpm_threshold_3.resizeToCurrentText();
+    dtxt_rpm_threshold_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CV12));
+    settings_container.add(dtxt_rpm_threshold_3);
+
+    add(settings_container);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

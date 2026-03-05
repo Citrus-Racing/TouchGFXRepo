@@ -1120,7 +1120,7 @@
             "X": 339,
             "Y": 72,
             "Width": 344,
-            "Height": 409,
+            "Height": 459,
             "Visible": false,
             "VerticalScrollEnabled": true,
             "ScrollbarsVisibleOnPressed": true,
@@ -1217,6 +1217,21 @@
                 "Width": 156,
                 "Height": 25,
                 "TextId": "__SingleUse_5US4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_setting",
+                "X": 93,
+                "Y": 345,
+                "Width": 156,
+                "Height": 25,
+                "TextId": "__SingleUse_UREP",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -2868,6 +2883,142 @@
                   "Blue": 255
                 },
                 "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "settings_container",
+            "X": 329,
+            "Y": 144,
+            "Width": 367,
+            "Height": 182,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box4",
+                "X": -5,
+                "Y": -2,
+                "Width": 373,
+                "Height": 191,
+                "Color": {
+                  "Red": 50,
+                  "Green": 69,
+                  "Blue": 105
+                },
+                "Alpha": 250
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_rpm_threshold_1",
+                "X": 33,
+                "Y": 27,
+                "Width": 224,
+                "Height": 24,
+                "TextId": "__SingleUse_JR7C",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_rpm_threshold_2",
+                "X": 33,
+                "Y": 78,
+                "Width": 201,
+                "Height": 24,
+                "TextId": "__SingleUse_FW2Q",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "txt_rpm_threshold_3",
+                "X": 33,
+                "Y": 128,
+                "Width": 236,
+                "Height": 24,
+                "TextId": "__SingleUse_YXEM",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_rpm_threshold_1",
+                "X": 277,
+                "Y": 27,
+                "Width": 52,
+                "Height": 24,
+                "TextId": "__SingleUse_2R6D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OGYY",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_rpm_threshold_2",
+                "X": 278,
+                "Y": 78,
+                "Width": 52,
+                "Height": 24,
+                "TextId": "__SingleUse_TZNK",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_M76P",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "dtxt_rpm_threshold_3",
+                "X": 277,
+                "Y": 129,
+                "Width": 65,
+                "Height": 24,
+                "TextId": "__SingleUse_CV12",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_KYHT",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
               }
             ]
           }
